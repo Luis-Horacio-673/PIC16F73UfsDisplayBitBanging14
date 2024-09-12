@@ -1,0 +1,3432 @@
+
+
+Microchip MPLAB XC8 Assembler V2.46 build 20240104201356 
+                                                                                               Thu Sep 12 16:40:12 2024
+
+Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1 
+     1                           	processor	16F73
+     2                           	pagewidth 120
+     3                           	opt	flic
+     4                           	psect	idataBANK0,global,class=CODE,delta=2,noexec
+     5                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     6                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1,noexec
+     7                           	psect	dataBANK0,global,class=BANK0,space=1,delta=1,noexec
+     8                           	psect	clrtext,global,class=CODE,delta=2
+     9                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
+    10                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1,noexec
+    11                           	psect	maintext,global,class=CODE,split=1,delta=2
+    12                           	psect	text1,local,class=CODE,merge=1,delta=2
+    13                           	psect	text2,local,class=CODE,merge=1,delta=2
+    14                           	psect	text3,local,class=CODE,merge=1,delta=2
+    15                           	psect	text4,local,class=CODE,merge=1,delta=2
+    16                           	psect	text5,local,class=CODE,merge=1,delta=2
+    17                           	psect	text6,local,class=CODE,merge=1,delta=2
+    18                           	psect	text7,local,class=CODE,merge=1,delta=2
+    19                           	psect	text8,local,class=CODE,merge=1,delta=2
+    20                           	psect	text9,local,class=CODE,merge=1,delta=2
+    21                           	psect	text10,local,class=CODE,merge=1,delta=2
+    22                           	psect	text11,local,class=CODE,merge=1,delta=2
+    23                           	psect	text12,local,class=CODE,merge=1,delta=2
+    24                           	psect	text13,local,class=CODE,merge=1,delta=2
+    25                           	psect	text14,local,class=CODE,merge=1,delta=2
+    26                           	psect	text15,local,class=CODE,merge=1,delta=2
+    27                           	psect	text16,local,class=CODE,merge=1,delta=2
+    28                           	psect	text17,local,class=CODE,merge=1,delta=2
+    29                           	psect	text18,local,class=CODE,merge=1,delta=2
+    30                           	psect	text19,local,class=CODE,merge=1,delta=2
+    31                           	psect	intentry,global,class=CODE,delta=2
+    32                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    33                           	dabs	1,0x7E,2
+    34     0000                     
+    35                           ; Generated 12/10/2023 GMT
+    36                           ; 
+    37                           ; Copyright © 2023, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    38                           ; All rights reserved.
+    39                           ; 
+    40                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    41                           ; 
+    42                           ; Redistribution and use in source and binary forms, with or without modification, are
+    43                           ; permitted provided that the following conditions are met:
+    44                           ; 
+    45                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    46                           ;        conditions and the following disclaimer.
+    47                           ; 
+    48                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    49                           ;        of conditions and the following disclaimer in the documentation and/or other
+    50                           ;        materials provided with the distribution. Publication is not required when
+    51                           ;        this file is used in an embedded application.
+    52                           ; 
+    53                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    54                           ;        software without specific prior written permission.
+    55                           ; 
+    56                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    57                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    58                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    59                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    60                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    61                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    62                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    63                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    64                           ; 
+    65                           ; 
+    66                           ; Code-generator required, PIC16F73 Definitions
+    67                           ; 
+    68                           ; SFR Addresses
+    69     0000                     	;# 
+    70     0001                     	;# 
+    71     0002                     	;# 
+    72     0003                     	;# 
+    73     0004                     	;# 
+    74     0005                     	;# 
+    75     0006                     	;# 
+    76     0007                     	;# 
+    77     000A                     	;# 
+    78     000B                     	;# 
+    79     000C                     	;# 
+    80     000D                     	;# 
+    81     000E                     	;# 
+    82     000E                     	;# 
+    83     000F                     	;# 
+    84     0010                     	;# 
+    85     0011                     	;# 
+    86     0012                     	;# 
+    87     0013                     	;# 
+    88     0014                     	;# 
+    89     0015                     	;# 
+    90     0015                     	;# 
+    91     0016                     	;# 
+    92     0017                     	;# 
+    93     0018                     	;# 
+    94     0019                     	;# 
+    95     001A                     	;# 
+    96     001B                     	;# 
+    97     001B                     	;# 
+    98     001C                     	;# 
+    99     001D                     	;# 
+   100     001E                     	;# 
+   101     001F                     	;# 
+   102     0081                     	;# 
+   103     0085                     	;# 
+   104     0086                     	;# 
+   105     0087                     	;# 
+   106     008C                     	;# 
+   107     008D                     	;# 
+   108     008E                     	;# 
+   109     0092                     	;# 
+   110     0093                     	;# 
+   111     0094                     	;# 
+   112     0098                     	;# 
+   113     0099                     	;# 
+   114     009F                     	;# 
+   115     010C                     	;# 
+   116     010D                     	;# 
+   117     010E                     	;# 
+   118     010F                     	;# 
+   119     018C                     	;# 
+   120                           
+   121                           	psect	idataBANK0
+   122     04C7                     __pidataBANK0:
+   123                           
+   124                           ;initializer for _dMil
+   125     04C7  3430               	retlw	48
+   126                           
+   127                           ;initializer for _cMillon
+   128     04C8  3430               	retlw	48
+   129     0007                     _PORTCbits	set	7
+   130     000B                     _INTCONbits	set	11
+   131     0001                     _TMR0	set	1
+   132     0029                     _RA1	set	41
+   133     0039                     _RC1	set	57
+   134     002A                     _RA2	set	42
+   135     003A                     _RC2	set	58
+   136     0028                     _RA0	set	40
+   137     0038                     _RC0	set	56
+   138     0085                     _TRISA	set	133
+   139     0087                     _TRISC	set	135
+   140     0086                     _TRISB	set	134
+   141     0081                     _OPTION_REGbits	set	129
+   142                           
+   143                           	psect	cinit
+   144     000F                     start_initialization:	
+   145                           ; #config settings
+   146                           
+   147     000F                     __initialization:
+   148                           
+   149                           ; Initialize objects allocated to BANK0
+   150     000F  118A  24C7  118A   	fcall	__pidataBANK0	;fetch initializer
+   151     0012  00CF               	movwf	__pdataBANK0& (0+127)
+   152     0013  118A  24C8  118A   	fcall	__pidataBANK0+1	;fetch initializer
+   153     0016  00D0               	movwf	(__pdataBANK0+1)& (0+127)
+   154                           
+   155                           ; Clear objects allocated to BANK0
+   156     0017  1383               	bcf	3,7	;select IRP bank0
+   157     0018  3020               	movlw	low __pbssBANK0
+   158     0019  0084               	movwf	4
+   159     001A  3044               	movlw	low (__pbssBANK0+36)
+   160     001B  118A  248F  118A   	fcall	clear_ram0
+   161     001E                     end_of_initialization:	
+   162                           ;End of C runtime variable initialization code
+   163                           
+   164     001E                     __end_of__initialization:
+   165     001E  0183               	clrf	3
+   166     001F  118A  2821         	ljmp	_main	;jump to C main() function
+   167                           
+   168                           	psect	bssBANK0
+   169     0020                     __pbssBANK0:
+   170     0020                     _bufferin:
+   171     0020                     	ds	30
+   172     003E                     _i:
+   173     003E                     	ds	1
+   174     003F                     _BCC:
+   175     003F                     	ds	1
+   176     0040                     _zerosleft:
+   177     0040                     	ds	1
+   178     0041                     _nSTX:
+   179     0041                     	ds	1
+   180     0042                     _nbyte:
+   181     0042                     	ds	1
+   182     0043                     _byteValue:
+   183     0043                     	ds	1
+   184                           
+   185                           	psect	dataBANK0
+   186     004F                     __pdataBANK0:
+   187     004F                     _dMil:
+   188     004F                     	ds	1
+   189     0050                     _cMillon:
+   190     0050                     	ds	1
+   191                           
+   192                           	psect	clrtext
+   193     048F                     clear_ram0:	
+   194                           ;	Called with FSR containing the base address, and
+   195                           ;	W with the last address+1
+   196                           
+   197     048F  0064               	clrwdt	;clear the watchdog before getting into this loop
+   198     0490                     clrloop0:
+   199     0490  0180               	clrf	0	;clear RAM location pointed to by FSR
+   200     0491  0A84               	incf	4,f	;increment pointer
+   201     0492  0604               	xorwf	4,w	;XOR with final address
+   202     0493  1903               	btfsc	3,2	;have we reached the end yet?
+   203     0494  3400               	retlw	0	;all done for this memory range, return
+   204     0495  0604               	xorwf	4,w	;XOR again to restore value
+   205     0496  2C90               	goto	clrloop0	;do the next byte
+   206                           
+   207                           	psect	cstackCOMMON
+   208     0000                     __pcstackCOMMON:
+   209     0000                     ??_MAX_DIN_setHigh:
+   210     0000                     ??_MAX_DIN2_setHigh:	
+   211                           ; 1 bytes @ 0x0
+   212                           
+   213     0000                     ??_MAX_DIN_setLow:	
+   214                           ; 1 bytes @ 0x0
+   215                           
+   216     0000                     ??_MAX_DIN2_setLow:	
+   217                           ; 1 bytes @ 0x0
+   218                           
+   219     0000                     ??_MAX_CLK_setHigh:	
+   220                           ; 1 bytes @ 0x0
+   221                           
+   222     0000                     ??_MAX_CLK2_setHigh:	
+   223                           ; 1 bytes @ 0x0
+   224                           
+   225     0000                     ??_MAX_CLK_setLow:	
+   226                           ; 1 bytes @ 0x0
+   227                           
+   228     0000                     ??_MAX_CLK2_setLow:	
+   229                           ; 1 bytes @ 0x0
+   230                           
+   231     0000                     ??_MAX_LAT_setLow:	
+   232                           ; 1 bytes @ 0x0
+   233                           
+   234     0000                     ??_MAX_LAT2_setLow:	
+   235                           ; 1 bytes @ 0x0
+   236                           
+   237     0000                     ??_MAX_LAT_setHigh:	
+   238                           ; 1 bytes @ 0x0
+   239                           
+   240     0000                     ??_MAX_LAT2_setHigh:	
+   241                           ; 1 bytes @ 0x0
+   242                           
+   243     0000                     ??_initMAXs:	
+   244                           ; 1 bytes @ 0x0
+   245                           
+   246     0000                     ??_setup_timer:	
+   247                           ; 1 bytes @ 0x0
+   248                           
+   249     0000                     ??_main:	
+   250                           ; 1 bytes @ 0x0
+   251                           
+   252                           
+   253                           	psect	cstackBANK0
+   254     0044                     __pcstackBANK0:	
+   255                           ; 1 bytes @ 0x0
+   256                           
+   257     0044                     ?_MAX_DIN_setHigh:
+   258     0044                     ?_MAX_DIN2_setHigh:	
+   259                           ; 1 bytes @ 0x0
+   260                           
+   261     0044                     ?_MAX_DIN_setLow:	
+   262                           ; 1 bytes @ 0x0
+   263                           
+   264     0044                     ?_MAX_DIN2_setLow:	
+   265                           ; 1 bytes @ 0x0
+   266                           
+   267     0044                     ?_MAX_CLK_setHigh:	
+   268                           ; 1 bytes @ 0x0
+   269                           
+   270     0044                     ?_MAX_CLK2_setHigh:	
+   271                           ; 1 bytes @ 0x0
+   272                           
+   273     0044                     ?_MAX_CLK_setLow:	
+   274                           ; 1 bytes @ 0x0
+   275                           
+   276     0044                     ?_MAX_CLK2_setLow:	
+   277                           ; 1 bytes @ 0x0
+   278                           
+   279     0044                     ?_MAX_LAT_setLow:	
+   280                           ; 1 bytes @ 0x0
+   281                           
+   282     0044                     ?_MAX_LAT2_setLow:	
+   283                           ; 1 bytes @ 0x0
+   284                           
+   285     0044                     ?_MAX_LAT_setHigh:	
+   286                           ; 1 bytes @ 0x0
+   287                           
+   288     0044                     ?_MAX_LAT2_setHigh:	
+   289                           ; 1 bytes @ 0x0
+   290                           
+   291     0044                     ?_initMAXs:	
+   292                           ; 1 bytes @ 0x0
+   293                           
+   294     0044                     ?_setup_timer:	
+   295                           ; 1 bytes @ 0x0
+   296                           
+   297     0044                     ?_send_byte:	
+   298                           ; 1 bytes @ 0x0
+   299                           
+   300     0044                     ?_receive_byte:	
+   301                           ; 1 bytes @ 0x0
+   302                           
+   303     0044                     ?_isr:	
+   304                           ; 1 bytes @ 0x0
+   305                           
+   306     0044                     ??_isr:	
+   307                           ; 1 bytes @ 0x0
+   308                           
+   309     0044                     ?_main:	
+   310                           ; 1 bytes @ 0x0
+   311                           
+   312                           
+   313                           ; 1 bytes @ 0x0
+   314     0044                     	ds	2
+   315     0046                     ?_MAX7219_send:
+   316     0046                     ?_COMAX7219_send:	
+   317                           ; 1 bytes @ 0x2
+   318                           
+   319     0046                     ??_send_byte:	
+   320                           ; 1 bytes @ 0x2
+   321                           
+   322     0046                     ??_receive_byte:	
+   323                           ; 1 bytes @ 0x2
+   324                           
+   325     0046                     MAX7219_send@dat:	
+   326                           ; 1 bytes @ 0x2
+   327                           
+   328     0046                     COMAX7219_send@dat:	
+   329                           ; 1 bytes @ 0x2
+   330                           
+   331                           
+   332                           ; 1 bytes @ 0x2
+   333     0046                     	ds	1
+   334     0047                     ??_MAX7219_send:
+   335     0047                     ??_COMAX7219_send:	
+   336                           ; 1 bytes @ 0x3
+   337                           
+   338     0047                     send_byte@parity:	
+   339                           ; 1 bytes @ 0x3
+   340                           
+   341     0047                     receive_byte@data:	
+   342                           ; 1 bytes @ 0x3
+   343                           
+   344                           
+   345                           ; 1 bytes @ 0x3
+   346     0047                     	ds	1
+   347     0048                     send_byte@data:
+   348     0048                     receive_byte@parity:	
+   349                           ; 1 bytes @ 0x4
+   350                           
+   351                           
+   352                           ; 1 bytes @ 0x4
+   353     0048                     	ds	1
+   354     0049                     send_byte@i:
+   355     0049                     receive_byte@i:	
+   356                           ; 1 bytes @ 0x5
+   357                           
+   358                           
+   359                           ; 1 bytes @ 0x5
+   360     0049                     	ds	2
+   361     004B                     MAX7219_send@d:
+   362     004B                     COMAX7219_send@d:	
+   363                           ; 2 bytes @ 0x7
+   364                           
+   365                           
+   366                           ; 2 bytes @ 0x7
+   367     004B                     	ds	2
+   368     004D                     MAX7219_send@reg:
+   369     004D                     COMAX7219_send@reg:	
+   370                           ; 1 bytes @ 0x9
+   371                           
+   372                           
+   373                           ; 1 bytes @ 0x9
+   374     004D                     	ds	1
+   375     004E                     MAX7219_send@i:
+   376     004E                     COMAX7219_send@i:	
+   377                           ; 1 bytes @ 0xA
+   378                           
+   379                           
+   380                           ; 1 bytes @ 0xA
+   381     004E                     	ds	1
+   382                           
+   383                           	psect	maintext
+   384     0021                     __pmaintext:	
+   385 ;;
+   386 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   387 ;;
+   388 ;; *************** function _main *****************
+   389 ;; Defined at:
+   390 ;;		line 267 in file "newmain14.c"
+   391 ;; Parameters:    Size  Location     Type
+   392 ;;		None
+   393 ;; Auto vars:     Size  Location     Type
+   394 ;;		None
+   395 ;; Return value:  Size  Location     Type
+   396 ;;                  1    wreg      void 
+   397 ;; Registers used:
+   398 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   399 ;; Tracked objects:
+   400 ;;		On entry : B00/0
+   401 ;;		On exit  : 0/0
+   402 ;;		Unchanged: 0/0
+   403 ;; Data sizes:     COMMON   BANK0   BANK1
+   404 ;;      Params:         0       0       0
+   405 ;;      Locals:         0       0       0
+   406 ;;      Temps:          0       0       0
+   407 ;;      Totals:         0       0       0
+   408 ;;Total ram usage:        0 bytes
+   409 ;; Hardware stack levels required when called: 4
+   410 ;; This function calls:
+   411 ;;		_COMAX7219_send
+   412 ;;		_MAX7219_send
+   413 ;;		_initMAXs
+   414 ;;		_receive_byte
+   415 ;;		_send_byte
+   416 ;;		_setup_timer
+   417 ;; This function is called by:
+   418 ;;		Startup code after reset
+   419 ;; This function uses a non-reentrant model
+   420 ;;
+   421                           
+   422     0021                     _main:	
+   423                           ;psect for function _main
+   424                           
+   425     0021                     l1208:	
+   426                           ;incstack = 0
+   427                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   428                           
+   429                           
+   430                           ;newmain14.c: 268:      TRISB = 0xC0;
+   431     0021  30C0               	movlw	192
+   432     0022  1683               	bsf	3,5	;RP0=1, select bank1
+   433     0023  1303               	bcf	3,6	;RP1=0, select bank1
+   434     0024  0086               	movwf	6	;volatile
+   435                           
+   436                           ;newmain14.c: 269:      TRISC = 0X80;
+   437     0025  3080               	movlw	128
+   438     0026  0087               	movwf	7	;volatile
+   439                           
+   440                           ;newmain14.c: 270:      TRISA = 0XF8;
+   441     0027  30F8               	movlw	248
+   442     0028  0085               	movwf	5	;volatile
+   443     0029                     l1210:
+   444                           
+   445                           ;newmain14.c: 271:     PORTCbits.RC6 = 0;
+   446     0029  1283               	bcf	3,5	;RP0=0, select bank0
+   447     002A  1303               	bcf	3,6	;RP1=0, select bank0
+   448     002B  1307               	bcf	7,6	;volatile
+   449     002C                     l1212:
+   450                           
+   451                           ;newmain14.c: 272:     setup_timer();
+   452     002C  118A  2473  118A   	fcall	_setup_timer
+   453     002F                     l1214:
+   454                           
+   455                           ;newmain14.c: 273:     initMAXs();
+   456     002F  118A  2432  118A   	fcall	_initMAXs
+   457     0032                     l1216:
+   458                           
+   459                           ;newmain14.c: 275:     bufferin[0]= 0x02;
+   460     0032  3002               	movlw	2
+   461     0033  1283               	bcf	3,5	;RP0=0, select bank0
+   462     0034  1303               	bcf	3,6	;RP1=0, select bank0
+   463     0035  00A0               	movwf	_bufferin
+   464     0036                     l1218:
+   465                           
+   466                           ;newmain14.c: 276:     bufferin[1]= 0x34;
+   467     0036  3034               	movlw	52
+   468     0037  00A1               	movwf	_bufferin+1
+   469     0038                     l1220:
+   470                           
+   471                           ;newmain14.c: 277:     bufferin[2]= 0x36;
+   472     0038  3036               	movlw	54
+   473     0039  00A2               	movwf	_bufferin+2
+   474     003A                     l1222:
+   475                           
+   476                           ;newmain14.c: 278:     bufferin[3]= 0x31;
+   477     003A  3031               	movlw	49
+   478     003B  00A3               	movwf	_bufferin+3
+   479     003C                     l1224:
+   480                           
+   481                           ;newmain14.c: 279:     bufferin[4]= 0x31;
+   482     003C  3031               	movlw	49
+   483     003D  00A4               	movwf	_bufferin+4
+   484     003E                     l1226:
+   485                           
+   486                           ;newmain14.c: 280:     bufferin[5]= 0x30;
+   487     003E  3030               	movlw	48
+   488     003F  00A5               	movwf	_bufferin+5
+   489     0040                     l1228:
+   490                           
+   491                           ;newmain14.c: 281:     bufferin[6]= 0x30;
+   492     0040  3030               	movlw	48
+   493     0041  00A6               	movwf	_bufferin+6
+   494     0042                     l1230:
+   495                           
+   496                           ;newmain14.c: 282:     bufferin[7]= 0x30;
+   497     0042  3030               	movlw	48
+   498     0043  00A7               	movwf	_bufferin+7
+   499     0044                     l1232:
+   500                           
+   501                           ;newmain14.c: 283:     bufferin[8]= 0x30;
+   502     0044  3030               	movlw	48
+   503     0045  00A8               	movwf	_bufferin+8
+   504     0046                     l1234:
+   505                           
+   506                           ;newmain14.c: 284:     bufferin[9]= 0x30;
+   507     0046  3030               	movlw	48
+   508     0047  00A9               	movwf	_bufferin+9
+   509     0048                     l1236:
+   510                           
+   511                           ;newmain14.c: 285:     bufferin[10]= 0x30;
+   512     0048  3030               	movlw	48
+   513     0049  00AA               	movwf	_bufferin+10
+   514     004A                     l1238:
+   515                           
+   516                           ;newmain14.c: 286:     bufferin[11]= 0x30;
+   517     004A  3030               	movlw	48
+   518     004B  00AB               	movwf	_bufferin+11
+   519     004C                     l1240:
+   520                           
+   521                           ;newmain14.c: 287:     bufferin[12]= 0x30;
+   522     004C  3030               	movlw	48
+   523     004D  00AC               	movwf	_bufferin+12
+   524     004E                     l1242:
+   525                           
+   526                           ;newmain14.c: 288:     bufferin[13]= 0x30;
+   527     004E  3030               	movlw	48
+   528     004F  00AD               	movwf	_bufferin+13
+   529     0050                     l1244:
+   530                           
+   531                           ;newmain14.c: 289:     bufferin[14]= 0x30;
+   532     0050  3030               	movlw	48
+   533     0051  00AE               	movwf	_bufferin+14
+   534     0052                     l1246:
+   535                           
+   536                           ;newmain14.c: 290:     bufferin[15]= 0x30;
+   537     0052  3030               	movlw	48
+   538     0053  00AF               	movwf	_bufferin+15
+   539     0054                     l1248:
+   540                           
+   541                           ;newmain14.c: 291:     bufferin[16]= 0x31;
+   542     0054  3031               	movlw	49
+   543     0055  00B0               	movwf	_bufferin+16
+   544     0056                     l1250:
+   545                           
+   546                           ;newmain14.c: 292:     bufferin[17]= 0x30;
+   547     0056  3030               	movlw	48
+   548     0057  00B1               	movwf	_bufferin+17
+   549     0058                     l1252:
+   550                           
+   551                           ;newmain14.c: 293:     bufferin[18]= 0x30;
+   552     0058  3030               	movlw	48
+   553     0059  00B2               	movwf	_bufferin+18
+   554     005A                     l1254:
+   555                           
+   556                           ;newmain14.c: 294:     bufferin[19]= 0x30;
+   557     005A  3030               	movlw	48
+   558     005B  00B3               	movwf	_bufferin+19
+   559     005C                     l1256:
+   560                           
+   561                           ;newmain14.c: 295:     bufferin[20]= 0x30;
+   562     005C  3030               	movlw	48
+   563     005D  00B4               	movwf	_bufferin+20
+   564     005E                     l1258:
+   565                           
+   566                           ;newmain14.c: 296:     bufferin[21]= 0x30;
+   567     005E  3030               	movlw	48
+   568     005F  00B5               	movwf	_bufferin+21
+   569     0060                     l1260:
+   570                           
+   571                           ;newmain14.c: 297:     bufferin[22]= 0x30;
+   572     0060  3030               	movlw	48
+   573     0061  00B6               	movwf	_bufferin+22
+   574     0062                     l1262:
+   575                           
+   576                           ;newmain14.c: 298:     dMil= 0x3A;
+   577     0062  303A               	movlw	58
+   578     0063  00CF               	movwf	_dMil
+   579     0064                     l1264:
+   580                           
+   581                           ;newmain14.c: 299:     bufferin[23]= 0x30;
+   582     0064  3030               	movlw	48
+   583     0065  00B7               	movwf	_bufferin+23
+   584     0066                     l1266:
+   585                           
+   586                           ;newmain14.c: 300:     bufferin[24]= 0x30;
+   587     0066  3030               	movlw	48
+   588     0067  00B8               	movwf	_bufferin+24
+   589     0068                     l1268:
+   590                           
+   591                           ;newmain14.c: 301:     bufferin[25]= 0x30;
+   592     0068  3030               	movlw	48
+   593     0069  00B9               	movwf	_bufferin+25
+   594     006A                     l1270:
+   595                           
+   596                           ;newmain14.c: 302:     bufferin[26]= 0x30;
+   597     006A  3030               	movlw	48
+   598     006B  00BA               	movwf	_bufferin+26
+   599     006C                     l1272:
+   600                           
+   601                           ;newmain14.c: 303:     bufferin[27]= 0x31;
+   602     006C  3031               	movlw	49
+   603     006D  00BB               	movwf	_bufferin+27
+   604     006E                     l1274:
+   605                           
+   606                           ;newmain14.c: 304:     bufferin[28]= 0x03;
+   607     006E  3003               	movlw	3
+   608     006F  00BC               	movwf	_bufferin+28
+   609     0070                     l1276:
+   610                           
+   611                           ;newmain14.c: 305:     bufferin[29]= 0x31;
+   612     0070  3031               	movlw	49
+   613     0071  00BD               	movwf	_bufferin+29
+   614     0072                     l1278:
+   615                           
+   616                           ;newmain14.c: 310:         if(!zerosleft)
+   617     0072  1283               	bcf	3,5	;RP0=0, select bank0
+   618     0073  1303               	bcf	3,6	;RP1=0, select bank0
+   619     0074  0840               	movf	_zerosleft,w
+   620     0075  1D03               	btfss	3,2
+   621     0076  2878               	goto	u671
+   622     0077  2879               	goto	u670
+   623     0078                     u671:
+   624     0078  2884               	goto	l1284
+   625     0079                     u670:
+   626     0079                     l1280:
+   627                           
+   628                           ;newmain14.c: 311:         {;newmain14.c: 312:             if(bufferin[12]==0x30){buffer
+      +                          in[12]= 0x0F + 0x30;}else{zerosleft=1;}
+   629     0079  3030               	movlw	48
+   630     007A  062C               	xorwf	_bufferin+12,w
+   631     007B  1D03               	btfss	3,2
+   632     007C  287E               	goto	u681
+   633     007D  287F               	goto	u680
+   634     007E                     u681:
+   635     007E  2882               	goto	l130
+   636     007F                     u680:
+   637     007F                     l1282:
+   638     007F  303F               	movlw	63
+   639     0080  00AC               	movwf	_bufferin+12
+   640     0081  2884               	goto	l1284
+   641     0082                     l130:
+   642     0082  01C0               	clrf	_zerosleft
+   643     0083  0AC0               	incf	_zerosleft,f
+   644     0084                     l1284:
+   645                           
+   646                           ;newmain14.c: 314:         MAX7219_send(0x08, bufferin[12] -48);
+   647     0084  082C               	movf	_bufferin+12,w
+   648     0085  3ED0               	addlw	208
+   649     0086  00C6               	movwf	MAX7219_send@dat
+   650     0087  3008               	movlw	8
+   651     0088  118A  239C  118A   	fcall	_MAX7219_send
+   652     008B                     l1286:
+   653                           
+   654                           ;newmain14.c: 315:         if(!zerosleft)
+   655     008B  1283               	bcf	3,5	;RP0=0, select bank0
+   656     008C  1303               	bcf	3,6	;RP1=0, select bank0
+   657     008D  0840               	movf	_zerosleft,w
+   658     008E  1D03               	btfss	3,2
+   659     008F  2891               	goto	u691
+   660     0090  2892               	goto	u690
+   661     0091                     u691:
+   662     0091  289D               	goto	l1292
+   663     0092                     u690:
+   664     0092                     l1288:
+   665                           
+   666                           ;newmain14.c: 316:         {;newmain14.c: 317:             if(bufferin[13]==0x30){buffer
+      +                          in[13]= 0x0F + 0x30;}else{zerosleft=1;}
+   667     0092  3030               	movlw	48
+   668     0093  062D               	xorwf	_bufferin+13,w
+   669     0094  1D03               	btfss	3,2
+   670     0095  2897               	goto	u701
+   671     0096  2898               	goto	u700
+   672     0097                     u701:
+   673     0097  289B               	goto	l133
+   674     0098                     u700:
+   675     0098                     l1290:
+   676     0098  303F               	movlw	63
+   677     0099  00AD               	movwf	_bufferin+13
+   678     009A  289D               	goto	l1292
+   679     009B                     l133:
+   680     009B  01C0               	clrf	_zerosleft
+   681     009C  0AC0               	incf	_zerosleft,f
+   682     009D                     l1292:
+   683                           
+   684                           ;newmain14.c: 319:         MAX7219_send(0x07, bufferin[13] -48);
+   685     009D  082D               	movf	_bufferin+13,w
+   686     009E  3ED0               	addlw	208
+   687     009F  00C6               	movwf	MAX7219_send@dat
+   688     00A0  3007               	movlw	7
+   689     00A1  118A  239C  118A   	fcall	_MAX7219_send
+   690     00A4                     l1294:
+   691                           
+   692                           ;newmain14.c: 320:         if(!zerosleft)
+   693     00A4  1283               	bcf	3,5	;RP0=0, select bank0
+   694     00A5  1303               	bcf	3,6	;RP1=0, select bank0
+   695     00A6  0840               	movf	_zerosleft,w
+   696     00A7  1D03               	btfss	3,2
+   697     00A8  28AA               	goto	u711
+   698     00A9  28AB               	goto	u710
+   699     00AA                     u711:
+   700     00AA  28B6               	goto	l1300
+   701     00AB                     u710:
+   702     00AB                     l1296:
+   703                           
+   704                           ;newmain14.c: 321:         {;newmain14.c: 322:             if(bufferin[14]==0x30){buffer
+      +                          in[14]= 0x0F + 0x30;}else{zerosleft=1;}
+   705     00AB  3030               	movlw	48
+   706     00AC  062E               	xorwf	_bufferin+14,w
+   707     00AD  1D03               	btfss	3,2
+   708     00AE  28B0               	goto	u721
+   709     00AF  28B1               	goto	u720
+   710     00B0                     u721:
+   711     00B0  28B4               	goto	l136
+   712     00B1                     u720:
+   713     00B1                     l1298:
+   714     00B1  303F               	movlw	63
+   715     00B2  00AE               	movwf	_bufferin+14
+   716     00B3  28B6               	goto	l1300
+   717     00B4                     l136:
+   718     00B4  01C0               	clrf	_zerosleft
+   719     00B5  0AC0               	incf	_zerosleft,f
+   720     00B6                     l1300:
+   721                           
+   722                           ;newmain14.c: 324:         MAX7219_send(0x06, bufferin[14] -48);
+   723     00B6  082E               	movf	_bufferin+14,w
+   724     00B7  3ED0               	addlw	208
+   725     00B8  00C6               	movwf	MAX7219_send@dat
+   726     00B9  3006               	movlw	6
+   727     00BA  118A  239C  118A   	fcall	_MAX7219_send
+   728     00BD                     l1302:
+   729                           
+   730                           ;newmain14.c: 325:         if(!zerosleft)
+   731     00BD  1283               	bcf	3,5	;RP0=0, select bank0
+   732     00BE  1303               	bcf	3,6	;RP1=0, select bank0
+   733     00BF  0840               	movf	_zerosleft,w
+   734     00C0  1D03               	btfss	3,2
+   735     00C1  28C3               	goto	u731
+   736     00C2  28C4               	goto	u730
+   737     00C3                     u731:
+   738     00C3  28CF               	goto	l1308
+   739     00C4                     u730:
+   740     00C4                     l1304:
+   741                           
+   742                           ;newmain14.c: 326:         {;newmain14.c: 327:             if(bufferin[15]==0x30){buffer
+      +                          in[15]= 0x0F + 0x30;}else{zerosleft=1;}
+   743     00C4  3030               	movlw	48
+   744     00C5  062F               	xorwf	_bufferin+15,w
+   745     00C6  1D03               	btfss	3,2
+   746     00C7  28C9               	goto	u741
+   747     00C8  28CA               	goto	u740
+   748     00C9                     u741:
+   749     00C9  28CD               	goto	l139
+   750     00CA                     u740:
+   751     00CA                     l1306:
+   752     00CA  303F               	movlw	63
+   753     00CB  00AF               	movwf	_bufferin+15
+   754     00CC  28CF               	goto	l1308
+   755     00CD                     l139:
+   756     00CD  01C0               	clrf	_zerosleft
+   757     00CE  0AC0               	incf	_zerosleft,f
+   758     00CF                     l1308:
+   759                           
+   760                           ;newmain14.c: 329:         MAX7219_send(0x05, bufferin[15] -48);
+   761     00CF  082F               	movf	_bufferin+15,w
+   762     00D0  3ED0               	addlw	208
+   763     00D1  00C6               	movwf	MAX7219_send@dat
+   764     00D2  3005               	movlw	5
+   765     00D3  118A  239C  118A   	fcall	_MAX7219_send
+   766     00D6                     l1310:
+   767                           
+   768                           ;newmain14.c: 330:         if(!zerosleft)
+   769     00D6  1283               	bcf	3,5	;RP0=0, select bank0
+   770     00D7  1303               	bcf	3,6	;RP1=0, select bank0
+   771     00D8  0840               	movf	_zerosleft,w
+   772     00D9  1D03               	btfss	3,2
+   773     00DA  28DC               	goto	u751
+   774     00DB  28DD               	goto	u750
+   775     00DC                     u751:
+   776     00DC  28E8               	goto	l1316
+   777     00DD                     u750:
+   778     00DD                     l1312:
+   779                           
+   780                           ;newmain14.c: 331:         {;newmain14.c: 332:             if(bufferin[16]==0x30){buffer
+      +                          in[16]= 0x0F + 0x30;}else{zerosleft=1;}
+   781     00DD  3030               	movlw	48
+   782     00DE  0630               	xorwf	_bufferin+16,w
+   783     00DF  1D03               	btfss	3,2
+   784     00E0  28E2               	goto	u761
+   785     00E1  28E3               	goto	u760
+   786     00E2                     u761:
+   787     00E2  28E6               	goto	l142
+   788     00E3                     u760:
+   789     00E3                     l1314:
+   790     00E3  303F               	movlw	63
+   791     00E4  00B0               	movwf	_bufferin+16
+   792     00E5  28E8               	goto	l1316
+   793     00E6                     l142:
+   794     00E6  01C0               	clrf	_zerosleft
+   795     00E7  0AC0               	incf	_zerosleft,f
+   796     00E8                     l1316:
+   797                           
+   798                           ;newmain14.c: 334:         MAX7219_send(0x04, bufferin[16] -48);
+   799     00E8  0830               	movf	_bufferin+16,w
+   800     00E9  3ED0               	addlw	208
+   801     00EA  00C6               	movwf	MAX7219_send@dat
+   802     00EB  3004               	movlw	4
+   803     00EC  118A  239C  118A   	fcall	_MAX7219_send
+   804     00EF                     l1318:
+   805                           
+   806                           ;newmain14.c: 335:         if(!zerosleft)
+   807     00EF  1283               	bcf	3,5	;RP0=0, select bank0
+   808     00F0  1303               	bcf	3,6	;RP1=0, select bank0
+   809     00F1  0840               	movf	_zerosleft,w
+   810     00F2  1D03               	btfss	3,2
+   811     00F3  28F5               	goto	u771
+   812     00F4  28F6               	goto	u770
+   813     00F5                     u771:
+   814     00F5  2901               	goto	l1324
+   815     00F6                     u770:
+   816     00F6                     l1320:
+   817                           
+   818                           ;newmain14.c: 336:         {;newmain14.c: 337:             if(bufferin[17]==0x30){buffer
+      +                          in[17]= 0x0F + 0x30;}else{zerosleft=1;}
+   819     00F6  3030               	movlw	48
+   820     00F7  0631               	xorwf	_bufferin+17,w
+   821     00F8  1D03               	btfss	3,2
+   822     00F9  28FB               	goto	u781
+   823     00FA  28FC               	goto	u780
+   824     00FB                     u781:
+   825     00FB  28FF               	goto	l145
+   826     00FC                     u780:
+   827     00FC                     l1322:
+   828     00FC  303F               	movlw	63
+   829     00FD  00B1               	movwf	_bufferin+17
+   830     00FE  2901               	goto	l1324
+   831     00FF                     l145:
+   832     00FF  01C0               	clrf	_zerosleft
+   833     0100  0AC0               	incf	_zerosleft,f
+   834     0101                     l1324:
+   835                           
+   836                           ;newmain14.c: 339:         MAX7219_send(0x03, bufferin[17] -48);
+   837     0101  0831               	movf	_bufferin+17,w
+   838     0102  3ED0               	addlw	208
+   839     0103  00C6               	movwf	MAX7219_send@dat
+   840     0104  3003               	movlw	3
+   841     0105  118A  239C  118A   	fcall	_MAX7219_send
+   842     0108                     l1326:
+   843                           
+   844                           ;newmain14.c: 340:         if(!zerosleft)
+   845     0108  1283               	bcf	3,5	;RP0=0, select bank0
+   846     0109  1303               	bcf	3,6	;RP1=0, select bank0
+   847     010A  0840               	movf	_zerosleft,w
+   848     010B  1D03               	btfss	3,2
+   849     010C  290E               	goto	u791
+   850     010D  290F               	goto	u790
+   851     010E                     u791:
+   852     010E  291A               	goto	l1332
+   853     010F                     u790:
+   854     010F                     l1328:
+   855                           
+   856                           ;newmain14.c: 341:         {;newmain14.c: 342:             if(bufferin[18]==0x30){buffer
+      +                          in[18]= 0x0F + 0x30;}else{zerosleft=1;}
+   857     010F  3030               	movlw	48
+   858     0110  0632               	xorwf	_bufferin+18,w
+   859     0111  1D03               	btfss	3,2
+   860     0112  2914               	goto	u801
+   861     0113  2915               	goto	u800
+   862     0114                     u801:
+   863     0114  2918               	goto	l148
+   864     0115                     u800:
+   865     0115                     l1330:
+   866     0115  303F               	movlw	63
+   867     0116  00B2               	movwf	_bufferin+18
+   868     0117  291A               	goto	l1332
+   869     0118                     l148:
+   870     0118  01C0               	clrf	_zerosleft
+   871     0119  0AC0               	incf	_zerosleft,f
+   872     011A                     l1332:
+   873                           
+   874                           ;newmain14.c: 344:         MAX7219_send(0x02, bufferin[18] -48);
+   875     011A  0832               	movf	_bufferin+18,w
+   876     011B  3ED0               	addlw	208
+   877     011C  00C6               	movwf	MAX7219_send@dat
+   878     011D  3002               	movlw	2
+   879     011E  118A  239C  118A   	fcall	_MAX7219_send
+   880     0121                     l1334:
+   881                           
+   882                           ;newmain14.c: 345:         if(!zerosleft)
+   883     0121  1283               	bcf	3,5	;RP0=0, select bank0
+   884     0122  1303               	bcf	3,6	;RP1=0, select bank0
+   885     0123  0840               	movf	_zerosleft,w
+   886     0124  1D03               	btfss	3,2
+   887     0125  2927               	goto	u811
+   888     0126  2928               	goto	u810
+   889     0127                     u811:
+   890     0127  2933               	goto	l1340
+   891     0128                     u810:
+   892     0128                     l1336:
+   893                           
+   894                           ;newmain14.c: 346:         {;newmain14.c: 347:             if(bufferin[19]==0x30){buffer
+      +                          in[19]= 0x0F + 0x30;}else{zerosleft=1;}
+   895     0128  3030               	movlw	48
+   896     0129  0633               	xorwf	_bufferin+19,w
+   897     012A  1D03               	btfss	3,2
+   898     012B  292D               	goto	u821
+   899     012C  292E               	goto	u820
+   900     012D                     u821:
+   901     012D  2931               	goto	l151
+   902     012E                     u820:
+   903     012E                     l1338:
+   904     012E  303F               	movlw	63
+   905     012F  00B3               	movwf	_bufferin+19
+   906     0130  2933               	goto	l1340
+   907     0131                     l151:
+   908     0131  01C0               	clrf	_zerosleft
+   909     0132  0AC0               	incf	_zerosleft,f
+   910     0133                     l1340:
+   911                           
+   912                           ;newmain14.c: 349:         MAX7219_send(0x01, bufferin[19] -48);
+   913     0133  0833               	movf	_bufferin+19,w
+   914     0134  3ED0               	addlw	208
+   915     0135  00C6               	movwf	MAX7219_send@dat
+   916     0136  3001               	movlw	1
+   917     0137  118A  239C  118A   	fcall	_MAX7219_send
+   918                           
+   919                           ;newmain14.c: 351:         COMAX7219_send(0x08, 0x0F);
+   920     013A  300F               	movlw	15
+   921     013B  1283               	bcf	3,5	;RP0=0, select bank0
+   922     013C  1303               	bcf	3,6	;RP1=0, select bank0
+   923     013D  00C6               	movwf	COMAX7219_send@dat
+   924     013E  3008               	movlw	8
+   925     013F  118A  23E7  118A   	fcall	_COMAX7219_send
+   926                           
+   927                           ;newmain14.c: 352:         COMAX7219_send(0x07, 0x0F);
+   928     0142  300F               	movlw	15
+   929     0143  1283               	bcf	3,5	;RP0=0, select bank0
+   930     0144  1303               	bcf	3,6	;RP1=0, select bank0
+   931     0145  00C6               	movwf	COMAX7219_send@dat
+   932     0146  3007               	movlw	7
+   933     0147  118A  23E7  118A   	fcall	_COMAX7219_send
+   934                           
+   935                           ;newmain14.c: 353:         COMAX7219_send(0x06, bufferin[20] -48);
+   936     014A  1283               	bcf	3,5	;RP0=0, select bank0
+   937     014B  1303               	bcf	3,6	;RP1=0, select bank0
+   938     014C  0834               	movf	_bufferin+20,w
+   939     014D  3ED0               	addlw	208
+   940     014E  00C6               	movwf	COMAX7219_send@dat
+   941     014F  3006               	movlw	6
+   942     0150  118A  23E7  118A   	fcall	_COMAX7219_send
+   943     0153                     l1342:
+   944                           
+   945                           ;newmain14.c: 354:         zerosleft=0;
+   946     0153  1283               	bcf	3,5	;RP0=0, select bank0
+   947     0154  1303               	bcf	3,6	;RP1=0, select bank0
+   948     0155  01C0               	clrf	_zerosleft
+   949     0156                     l1344:
+   950     0156                     l1346:	
+   951                           ;newmain14.c: 355:         if(!zerosleft)
+   952                           
+   953                           
+   954                           ;newmain14.c: 356:         {;newmain14.c: 357:             if(bufferin[23]==0x30){buffer
+      +                          in[23]= 0x0F + 0x30;}else{zerosleft=1;}
+   955     0156  3030               	movlw	48
+   956     0157  0637               	xorwf	_bufferin+23,w
+   957     0158  1D03               	btfss	3,2
+   958     0159  295B               	goto	u831
+   959     015A  295C               	goto	u830
+   960     015B                     u831:
+   961     015B  295F               	goto	l154
+   962     015C                     u830:
+   963     015C                     l1348:
+   964     015C  303F               	movlw	63
+   965     015D  00B7               	movwf	_bufferin+23
+   966     015E  2961               	goto	l1350
+   967     015F                     l154:
+   968     015F  01C0               	clrf	_zerosleft
+   969     0160  0AC0               	incf	_zerosleft,f
+   970     0161                     l1350:
+   971                           
+   972                           ;newmain14.c: 359:         COMAX7219_send(0x01, bufferin[23] -48);
+   973     0161  0837               	movf	_bufferin+23,w
+   974     0162  3ED0               	addlw	208
+   975     0163  00C6               	movwf	COMAX7219_send@dat
+   976     0164  3001               	movlw	1
+   977     0165  118A  23E7  118A   	fcall	_COMAX7219_send
+   978     0168                     l1352:
+   979                           
+   980                           ;newmain14.c: 360:         if(!zerosleft)
+   981     0168  1283               	bcf	3,5	;RP0=0, select bank0
+   982     0169  1303               	bcf	3,6	;RP1=0, select bank0
+   983     016A  0840               	movf	_zerosleft,w
+   984     016B  1D03               	btfss	3,2
+   985     016C  296E               	goto	u841
+   986     016D  296F               	goto	u840
+   987     016E                     u841:
+   988     016E  297A               	goto	l1358
+   989     016F                     u840:
+   990     016F                     l1354:
+   991                           
+   992                           ;newmain14.c: 361:         {;newmain14.c: 362:             if(bufferin[24]==0x30){buffer
+      +                          in[24]= 0x0F + 0x30;}else{zerosleft=1;}
+   993     016F  3030               	movlw	48
+   994     0170  0638               	xorwf	_bufferin+24,w
+   995     0171  1D03               	btfss	3,2
+   996     0172  2974               	goto	u851
+   997     0173  2975               	goto	u850
+   998     0174                     u851:
+   999     0174  2978               	goto	l157
+  1000     0175                     u850:
+  1001     0175                     l1356:
+  1002     0175  303F               	movlw	63
+  1003     0176  00B8               	movwf	_bufferin+24
+  1004     0177  297A               	goto	l1358
+  1005     0178                     l157:
+  1006     0178  01C0               	clrf	_zerosleft
+  1007     0179  0AC0               	incf	_zerosleft,f
+  1008     017A                     l1358:
+  1009                           
+  1010                           ;newmain14.c: 364:         COMAX7219_send(0x02, bufferin[24] -48);
+  1011     017A  0838               	movf	_bufferin+24,w
+  1012     017B  3ED0               	addlw	208
+  1013     017C  00C6               	movwf	COMAX7219_send@dat
+  1014     017D  3002               	movlw	2
+  1015     017E  118A  23E7  118A   	fcall	_COMAX7219_send
+  1016     0181                     l1360:
+  1017                           
+  1018                           ;newmain14.c: 365:         if(!zerosleft)
+  1019     0181  1283               	bcf	3,5	;RP0=0, select bank0
+  1020     0182  1303               	bcf	3,6	;RP1=0, select bank0
+  1021     0183  0840               	movf	_zerosleft,w
+  1022     0184  1D03               	btfss	3,2
+  1023     0185  2987               	goto	u861
+  1024     0186  2988               	goto	u860
+  1025     0187                     u861:
+  1026     0187  2993               	goto	l1366
+  1027     0188                     u860:
+  1028     0188                     l1362:
+  1029                           
+  1030                           ;newmain14.c: 366:         {;newmain14.c: 367:             if(bufferin[25]==0x30){buffer
+      +                          in[25]= 0x0F + 0x30;}else{zerosleft=1;}
+  1031     0188  3030               	movlw	48
+  1032     0189  0639               	xorwf	_bufferin+25,w
+  1033     018A  1D03               	btfss	3,2
+  1034     018B  298D               	goto	u871
+  1035     018C  298E               	goto	u870
+  1036     018D                     u871:
+  1037     018D  2991               	goto	l160
+  1038     018E                     u870:
+  1039     018E                     l1364:
+  1040     018E  303F               	movlw	63
+  1041     018F  00B9               	movwf	_bufferin+25
+  1042     0190  2993               	goto	l1366
+  1043     0191                     l160:
+  1044     0191  01C0               	clrf	_zerosleft
+  1045     0192  0AC0               	incf	_zerosleft,f
+  1046     0193                     l1366:
+  1047                           
+  1048                           ;newmain14.c: 369:         COMAX7219_send(0x03, bufferin[25] -48);
+  1049     0193  0839               	movf	_bufferin+25,w
+  1050     0194  3ED0               	addlw	208
+  1051     0195  00C6               	movwf	COMAX7219_send@dat
+  1052     0196  3003               	movlw	3
+  1053     0197  118A  23E7  118A   	fcall	_COMAX7219_send
+  1054     019A                     l1368:
+  1055                           
+  1056                           ;newmain14.c: 370:         if(!zerosleft)
+  1057     019A  1283               	bcf	3,5	;RP0=0, select bank0
+  1058     019B  1303               	bcf	3,6	;RP1=0, select bank0
+  1059     019C  0840               	movf	_zerosleft,w
+  1060     019D  1D03               	btfss	3,2
+  1061     019E  29A0               	goto	u881
+  1062     019F  29A1               	goto	u880
+  1063     01A0                     u881:
+  1064     01A0  29AC               	goto	l1374
+  1065     01A1                     u880:
+  1066     01A1                     l1370:
+  1067                           
+  1068                           ;newmain14.c: 371:         {;newmain14.c: 372:             if(bufferin[26]==0x30){buffer
+      +                          in[26]= 0x0F + 0x30;}else{zerosleft=1;}
+  1069     01A1  3030               	movlw	48
+  1070     01A2  063A               	xorwf	_bufferin+26,w
+  1071     01A3  1D03               	btfss	3,2
+  1072     01A4  29A6               	goto	u891
+  1073     01A5  29A7               	goto	u890
+  1074     01A6                     u891:
+  1075     01A6  29AA               	goto	l163
+  1076     01A7                     u890:
+  1077     01A7                     l1372:
+  1078     01A7  303F               	movlw	63
+  1079     01A8  00BA               	movwf	_bufferin+26
+  1080     01A9  29AC               	goto	l1374
+  1081     01AA                     l163:
+  1082     01AA  01C0               	clrf	_zerosleft
+  1083     01AB  0AC0               	incf	_zerosleft,f
+  1084     01AC                     l1374:
+  1085                           
+  1086                           ;newmain14.c: 374:         COMAX7219_send(0x04, bufferin[26] -48);
+  1087     01AC  083A               	movf	_bufferin+26,w
+  1088     01AD  3ED0               	addlw	208
+  1089     01AE  00C6               	movwf	COMAX7219_send@dat
+  1090     01AF  3004               	movlw	4
+  1091     01B0  118A  23E7  118A   	fcall	_COMAX7219_send
+  1092                           
+  1093                           ;newmain14.c: 375:         COMAX7219_send(0x05, bufferin[27] -48);
+  1094     01B3  1283               	bcf	3,5	;RP0=0, select bank0
+  1095     01B4  1303               	bcf	3,6	;RP1=0, select bank0
+  1096     01B5  083B               	movf	_bufferin+27,w
+  1097     01B6  3ED0               	addlw	208
+  1098     01B7  00C6               	movwf	COMAX7219_send@dat
+  1099     01B8  3005               	movlw	5
+  1100     01B9  118A  23E7  118A   	fcall	_COMAX7219_send
+  1101     01BC                     l1376:
+  1102                           
+  1103                           ;newmain14.c: 377:         if(nbyte==0){
+  1104     01BC  1283               	bcf	3,5	;RP0=0, select bank0
+  1105     01BD  1303               	bcf	3,6	;RP1=0, select bank0
+  1106     01BE  0842               	movf	_nbyte,w
+  1107     01BF  1D03               	btfss	3,2
+  1108     01C0  29C2               	goto	u901
+  1109     01C1  29C3               	goto	u900
+  1110     01C2                     u901:
+  1111     01C2  29D0               	goto	l1384
+  1112     01C3                     u900:
+  1113     01C3  29CA               	goto	l1382
+  1114     01C4                     l1380:
+  1115                           
+  1116                           ;newmain14.c: 379:           byteValue=receive_byte();
+  1117     01C4  118A  2349  118A   	fcall	_receive_byte
+  1118     01C7  1283               	bcf	3,5	;RP0=0, select bank0
+  1119     01C8  1303               	bcf	3,6	;RP1=0, select bank0
+  1120     01C9  00C3               	movwf	_byteValue
+  1121     01CA                     l1382:
+  1122                           
+  1123                           ;newmain14.c: 378:         while(byteValue !=0x02){
+  1124     01CA  3002               	movlw	2
+  1125     01CB  0643               	xorwf	_byteValue,w
+  1126     01CC  1D03               	btfss	3,2
+  1127     01CD  29CF               	goto	u911
+  1128     01CE  29D0               	goto	u910
+  1129     01CF                     u911:
+  1130     01CF  29C4               	goto	l1380
+  1131     01D0                     u910:
+  1132     01D0                     l1384:
+  1133                           
+  1134                           ;newmain14.c: 389:           byteValue = receive_byte();
+  1135     01D0  118A  2349  118A   	fcall	_receive_byte
+  1136     01D3  1283               	bcf	3,5	;RP0=0, select bank0
+  1137     01D4  1303               	bcf	3,6	;RP1=0, select bank0
+  1138     01D5  00C3               	movwf	_byteValue
+  1139     01D6                     l1386:
+  1140                           
+  1141                           ;newmain14.c: 390:           bufferin[1] = byteValue;
+  1142     01D6  0843               	movf	_byteValue,w
+  1143     01D7  00A1               	movwf	_bufferin+1
+  1144     01D8                     l1388:
+  1145                           
+  1146                           ;newmain14.c: 392:           byteValue = receive_byte();
+  1147     01D8  118A  2349  118A   	fcall	_receive_byte
+  1148     01DB  1283               	bcf	3,5	;RP0=0, select bank0
+  1149     01DC  1303               	bcf	3,6	;RP1=0, select bank0
+  1150     01DD  00C3               	movwf	_byteValue
+  1151                           
+  1152                           ;newmain14.c: 393:           bufferin[2] = byteValue;
+  1153     01DE  0843               	movf	_byteValue,w
+  1154     01DF  00A2               	movwf	_bufferin+2
+  1155     01E0                     l1390:
+  1156                           
+  1157                           ;newmain14.c: 395:           byteValue = receive_byte();
+  1158     01E0  118A  2349  118A   	fcall	_receive_byte
+  1159     01E3  1283               	bcf	3,5	;RP0=0, select bank0
+  1160     01E4  1303               	bcf	3,6	;RP1=0, select bank0
+  1161     01E5  00C3               	movwf	_byteValue
+  1162     01E6                     l1392:
+  1163                           
+  1164                           ;newmain14.c: 396:           bufferin[3] = byteValue;
+  1165     01E6  0843               	movf	_byteValue,w
+  1166     01E7  00A3               	movwf	_bufferin+3
+  1167                           
+  1168                           ;newmain14.c: 398:           byteValue = receive_byte();
+  1169     01E8  118A  2349  118A   	fcall	_receive_byte
+  1170     01EB  1283               	bcf	3,5	;RP0=0, select bank0
+  1171     01EC  1303               	bcf	3,6	;RP1=0, select bank0
+  1172     01ED  00C3               	movwf	_byteValue
+  1173     01EE                     l1394:
+  1174                           
+  1175                           ;newmain14.c: 399:           bufferin[4] = byteValue;
+  1176     01EE  0843               	movf	_byteValue,w
+  1177     01EF  00A4               	movwf	_bufferin+4
+  1178     01F0                     l1396:
+  1179                           
+  1180                           ;newmain14.c: 401:           byteValue = receive_byte();
+  1181     01F0  118A  2349  118A   	fcall	_receive_byte
+  1182     01F3  1283               	bcf	3,5	;RP0=0, select bank0
+  1183     01F4  1303               	bcf	3,6	;RP1=0, select bank0
+  1184     01F5  00C3               	movwf	_byteValue
+  1185                           
+  1186                           ;newmain14.c: 402:           bufferin[5] = byteValue;
+  1187     01F6  0843               	movf	_byteValue,w
+  1188     01F7  00A5               	movwf	_bufferin+5
+  1189     01F8                     l1398:
+  1190                           
+  1191                           ;newmain14.c: 404:           byteValue = receive_byte();
+  1192     01F8  118A  2349  118A   	fcall	_receive_byte
+  1193     01FB  1283               	bcf	3,5	;RP0=0, select bank0
+  1194     01FC  1303               	bcf	3,6	;RP1=0, select bank0
+  1195     01FD  00C3               	movwf	_byteValue
+  1196     01FE                     l1400:
+  1197                           
+  1198                           ;newmain14.c: 405:           bufferin[6] = byteValue;
+  1199     01FE  0843               	movf	_byteValue,w
+  1200     01FF  00A6               	movwf	_bufferin+6
+  1201                           
+  1202                           ;newmain14.c: 407:           byteValue = receive_byte();
+  1203     0200  118A  2349  118A   	fcall	_receive_byte
+  1204     0203  1283               	bcf	3,5	;RP0=0, select bank0
+  1205     0204  1303               	bcf	3,6	;RP1=0, select bank0
+  1206     0205  00C3               	movwf	_byteValue
+  1207     0206                     l1402:
+  1208                           
+  1209                           ;newmain14.c: 408:           bufferin[7] = byteValue;
+  1210     0206  0843               	movf	_byteValue,w
+  1211     0207  00A7               	movwf	_bufferin+7
+  1212     0208                     l1404:
+  1213                           
+  1214                           ;newmain14.c: 410:           byteValue = receive_byte();
+  1215     0208  118A  2349  118A   	fcall	_receive_byte
+  1216     020B  1283               	bcf	3,5	;RP0=0, select bank0
+  1217     020C  1303               	bcf	3,6	;RP1=0, select bank0
+  1218     020D  00C3               	movwf	_byteValue
+  1219                           
+  1220                           ;newmain14.c: 411:           bufferin[8] = byteValue;
+  1221     020E  0843               	movf	_byteValue,w
+  1222     020F  00A8               	movwf	_bufferin+8
+  1223     0210                     l1406:
+  1224                           
+  1225                           ;newmain14.c: 413:           byteValue = receive_byte();
+  1226     0210  118A  2349  118A   	fcall	_receive_byte
+  1227     0213  1283               	bcf	3,5	;RP0=0, select bank0
+  1228     0214  1303               	bcf	3,6	;RP1=0, select bank0
+  1229     0215  00C3               	movwf	_byteValue
+  1230     0216                     l1408:
+  1231                           
+  1232                           ;newmain14.c: 414:           bufferin[9] = byteValue;
+  1233     0216  0843               	movf	_byteValue,w
+  1234     0217  00A9               	movwf	_bufferin+9
+  1235                           
+  1236                           ;newmain14.c: 416:           byteValue = receive_byte();
+  1237     0218  118A  2349  118A   	fcall	_receive_byte
+  1238     021B  1283               	bcf	3,5	;RP0=0, select bank0
+  1239     021C  1303               	bcf	3,6	;RP1=0, select bank0
+  1240     021D  00C3               	movwf	_byteValue
+  1241     021E                     l1410:
+  1242                           
+  1243                           ;newmain14.c: 417:           bufferin[10] = byteValue;
+  1244     021E  0843               	movf	_byteValue,w
+  1245     021F  00AA               	movwf	_bufferin+10
+  1246     0220                     l1412:
+  1247                           
+  1248                           ;newmain14.c: 419:           byteValue = receive_byte();
+  1249     0220  118A  2349  118A   	fcall	_receive_byte
+  1250     0223  1283               	bcf	3,5	;RP0=0, select bank0
+  1251     0224  1303               	bcf	3,6	;RP1=0, select bank0
+  1252     0225  00C3               	movwf	_byteValue
+  1253                           
+  1254                           ;newmain14.c: 420:           bufferin[11] = byteValue;
+  1255     0226  0843               	movf	_byteValue,w
+  1256     0227  00AB               	movwf	_bufferin+11
+  1257     0228                     l1414:
+  1258                           
+  1259                           ;newmain14.c: 422:           byteValue = receive_byte();
+  1260     0228  118A  2349  118A   	fcall	_receive_byte
+  1261     022B  1283               	bcf	3,5	;RP0=0, select bank0
+  1262     022C  1303               	bcf	3,6	;RP1=0, select bank0
+  1263     022D  00C3               	movwf	_byteValue
+  1264     022E                     l1416:
+  1265                           
+  1266                           ;newmain14.c: 423:           bufferin[12] = byteValue;
+  1267     022E  0843               	movf	_byteValue,w
+  1268     022F  00AC               	movwf	_bufferin+12
+  1269                           
+  1270                           ;newmain14.c: 425:           byteValue = receive_byte();
+  1271     0230  118A  2349  118A   	fcall	_receive_byte
+  1272     0233  1283               	bcf	3,5	;RP0=0, select bank0
+  1273     0234  1303               	bcf	3,6	;RP1=0, select bank0
+  1274     0235  00C3               	movwf	_byteValue
+  1275     0236                     l1418:
+  1276                           
+  1277                           ;newmain14.c: 426:           bufferin[13] = byteValue;
+  1278     0236  0843               	movf	_byteValue,w
+  1279     0237  00AD               	movwf	_bufferin+13
+  1280     0238                     l1420:
+  1281                           
+  1282                           ;newmain14.c: 428:           byteValue = receive_byte();
+  1283     0238  118A  2349  118A   	fcall	_receive_byte
+  1284     023B  1283               	bcf	3,5	;RP0=0, select bank0
+  1285     023C  1303               	bcf	3,6	;RP1=0, select bank0
+  1286     023D  00C3               	movwf	_byteValue
+  1287                           
+  1288                           ;newmain14.c: 429:           bufferin[14] = byteValue;
+  1289     023E  0843               	movf	_byteValue,w
+  1290     023F  00AE               	movwf	_bufferin+14
+  1291     0240                     l1422:
+  1292                           
+  1293                           ;newmain14.c: 431:           byteValue = receive_byte();
+  1294     0240  118A  2349  118A   	fcall	_receive_byte
+  1295     0243  1283               	bcf	3,5	;RP0=0, select bank0
+  1296     0244  1303               	bcf	3,6	;RP1=0, select bank0
+  1297     0245  00C3               	movwf	_byteValue
+  1298     0246                     l1424:
+  1299                           
+  1300                           ;newmain14.c: 432:           bufferin[15] = byteValue;
+  1301     0246  0843               	movf	_byteValue,w
+  1302     0247  00AF               	movwf	_bufferin+15
+  1303                           
+  1304                           ;newmain14.c: 434:           byteValue = receive_byte();
+  1305     0248  118A  2349  118A   	fcall	_receive_byte
+  1306     024B  1283               	bcf	3,5	;RP0=0, select bank0
+  1307     024C  1303               	bcf	3,6	;RP1=0, select bank0
+  1308     024D  00C3               	movwf	_byteValue
+  1309     024E                     l1426:
+  1310                           
+  1311                           ;newmain14.c: 435:           bufferin[16] = byteValue;
+  1312     024E  0843               	movf	_byteValue,w
+  1313     024F  00B0               	movwf	_bufferin+16
+  1314     0250                     l1428:
+  1315                           
+  1316                           ;newmain14.c: 437:           byteValue = receive_byte();
+  1317     0250  118A  2349  118A   	fcall	_receive_byte
+  1318     0253  1283               	bcf	3,5	;RP0=0, select bank0
+  1319     0254  1303               	bcf	3,6	;RP1=0, select bank0
+  1320     0255  00C3               	movwf	_byteValue
+  1321                           
+  1322                           ;newmain14.c: 438:           bufferin[17] = byteValue;
+  1323     0256  0843               	movf	_byteValue,w
+  1324     0257  00B1               	movwf	_bufferin+17
+  1325     0258                     l1430:
+  1326                           
+  1327                           ;newmain14.c: 440:           byteValue = receive_byte();
+  1328     0258  118A  2349  118A   	fcall	_receive_byte
+  1329     025B  1283               	bcf	3,5	;RP0=0, select bank0
+  1330     025C  1303               	bcf	3,6	;RP1=0, select bank0
+  1331     025D  00C3               	movwf	_byteValue
+  1332     025E                     l1432:
+  1333                           
+  1334                           ;newmain14.c: 441:           bufferin[18] = byteValue;
+  1335     025E  0843               	movf	_byteValue,w
+  1336     025F  00B2               	movwf	_bufferin+18
+  1337                           
+  1338                           ;newmain14.c: 443:           byteValue = receive_byte();
+  1339     0260  118A  2349  118A   	fcall	_receive_byte
+  1340     0263  1283               	bcf	3,5	;RP0=0, select bank0
+  1341     0264  1303               	bcf	3,6	;RP1=0, select bank0
+  1342     0265  00C3               	movwf	_byteValue
+  1343     0266                     l1434:
+  1344                           
+  1345                           ;newmain14.c: 444:           bufferin[19] = byteValue;
+  1346     0266  0843               	movf	_byteValue,w
+  1347     0267  00B3               	movwf	_bufferin+19
+  1348     0268                     l1436:
+  1349                           
+  1350                           ;newmain14.c: 446:           byteValue = receive_byte();
+  1351     0268  118A  2349  118A   	fcall	_receive_byte
+  1352     026B  1283               	bcf	3,5	;RP0=0, select bank0
+  1353     026C  1303               	bcf	3,6	;RP1=0, select bank0
+  1354     026D  00C3               	movwf	_byteValue
+  1355                           
+  1356                           ;newmain14.c: 447:           bufferin[20] = byteValue;
+  1357     026E  0843               	movf	_byteValue,w
+  1358     026F  00B4               	movwf	_bufferin+20
+  1359     0270                     l1438:
+  1360                           
+  1361                           ;newmain14.c: 449:           byteValue = receive_byte();
+  1362     0270  118A  2349  118A   	fcall	_receive_byte
+  1363     0273  1283               	bcf	3,5	;RP0=0, select bank0
+  1364     0274  1303               	bcf	3,6	;RP1=0, select bank0
+  1365     0275  00C3               	movwf	_byteValue
+  1366     0276                     l1440:
+  1367                           
+  1368                           ;newmain14.c: 450:           bufferin[21] = byteValue;
+  1369     0276  0843               	movf	_byteValue,w
+  1370     0277  00B5               	movwf	_bufferin+21
+  1371                           
+  1372                           ;newmain14.c: 452:           byteValue = receive_byte();
+  1373     0278  118A  2349  118A   	fcall	_receive_byte
+  1374     027B  1283               	bcf	3,5	;RP0=0, select bank0
+  1375     027C  1303               	bcf	3,6	;RP1=0, select bank0
+  1376     027D  00C3               	movwf	_byteValue
+  1377     027E                     l1442:
+  1378                           
+  1379                           ;newmain14.c: 453:           bufferin[22] = byteValue;
+  1380     027E  0843               	movf	_byteValue,w
+  1381     027F  00B6               	movwf	_bufferin+22
+  1382     0280                     l1444:
+  1383                           
+  1384                           ;newmain14.c: 455:           byteValue = receive_byte();
+  1385     0280  118A  2349  118A   	fcall	_receive_byte
+  1386     0283  1283               	bcf	3,5	;RP0=0, select bank0
+  1387     0284  1303               	bcf	3,6	;RP1=0, select bank0
+  1388     0285  00C3               	movwf	_byteValue
+  1389                           
+  1390                           ;newmain14.c: 456:           bufferin[23] = byteValue;
+  1391     0286  0843               	movf	_byteValue,w
+  1392     0287  00B7               	movwf	_bufferin+23
+  1393     0288                     l1446:
+  1394                           
+  1395                           ;newmain14.c: 458:           byteValue = receive_byte();
+  1396     0288  118A  2349  118A   	fcall	_receive_byte
+  1397     028B  1283               	bcf	3,5	;RP0=0, select bank0
+  1398     028C  1303               	bcf	3,6	;RP1=0, select bank0
+  1399     028D  00C3               	movwf	_byteValue
+  1400     028E                     l1448:
+  1401                           
+  1402                           ;newmain14.c: 459:           bufferin[24] = byteValue;
+  1403     028E  0843               	movf	_byteValue,w
+  1404     028F  00B8               	movwf	_bufferin+24
+  1405                           
+  1406                           ;newmain14.c: 461:           byteValue = receive_byte();
+  1407     0290  118A  2349  118A   	fcall	_receive_byte
+  1408     0293  1283               	bcf	3,5	;RP0=0, select bank0
+  1409     0294  1303               	bcf	3,6	;RP1=0, select bank0
+  1410     0295  00C3               	movwf	_byteValue
+  1411     0296                     l1450:
+  1412                           
+  1413                           ;newmain14.c: 462:           bufferin[25] = byteValue;
+  1414     0296  0843               	movf	_byteValue,w
+  1415     0297  00B9               	movwf	_bufferin+25
+  1416     0298                     l1452:
+  1417                           
+  1418                           ;newmain14.c: 464:           byteValue = receive_byte();
+  1419     0298  118A  2349  118A   	fcall	_receive_byte
+  1420     029B  1283               	bcf	3,5	;RP0=0, select bank0
+  1421     029C  1303               	bcf	3,6	;RP1=0, select bank0
+  1422     029D  00C3               	movwf	_byteValue
+  1423                           
+  1424                           ;newmain14.c: 465:           bufferin[26] = byteValue;
+  1425     029E  0843               	movf	_byteValue,w
+  1426     029F  00BA               	movwf	_bufferin+26
+  1427     02A0                     l1454:
+  1428                           
+  1429                           ;newmain14.c: 467:           byteValue = receive_byte();
+  1430     02A0  118A  2349  118A   	fcall	_receive_byte
+  1431     02A3  1283               	bcf	3,5	;RP0=0, select bank0
+  1432     02A4  1303               	bcf	3,6	;RP1=0, select bank0
+  1433     02A5  00C3               	movwf	_byteValue
+  1434     02A6                     l1456:
+  1435                           
+  1436                           ;newmain14.c: 468:           bufferin[27] = byteValue;
+  1437     02A6  0843               	movf	_byteValue,w
+  1438     02A7  00BB               	movwf	_bufferin+27
+  1439                           
+  1440                           ;newmain14.c: 470:           byteValue = receive_byte();
+  1441     02A8  118A  2349  118A   	fcall	_receive_byte
+  1442     02AB  1283               	bcf	3,5	;RP0=0, select bank0
+  1443     02AC  1303               	bcf	3,6	;RP1=0, select bank0
+  1444     02AD  00C3               	movwf	_byteValue
+  1445     02AE                     l1458:
+  1446                           
+  1447                           ;newmain14.c: 471:           bufferin[28] = byteValue;
+  1448     02AE  0843               	movf	_byteValue,w
+  1449     02AF  00BC               	movwf	_bufferin+28
+  1450     02B0                     l1460:
+  1451                           
+  1452                           ;newmain14.c: 473:           byteValue = receive_byte();
+  1453     02B0  118A  2349  118A   	fcall	_receive_byte
+  1454     02B3  1283               	bcf	3,5	;RP0=0, select bank0
+  1455     02B4  1303               	bcf	3,6	;RP1=0, select bank0
+  1456     02B5  00C3               	movwf	_byteValue
+  1457                           
+  1458                           ;newmain14.c: 474:           bufferin[29] = byteValue;
+  1459     02B6  0843               	movf	_byteValue,w
+  1460     02B7  00BD               	movwf	_bufferin+29
+  1461     02B8                     l1462:
+  1462                           
+  1463                           ;newmain14.c: 476:           nbyte ++;
+  1464     02B8  3001               	movlw	1
+  1465     02B9  00FF               	movwf	btemp+1
+  1466     02BA  087F               	movf	btemp+1,w
+  1467     02BB  07C2               	addwf	_nbyte,f
+  1468     02BC                     l1464:
+  1469                           
+  1470                           ;newmain14.c: 478:           if(nbyte == 30){nbyte = 0;}
+  1471     02BC  301E               	movlw	30
+  1472     02BD  0642               	xorwf	_nbyte,w
+  1473     02BE  1D03               	btfss	3,2
+  1474     02BF  2AC1               	goto	u921
+  1475     02C0  2AC2               	goto	u920
+  1476     02C1                     u921:
+  1477     02C1  2AC3               	goto	l169
+  1478     02C2                     u920:
+  1479     02C2                     l1466:
+  1480     02C2  01C2               	clrf	_nbyte
+  1481     02C3                     l169:
+  1482                           
+  1483                           ;newmain14.c: 479:           BCC=0;
+  1484     02C3  01BF               	clrf	_BCC
+  1485     02C4                     l1468:
+  1486                           
+  1487                           ;newmain14.c: 480:             for (i=1; i<30 -1; i++)
+  1488     02C4  01BE               	clrf	_i
+  1489     02C5  0ABE               	incf	_i,f
+  1490     02C6                     l1474:
+  1491                           
+  1492                           ;newmain14.c: 481:             {BCC=BCC^bufferin[i];}
+  1493     02C6  083E               	movf	_i,w
+  1494     02C7  3E20               	addlw	(low (_bufferin| 0))& (0+255)
+  1495     02C8  0084               	movwf	4
+  1496     02C9  1383               	bcf	3,7	;select IRP bank0
+  1497     02CA  0800               	movf	0,w
+  1498     02CB  063F               	xorwf	_BCC,w
+  1499     02CC  00BF               	movwf	_BCC
+  1500     02CD                     l1476:
+  1501     02CD  3001               	movlw	1
+  1502     02CE  00FF               	movwf	btemp+1
+  1503     02CF  087F               	movf	btemp+1,w
+  1504     02D0  07BE               	addwf	_i,f
+  1505     02D1                     l1478:
+  1506     02D1  301D               	movlw	29
+  1507     02D2  023E               	subwf	_i,w
+  1508     02D3  1C03               	skipc
+  1509     02D4  2AD6               	goto	u931
+  1510     02D5  2AD7               	goto	u930
+  1511     02D6                     u931:
+  1512     02D6  2AC6               	goto	l1474
+  1513     02D7                     u930:
+  1514     02D7                     l1480:
+  1515                           
+  1516                           ;newmain14.c: 482:             if (BCC==bufferin[29]) {
+  1517     02D7  083D               	movf	_bufferin+29,w
+  1518     02D8  063F               	xorwf	_BCC,w
+  1519     02D9  1D03               	skipz
+  1520     02DA  2ADC               	goto	u941
+  1521     02DB  2ADD               	goto	u940
+  1522     02DC                     u941:
+  1523     02DC  2AE2               	goto	l1484
+  1524     02DD                     u940:
+  1525     02DD                     l1482:
+  1526                           
+  1527                           ;newmain14.c: 483:              send_byte(0x06);
+  1528     02DD  3006               	movlw	6
+  1529     02DE  118A  22E9  118A   	fcall	_send_byte
+  1530                           
+  1531                           ;newmain14.c: 484:             }else{send_byte(0x15);}
+  1532     02E1  2872               	goto	l1278
+  1533     02E2                     l1484:
+  1534     02E2  3015               	movlw	21
+  1535     02E3  118A  22E9  118A   	fcall	_send_byte
+  1536     02E6  2872               	goto	l1278
+  1537     02E7  118A  280D         	ljmp	start
+  1538     02E9                     __end_of_main:
+  1539                           
+  1540                           	psect	text1
+  1541     0473                     __ptext1:	
+  1542 ;; *************** function _setup_timer *****************
+  1543 ;; Defined at:
+  1544 ;;		line 191 in file "newmain14.c"
+  1545 ;; Parameters:    Size  Location     Type
+  1546 ;;		None
+  1547 ;; Auto vars:     Size  Location     Type
+  1548 ;;		None
+  1549 ;; Return value:  Size  Location     Type
+  1550 ;;                  1    wreg      void 
+  1551 ;; Registers used:
+  1552 ;;		wreg, status,2, status,0
+  1553 ;; Tracked objects:
+  1554 ;;		On entry : 0/0
+  1555 ;;		On exit  : 0/0
+  1556 ;;		Unchanged: 0/0
+  1557 ;; Data sizes:     COMMON   BANK0   BANK1
+  1558 ;;      Params:         0       0       0
+  1559 ;;      Locals:         0       0       0
+  1560 ;;      Temps:          0       0       0
+  1561 ;;      Totals:         0       0       0
+  1562 ;;Total ram usage:        0 bytes
+  1563 ;; Hardware stack levels used: 1
+  1564 ;; Hardware stack levels required when called: 1
+  1565 ;; This function calls:
+  1566 ;;		Nothing
+  1567 ;; This function is called by:
+  1568 ;;		_main
+  1569 ;; This function uses a non-reentrant model
+  1570 ;;
+  1571                           
+  1572     0473                     _setup_timer:	
+  1573                           ;psect for function _setup_timer
+  1574                           
+  1575     0473                     l1128:	
+  1576                           ;incstack = 0
+  1577                           ; Regs used in _setup_timer: [wreg+status,2+status,0]
+  1578                           
+  1579                           
+  1580                           ;newmain14.c: 192:     TMR0 = 0;
+  1581     0473  1283               	bcf	3,5	;RP0=0, select bank0
+  1582     0474  1303               	bcf	3,6	;RP1=0, select bank0
+  1583     0475  0181               	clrf	1	;volatile
+  1584     0476                     l1130:
+  1585                           
+  1586                           ;newmain14.c: 193:     OPTION_REGbits.T0CS = 0;
+  1587     0476  1683               	bsf	3,5	;RP0=1, select bank1
+  1588     0477  1303               	bcf	3,6	;RP1=0, select bank1
+  1589     0478  1281               	bcf	1,5	;volatile
+  1590     0479                     l1132:
+  1591                           
+  1592                           ;newmain14.c: 194:     OPTION_REGbits.PSA = 0;
+  1593     0479  1181               	bcf	1,3	;volatile
+  1594     047A                     l1134:
+  1595                           
+  1596                           ;newmain14.c: 195:     OPTION_REGbits.PS = 0b010;
+  1597     047A  0801               	movf	1,w	;volatile
+  1598     047B  39F8               	andlw	-8
+  1599     047C  3802               	iorlw	2
+  1600     047D  0081               	movwf	1	;volatile
+  1601     047E                     l1136:
+  1602                           
+  1603                           ;newmain14.c: 196:     INTCONbits.TMR0IE = 0;
+  1604     047E  128B               	bcf	11,5	;volatile
+  1605     047F                     l1138:
+  1606                           
+  1607                           ;newmain14.c: 197:     INTCONbits.TMR0IF = 0;
+  1608     047F  110B               	bcf	11,2	;volatile
+  1609     0480                     l1140:
+  1610                           
+  1611                           ;newmain14.c: 198:     INTCONbits.GIE = 1;
+  1612     0480  178B               	bsf	11,7	;volatile
+  1613     0481                     l1142:
+  1614                           
+  1615                           ;newmain14.c: 199:     INTCONbits.PEIE = 1;
+  1616     0481  170B               	bsf	11,6	;volatile
+  1617     0482                     l102:
+  1618     0482  0008               	return
+  1619     0483                     __end_of_setup_timer:
+  1620                           
+  1621                           	psect	text2
+  1622     02E9                     __ptext2:	
+  1623 ;; *************** function _send_byte *****************
+  1624 ;; Defined at:
+  1625 ;;		line 203 in file "newmain14.c"
+  1626 ;; Parameters:    Size  Location     Type
+  1627 ;;  data            1    wreg     unsigned char 
+  1628 ;; Auto vars:     Size  Location     Type
+  1629 ;;  data            1    4[BANK0 ] unsigned char 
+  1630 ;;  i               1    5[BANK0 ] unsigned char 
+  1631 ;;  parity          1    3[BANK0 ] unsigned char 
+  1632 ;; Return value:  Size  Location     Type
+  1633 ;;                  1    wreg      void 
+  1634 ;; Registers used:
+  1635 ;;		wreg, status,2, status,0, btemp+1
+  1636 ;; Tracked objects:
+  1637 ;;		On entry : 0/0
+  1638 ;;		On exit  : 0/0
+  1639 ;;		Unchanged: 0/0
+  1640 ;; Data sizes:     COMMON   BANK0   BANK1
+  1641 ;;      Params:         0       0       0
+  1642 ;;      Locals:         0       3       0
+  1643 ;;      Temps:          0       1       0
+  1644 ;;      Totals:         0       4       0
+  1645 ;;Total ram usage:        4 bytes
+  1646 ;; Hardware stack levels used: 1
+  1647 ;; Hardware stack levels required when called: 1
+  1648 ;; This function calls:
+  1649 ;;		Nothing
+  1650 ;; This function is called by:
+  1651 ;;		_main
+  1652 ;; This function uses a non-reentrant model
+  1653 ;;
+  1654                           
+  1655     02E9                     _send_byte:	
+  1656                           ;psect for function _send_byte
+  1657                           
+  1658                           
+  1659                           ;incstack = 0
+  1660                           ; Regs used in _send_byte: [wreg+status,2+status,0+btemp+1]
+  1661                           ;send_byte@data stored from wreg
+  1662     02E9  1283               	bcf	3,5	;RP0=0, select bank0
+  1663     02EA  1303               	bcf	3,6	;RP1=0, select bank0
+  1664     02EB  00C8               	movwf	send_byte@data
+  1665     02EC                     l1144:
+  1666                           
+  1667                           ;newmain14.c: 204:     unsigned char i, parity = 0;
+  1668     02EC  01C7               	clrf	send_byte@parity
+  1669     02ED                     l1146:
+  1670                           
+  1671                           ;newmain14.c: 207:     PORTCbits.RC6 = 1;
+  1672     02ED  1707               	bsf	7,6	;volatile
+  1673     02EE                     l1148:
+  1674                           
+  1675                           ;newmain14.c: 208:     _delay((unsigned long)((48)*(3686400/4000000.0)));
+  1676     02EE  300E               	movlw	14
+  1677     02EF  1283               	bcf	3,5	;RP0=0, select bank0
+  1678     02F0  1303               	bcf	3,6	;RP1=0, select bank0
+  1679     02F1  00C6               	movwf	??_send_byte
+  1680     02F2                     u957:
+  1681     02F2  0BC6               	decfsz	??_send_byte,f
+  1682     02F3  2AF2               	goto	u957
+  1683     02F4                     l1150:
+  1684                           
+  1685                           ;newmain14.c: 211:     for (i = 0; i < 8; i++) {
+  1686     02F4  1283               	bcf	3,5	;RP0=0, select bank0
+  1687     02F5  1303               	bcf	3,6	;RP1=0, select bank0
+  1688     02F6  01C9               	clrf	send_byte@i
+  1689     02F7                     l1154:
+  1690                           
+  1691                           ;newmain14.c: 212:         PORTCbits.RC6 = !((data >> i) & 0x01);
+  1692     02F7  0848               	movf	send_byte@data,w
+  1693     02F8  00C6               	movwf	??_send_byte
+  1694     02F9  0A49               	incf	send_byte@i,w
+  1695     02FA  2AFD               	goto	u544
+  1696     02FB                     u545:
+  1697     02FB  1003               	clrc
+  1698     02FC  0CC6               	rrf	??_send_byte,f
+  1699     02FD                     u544:
+  1700     02FD  3EFF               	addlw	-1
+  1701     02FE  1D03               	skipz
+  1702     02FF  2AFB               	goto	u545
+  1703     0300  1C46               	btfss	??_send_byte,0
+  1704     0301  2B03               	goto	u551
+  1705     0302  2B07               	goto	u550
+  1706     0303                     u551:
+  1707     0303  1283               	bcf	3,5	;RP0=0, select bank0
+  1708     0304  1303               	bcf	3,6	;RP1=0, select bank0
+  1709     0305  1707               	bsf	7,6	;volatile
+  1710     0306  2B0A               	goto	u564
+  1711     0307                     u550:
+  1712     0307  1283               	bcf	3,5	;RP0=0, select bank0
+  1713     0308  1303               	bcf	3,6	;RP1=0, select bank0
+  1714     0309  1307               	bcf	7,6	;volatile
+  1715     030A                     u564:
+  1716     030A                     l1156:
+  1717                           
+  1718                           ;newmain14.c: 213:         parity ^= !((data >> i) & 0x01);
+  1719     030A  0848               	movf	send_byte@data,w
+  1720     030B  00C6               	movwf	??_send_byte
+  1721     030C  0A49               	incf	send_byte@i,w
+  1722     030D  2B10               	goto	u574
+  1723     030E                     u575:
+  1724     030E  1003               	clrc
+  1725     030F  0CC6               	rrf	??_send_byte,f
+  1726     0310                     u574:
+  1727     0310  3EFF               	addlw	-1
+  1728     0311  1D03               	skipz
+  1729     0312  2B0E               	goto	u575
+  1730     0313  1C46               	btfss	??_send_byte,0
+  1731     0314  2B16               	goto	u581
+  1732     0315  2B18               	goto	u580
+  1733     0316                     u581:
+  1734     0316  3001               	movlw	1
+  1735     0317  2B19               	goto	u590
+  1736     0318                     u580:
+  1737     0318  3000               	movlw	0
+  1738     0319                     u590:
+  1739     0319  00FF               	movwf	btemp+1
+  1740     031A  087F               	movf	btemp+1,w
+  1741     031B  06C7               	xorwf	send_byte@parity,f
+  1742     031C                     l1158:
+  1743                           
+  1744                           ;newmain14.c: 214:         _delay((unsigned long)((48)*(3686400/4000000.0)));
+  1745     031C  300E               	movlw	14
+  1746     031D  1283               	bcf	3,5	;RP0=0, select bank0
+  1747     031E  1303               	bcf	3,6	;RP1=0, select bank0
+  1748     031F  00C6               	movwf	??_send_byte
+  1749     0320                     u967:
+  1750     0320  0BC6               	decfsz	??_send_byte,f
+  1751     0321  2B20               	goto	u967
+  1752     0322                     l1160:
+  1753                           
+  1754                           ;newmain14.c: 215:     }
+  1755     0322  3001               	movlw	1
+  1756     0323  00FF               	movwf	btemp+1
+  1757     0324  087F               	movf	btemp+1,w
+  1758     0325  1283               	bcf	3,5	;RP0=0, select bank0
+  1759     0326  1303               	bcf	3,6	;RP1=0, select bank0
+  1760     0327  07C9               	addwf	send_byte@i,f
+  1761     0328                     l1162:
+  1762     0328  3008               	movlw	8
+  1763     0329  0249               	subwf	send_byte@i,w
+  1764     032A  1C03               	skipc
+  1765     032B  2B2D               	goto	u601
+  1766     032C  2B2E               	goto	u600
+  1767     032D                     u601:
+  1768     032D  2AF7               	goto	l1154
+  1769     032E                     u600:
+  1770     032E                     l1164:
+  1771                           
+  1772                           ;newmain14.c: 218:     PORTCbits.RC6 = !parity;
+  1773     032E  0847               	movf	send_byte@parity,w
+  1774     032F  1903               	btfsc	3,2
+  1775     0330  2B32               	goto	u611
+  1776     0331  2B36               	goto	u610
+  1777     0332                     u611:
+  1778     0332  1283               	bcf	3,5	;RP0=0, select bank0
+  1779     0333  1303               	bcf	3,6	;RP1=0, select bank0
+  1780     0334  1707               	bsf	7,6	;volatile
+  1781     0335  2B39               	goto	u624
+  1782     0336                     u610:
+  1783     0336  1283               	bcf	3,5	;RP0=0, select bank0
+  1784     0337  1303               	bcf	3,6	;RP1=0, select bank0
+  1785     0338  1307               	bcf	7,6	;volatile
+  1786     0339                     u624:
+  1787     0339                     l1166:
+  1788                           
+  1789                           ;newmain14.c: 219:     _delay((unsigned long)((48)*(3686400/4000000.0)));
+  1790     0339  300E               	movlw	14
+  1791     033A  1283               	bcf	3,5	;RP0=0, select bank0
+  1792     033B  1303               	bcf	3,6	;RP1=0, select bank0
+  1793     033C  00C6               	movwf	??_send_byte
+  1794     033D                     u977:
+  1795     033D  0BC6               	decfsz	??_send_byte,f
+  1796     033E  2B3D               	goto	u977
+  1797     033F                     l1168:
+  1798                           
+  1799                           ;newmain14.c: 222:     PORTCbits.RC6 = 0;
+  1800     033F  1283               	bcf	3,5	;RP0=0, select bank0
+  1801     0340  1303               	bcf	3,6	;RP1=0, select bank0
+  1802     0341  1307               	bcf	7,6	;volatile
+  1803     0342                     l1170:
+  1804                           
+  1805                           ;newmain14.c: 223:     _delay((unsigned long)((48)*(3686400/4000000.0)));
+  1806     0342  300E               	movlw	14
+  1807     0343  1283               	bcf	3,5	;RP0=0, select bank0
+  1808     0344  1303               	bcf	3,6	;RP1=0, select bank0
+  1809     0345  00C6               	movwf	??_send_byte
+  1810     0346                     u987:
+  1811     0346  0BC6               	decfsz	??_send_byte,f
+  1812     0347  2B46               	goto	u987
+  1813     0348                     l107:
+  1814     0348  0008               	return
+  1815     0349                     __end_of_send_byte:
+  1816                           
+  1817                           	psect	text3
+  1818     0349                     __ptext3:	
+  1819 ;; *************** function _receive_byte *****************
+  1820 ;; Defined at:
+  1821 ;;		line 228 in file "newmain14.c"
+  1822 ;; Parameters:    Size  Location     Type
+  1823 ;;		None
+  1824 ;; Auto vars:     Size  Location     Type
+  1825 ;;  i               1    5[BANK0 ] unsigned char 
+  1826 ;;  parity          1    4[BANK0 ] unsigned char 
+  1827 ;;  data            1    3[BANK0 ] unsigned char 
+  1828 ;; Return value:  Size  Location     Type
+  1829 ;;                  1    wreg      unsigned char 
+  1830 ;; Registers used:
+  1831 ;;		wreg, status,2, status,0, btemp+1
+  1832 ;; Tracked objects:
+  1833 ;;		On entry : 0/0
+  1834 ;;		On exit  : 0/0
+  1835 ;;		Unchanged: 0/0
+  1836 ;; Data sizes:     COMMON   BANK0   BANK1
+  1837 ;;      Params:         0       0       0
+  1838 ;;      Locals:         0       3       0
+  1839 ;;      Temps:          0       1       0
+  1840 ;;      Totals:         0       4       0
+  1841 ;;Total ram usage:        4 bytes
+  1842 ;; Hardware stack levels used: 1
+  1843 ;; Hardware stack levels required when called: 1
+  1844 ;; This function calls:
+  1845 ;;		Nothing
+  1846 ;; This function is called by:
+  1847 ;;		_main
+  1848 ;; This function uses a non-reentrant model
+  1849 ;;
+  1850                           
+  1851     0349                     _receive_byte:	
+  1852                           ;psect for function _receive_byte
+  1853                           
+  1854     0349                     l1172:	
+  1855                           ;incstack = 0
+  1856                           ; Regs used in _receive_byte: [wreg+status,2+status,0+btemp+1]
+  1857                           
+  1858                           
+  1859                           ;newmain14.c: 229:     unsigned char i, data = 0, parity = 0;
+  1860     0349  1283               	bcf	3,5	;RP0=0, select bank0
+  1861     034A  1303               	bcf	3,6	;RP1=0, select bank0
+  1862     034B  01C7               	clrf	receive_byte@data
+  1863     034C  01C8               	clrf	receive_byte@parity
+  1864     034D                     l110:	
+  1865                           ;newmain14.c: 232:     while (PORTCbits.RC7 == 0);
+  1866                           
+  1867     034D  1F87               	btfss	7,7	;volatile
+  1868     034E  2B50               	goto	u631
+  1869     034F  2B51               	goto	u630
+  1870     0350                     u631:
+  1871     0350  2B4D               	goto	l110
+  1872     0351                     u630:
+  1873     0351                     l1174:
+  1874                           
+  1875                           ;newmain14.c: 234:     _delay((unsigned long)((48 / 2)*(3686400/4000000.0)));
+  1876     0351  3006               	movlw	6
+  1877     0352  1283               	bcf	3,5	;RP0=0, select bank0
+  1878     0353  1303               	bcf	3,6	;RP1=0, select bank0
+  1879     0354  00C6               	movwf	??_receive_byte
+  1880     0355                     u997:
+  1881     0355  0BC6               	decfsz	??_receive_byte,f
+  1882     0356  2B55               	goto	u997
+  1883     0357  2B58               	nop2
+  1884     0358                     l1176:
+  1885                           
+  1886                           ;newmain14.c: 237:     for (i = 0; i < 8; i++) {
+  1887     0358  1283               	bcf	3,5	;RP0=0, select bank0
+  1888     0359  1303               	bcf	3,6	;RP1=0, select bank0
+  1889     035A  01C9               	clrf	receive_byte@i
+  1890     035B                     l1182:
+  1891                           
+  1892                           ;newmain14.c: 238:         _delay((unsigned long)((48)*(3686400/4000000.0)));
+  1893     035B  300E               	movlw	14
+  1894     035C  1283               	bcf	3,5	;RP0=0, select bank0
+  1895     035D  1303               	bcf	3,6	;RP1=0, select bank0
+  1896     035E  00C6               	movwf	??_receive_byte
+  1897     035F                     u1007:
+  1898     035F  0BC6               	decfsz	??_receive_byte,f
+  1899     0360  2B5F               	goto	u1007
+  1900     0361                     l1184:
+  1901                           
+  1902                           ;newmain14.c: 239:         data |= (!PORTCbits.RC7 << i);
+  1903     0361  1003               	clrc
+  1904     0362  1283               	bcf	3,5	;RP0=0, select bank0
+  1905     0363  1303               	bcf	3,6	;RP1=0, select bank0
+  1906     0364  1F87               	btfss	7,7	;volatile
+  1907     0365  1403               	setc
+  1908     0366  3000               	movlw	0
+  1909     0367  1803               	skipnc
+  1910     0368  3001               	movlw	1
+  1911     0369  00C6               	movwf	??_receive_byte
+  1912     036A  0A49               	incf	receive_byte@i,w
+  1913     036B  2B6E               	goto	u644
+  1914     036C                     u645:
+  1915     036C  1003               	clrc
+  1916     036D  0DC6               	rlf	??_receive_byte,f
+  1917     036E                     u644:
+  1918     036E  3EFF               	addlw	-1
+  1919     036F  1D03               	skipz
+  1920     0370  2B6C               	goto	u645
+  1921     0371  0846               	movf	??_receive_byte,w
+  1922     0372  00FF               	movwf	btemp+1
+  1923     0373  087F               	movf	btemp+1,w
+  1924     0374  04C7               	iorwf	receive_byte@data,f
+  1925     0375                     l1186:
+  1926                           
+  1927                           ;newmain14.c: 240:         parity ^= !PORTCbits.RC7;
+  1928     0375  1003               	clrc
+  1929     0376  1F87               	btfss	7,7	;volatile
+  1930     0377  1403               	setc
+  1931     0378  3000               	movlw	0
+  1932     0379  1803               	skipnc
+  1933     037A  3001               	movlw	1
+  1934     037B  00FF               	movwf	btemp+1
+  1935     037C  087F               	movf	btemp+1,w
+  1936     037D  06C8               	xorwf	receive_byte@parity,f
+  1937     037E                     l1188:
+  1938                           
+  1939                           ;newmain14.c: 241:     }
+  1940     037E  3001               	movlw	1
+  1941     037F  00FF               	movwf	btemp+1
+  1942     0380  087F               	movf	btemp+1,w
+  1943     0381  07C9               	addwf	receive_byte@i,f
+  1944     0382                     l1190:
+  1945     0382  3008               	movlw	8
+  1946     0383  0249               	subwf	receive_byte@i,w
+  1947     0384  1C03               	skipc
+  1948     0385  2B87               	goto	u651
+  1949     0386  2B88               	goto	u650
+  1950     0387                     u651:
+  1951     0387  2B5B               	goto	l1182
+  1952     0388                     u650:
+  1953     0388                     l1192:
+  1954                           
+  1955                           ;newmain14.c: 244:     _delay((unsigned long)((48)*(3686400/4000000.0)));
+  1956     0388  300E               	movlw	14
+  1957     0389  1283               	bcf	3,5	;RP0=0, select bank0
+  1958     038A  1303               	bcf	3,6	;RP1=0, select bank0
+  1959     038B  00C6               	movwf	??_receive_byte
+  1960     038C                     u1017:
+  1961     038C  0BC6               	decfsz	??_receive_byte,f
+  1962     038D  2B8C               	goto	u1017
+  1963     038E                     l1194:
+  1964                           
+  1965                           ;newmain14.c: 245:     if (parity != !PORTCbits.RC7) {
+  1966     038E  1283               	bcf	3,5	;RP0=0, select bank0
+  1967     038F  1303               	bcf	3,6	;RP1=0, select bank0
+  1968     0390  0807               	movf	7,w	;volatile
+  1969     0391                     l1196:
+  1970                           
+  1971                           ;newmain14.c: 250:     _delay((unsigned long)((48)*(3686400/4000000.0)));
+  1972     0391  300E               	movlw	14
+  1973     0392  1283               	bcf	3,5	;RP0=0, select bank0
+  1974     0393  1303               	bcf	3,6	;RP1=0, select bank0
+  1975     0394  00C6               	movwf	??_receive_byte
+  1976     0395                     u1027:
+  1977     0395  0BC6               	decfsz	??_receive_byte,f
+  1978     0396  2B95               	goto	u1027
+  1979     0397                     l1198:
+  1980                           
+  1981                           ;newmain14.c: 251:     if (PORTCbits.RC7 == 0) {
+  1982     0397  1283               	bcf	3,5	;RP0=0, select bank0
+  1983     0398  1303               	bcf	3,6	;RP1=0, select bank0
+  1984     0399  0807               	movf	7,w	;volatile
+  1985     039A                     l1200:
+  1986                           
+  1987                           ;newmain14.c: 255:     return data;
+  1988     039A  0847               	movf	receive_byte@data,w
+  1989     039B                     l117:
+  1990     039B  0008               	return
+  1991     039C                     __end_of_receive_byte:
+  1992                           
+  1993                           	psect	text4
+  1994     0432                     __ptext4:	
+  1995 ;; *************** function _initMAXs *****************
+  1996 ;; Defined at:
+  1997 ;;		line 176 in file "newmain14.c"
+  1998 ;; Parameters:    Size  Location     Type
+  1999 ;;		None
+  2000 ;; Auto vars:     Size  Location     Type
+  2001 ;;		None
+  2002 ;; Return value:  Size  Location     Type
+  2003 ;;                  1    wreg      void 
+  2004 ;; Registers used:
+  2005 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+  2006 ;; Tracked objects:
+  2007 ;;		On entry : 0/0
+  2008 ;;		On exit  : 0/0
+  2009 ;;		Unchanged: 0/0
+  2010 ;; Data sizes:     COMMON   BANK0   BANK1
+  2011 ;;      Params:         0       0       0
+  2012 ;;      Locals:         0       0       0
+  2013 ;;      Temps:          0       0       0
+  2014 ;;      Totals:         0       0       0
+  2015 ;;Total ram usage:        0 bytes
+  2016 ;; Hardware stack levels used: 1
+  2017 ;; Hardware stack levels required when called: 3
+  2018 ;; This function calls:
+  2019 ;;		_COMAX7219_send
+  2020 ;;		_MAX7219_send
+  2021 ;; This function is called by:
+  2022 ;;		_main
+  2023 ;; This function uses a non-reentrant model
+  2024 ;;
+  2025                           
+  2026     0432                     _initMAXs:	
+  2027                           ;psect for function _initMAXs
+  2028                           
+  2029     0432                     l1126:	
+  2030                           ;incstack = 0
+  2031                           ; Regs used in _initMAXs: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+  2032                           
+  2033                           
+  2034                           ;newmain14.c: 177:    MAX7219_send(0x0A, 0x0F);
+  2035     0432  300F               	movlw	15
+  2036     0433  1283               	bcf	3,5	;RP0=0, select bank0
+  2037     0434  1303               	bcf	3,6	;RP1=0, select bank0
+  2038     0435  00C6               	movwf	MAX7219_send@dat
+  2039     0436  300A               	movlw	10
+  2040     0437  118A  239C  118A   	fcall	_MAX7219_send
+  2041                           
+  2042                           ;newmain14.c: 178:    COMAX7219_send(0x0A, 0X0F);
+  2043     043A  300F               	movlw	15
+  2044     043B  1283               	bcf	3,5	;RP0=0, select bank0
+  2045     043C  1303               	bcf	3,6	;RP1=0, select bank0
+  2046     043D  00C6               	movwf	COMAX7219_send@dat
+  2047     043E  300A               	movlw	10
+  2048     043F  118A  23E7  118A   	fcall	_COMAX7219_send
+  2049                           
+  2050                           ;newmain14.c: 179:    MAX7219_send(0x09, 0xFF);
+  2051     0442  30FF               	movlw	255
+  2052     0443  1283               	bcf	3,5	;RP0=0, select bank0
+  2053     0444  1303               	bcf	3,6	;RP1=0, select bank0
+  2054     0445  00C6               	movwf	MAX7219_send@dat
+  2055     0446  3009               	movlw	9
+  2056     0447  118A  239C  118A   	fcall	_MAX7219_send
+  2057                           
+  2058                           ;newmain14.c: 180:    COMAX7219_send(0x09, 0xFF);
+  2059     044A  30FF               	movlw	255
+  2060     044B  1283               	bcf	3,5	;RP0=0, select bank0
+  2061     044C  1303               	bcf	3,6	;RP1=0, select bank0
+  2062     044D  00C6               	movwf	COMAX7219_send@dat
+  2063     044E  3009               	movlw	9
+  2064     044F  118A  23E7  118A   	fcall	_COMAX7219_send
+  2065                           
+  2066                           ;newmain14.c: 181:    MAX7219_send(0x0B, 0X07);
+  2067     0452  3007               	movlw	7
+  2068     0453  1283               	bcf	3,5	;RP0=0, select bank0
+  2069     0454  1303               	bcf	3,6	;RP1=0, select bank0
+  2070     0455  00C6               	movwf	MAX7219_send@dat
+  2071     0456  300B               	movlw	11
+  2072     0457  118A  239C  118A   	fcall	_MAX7219_send
+  2073                           
+  2074                           ;newmain14.c: 182:    COMAX7219_send(0x0B, 0X07);
+  2075     045A  3007               	movlw	7
+  2076     045B  1283               	bcf	3,5	;RP0=0, select bank0
+  2077     045C  1303               	bcf	3,6	;RP1=0, select bank0
+  2078     045D  00C6               	movwf	COMAX7219_send@dat
+  2079     045E  300B               	movlw	11
+  2080     045F  118A  23E7  118A   	fcall	_COMAX7219_send
+  2081                           
+  2082                           ;newmain14.c: 183:    MAX7219_send(0x0C, 0X01);
+  2083     0462  1283               	bcf	3,5	;RP0=0, select bank0
+  2084     0463  1303               	bcf	3,6	;RP1=0, select bank0
+  2085     0464  01C6               	clrf	MAX7219_send@dat
+  2086     0465  0AC6               	incf	MAX7219_send@dat,f
+  2087     0466  300C               	movlw	12
+  2088     0467  118A  239C  118A   	fcall	_MAX7219_send
+  2089                           
+  2090                           ;newmain14.c: 184:    COMAX7219_send(0x0C, 0X01);
+  2091     046A  1283               	bcf	3,5	;RP0=0, select bank0
+  2092     046B  1303               	bcf	3,6	;RP1=0, select bank0
+  2093     046C  01C6               	clrf	COMAX7219_send@dat
+  2094     046D  0AC6               	incf	COMAX7219_send@dat,f
+  2095     046E  300C               	movlw	12
+  2096     046F  118A  23E7  118A   	fcall	_COMAX7219_send
+  2097     0472                     l99:
+  2098     0472  0008               	return
+  2099     0473                     __end_of_initMAXs:
+  2100                           
+  2101                           	psect	text5
+  2102     039C                     __ptext5:	
+  2103 ;; *************** function _MAX7219_send *****************
+  2104 ;; Defined at:
+  2105 ;;		line 140 in file "newmain14.c"
+  2106 ;; Parameters:    Size  Location     Type
+  2107 ;;  reg             1    wreg     unsigned char 
+  2108 ;;  dat             1    2[BANK0 ] unsigned char 
+  2109 ;; Auto vars:     Size  Location     Type
+  2110 ;;  reg             1    9[BANK0 ] unsigned char 
+  2111 ;;  i               1   10[BANK0 ] unsigned char 
+  2112 ;;  d               2    7[BANK0 ] unsigned short 
+  2113 ;; Return value:  Size  Location     Type
+  2114 ;;                  1    wreg      void 
+  2115 ;; Registers used:
+  2116 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+  2117 ;; Tracked objects:
+  2118 ;;		On entry : 0/0
+  2119 ;;		On exit  : 0/0
+  2120 ;;		Unchanged: 0/0
+  2121 ;; Data sizes:     COMMON   BANK0   BANK1
+  2122 ;;      Params:         0       1       0
+  2123 ;;      Locals:         0       4       0
+  2124 ;;      Temps:          0       4       0
+  2125 ;;      Totals:         0       9       0
+  2126 ;;Total ram usage:        9 bytes
+  2127 ;; Hardware stack levels used: 1
+  2128 ;; Hardware stack levels required when called: 2
+  2129 ;; This function calls:
+  2130 ;;		_MAX_CLK_setHigh
+  2131 ;;		_MAX_CLK_setLow
+  2132 ;;		_MAX_DIN_setHigh
+  2133 ;;		_MAX_DIN_setLow
+  2134 ;;		_MAX_LAT_setHigh
+  2135 ;;		_MAX_LAT_setLow
+  2136 ;; This function is called by:
+  2137 ;;		_initMAXs
+  2138 ;;		_main
+  2139 ;; This function uses a non-reentrant model
+  2140 ;;
+  2141                           
+  2142     039C                     _MAX7219_send:	
+  2143                           ;psect for function _MAX7219_send
+  2144                           
+  2145                           
+  2146                           ;incstack = 0
+  2147                           ; Regs used in _MAX7219_send: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+  2148                           ;MAX7219_send@reg stored from wreg
+  2149     039C  1283               	bcf	3,5	;RP0=0, select bank0
+  2150     039D  1303               	bcf	3,6	;RP1=0, select bank0
+  2151     039E  00CD               	movwf	MAX7219_send@reg
+  2152     039F                     l1086:
+  2153                           
+  2154                           ;newmain14.c: 140: void MAX7219_send(uint8_t reg, uint8_t dat);newmain14.c: 141:     {;n
+      +                          ewmain14.c: 142:     uint16_t d=(reg<<8)|dat;
+  2155     039F  0846               	movf	MAX7219_send@dat,w
+  2156     03A0  00C7               	movwf	??_MAX7219_send
+  2157     03A1  01C8               	clrf	??_MAX7219_send+1
+  2158     03A2  084D               	movf	MAX7219_send@reg,w
+  2159     03A3  00C9               	movwf	??_MAX7219_send+2
+  2160     03A4  01CA               	clrf	??_MAX7219_send+3
+  2161     03A5  0849               	movf	??_MAX7219_send+2,w
+  2162     03A6  00CA               	movwf	??_MAX7219_send+3
+  2163     03A7  01C9               	clrf	??_MAX7219_send+2
+  2164     03A8  0847               	movf	??_MAX7219_send,w
+  2165     03A9  0449               	iorwf	??_MAX7219_send+2,w
+  2166     03AA  00CB               	movwf	MAX7219_send@d
+  2167     03AB  0848               	movf	??_MAX7219_send+1,w
+  2168     03AC  044A               	iorwf	??_MAX7219_send+3,w
+  2169     03AD  00CC               	movwf	MAX7219_send@d+1
+  2170     03AE                     l1088:
+  2171                           
+  2172                           ;newmain14.c: 143:     for (uint8_t i=0; i<16; i++)
+  2173     03AE  01CE               	clrf	MAX7219_send@i
+  2174     03AF                     l1094:
+  2175                           
+  2176                           ;newmain14.c: 144:         {;newmain14.c: 145:           if (d & (0x8000>>i))
+  2177     03AF  3000               	movlw	0
+  2178     03B0  00C7               	movwf	??_MAX7219_send
+  2179     03B1  3080               	movlw	128
+  2180     03B2  00C8               	movwf	??_MAX7219_send+1
+  2181     03B3  0A4E               	incf	MAX7219_send@i,w
+  2182     03B4  2BB8               	goto	u484
+  2183     03B5                     u485:
+  2184     03B5  1003               	clrc
+  2185     03B6  0CC8               	rrf	??_MAX7219_send+1,f
+  2186     03B7  0CC7               	rrf	??_MAX7219_send,f
+  2187     03B8                     u484:
+  2188     03B8  3EFF               	addlw	-1
+  2189     03B9  1D03               	skipz
+  2190     03BA  2BB5               	goto	u485
+  2191     03BB  084B               	movf	MAX7219_send@d,w
+  2192     03BC  0547               	andwf	??_MAX7219_send,w
+  2193     03BD  00C9               	movwf	??_MAX7219_send+2
+  2194     03BE  084C               	movf	MAX7219_send@d+1,w
+  2195     03BF  0548               	andwf	??_MAX7219_send+1,w
+  2196     03C0  00CA               	movwf	??_MAX7219_send+3
+  2197     03C1  0849               	movf	??_MAX7219_send+2,w
+  2198     03C2  044A               	iorwf	??_MAX7219_send+3,w
+  2199     03C3  1903               	btfsc	3,2
+  2200     03C4  2BC6               	goto	u491
+  2201     03C5  2BC7               	goto	u490
+  2202     03C6                     u491:
+  2203     03C6  2BCB               	goto	l1098
+  2204     03C7                     u490:
+  2205     03C7                     l1096:
+  2206                           
+  2207                           ;newmain14.c: 146:             {MAX_DIN_setHigh();}
+  2208     03C7  118A  24A3  118A   	fcall	_MAX_DIN_setHigh
+  2209     03CA  2BCE               	goto	l88
+  2210     03CB                     l1098:
+  2211                           
+  2212                           ;newmain14.c: 148:             {MAX_DIN_setLow();}
+  2213     03CB  118A  249F  118A   	fcall	_MAX_DIN_setLow
+  2214     03CE                     l88:
+  2215                           
+  2216                           ;newmain14.c: 149:         MAX_CLK_setHigh();
+  2217     03CE  118A  24AB  118A   	fcall	_MAX_CLK_setHigh
+  2218                           
+  2219                           ;newmain14.c: 150:         MAX_CLK_setLow();
+  2220     03D1  118A  24A7  118A   	fcall	_MAX_CLK_setLow
+  2221     03D4                     l1100:
+  2222                           
+  2223                           ;newmain14.c: 151:         }
+  2224     03D4  3001               	movlw	1
+  2225     03D5  00FF               	movwf	btemp+1
+  2226     03D6  087F               	movf	btemp+1,w
+  2227     03D7  1283               	bcf	3,5	;RP0=0, select bank0
+  2228     03D8  1303               	bcf	3,6	;RP1=0, select bank0
+  2229     03D9  07CE               	addwf	MAX7219_send@i,f
+  2230     03DA                     l1102:
+  2231     03DA  3010               	movlw	16
+  2232     03DB  024E               	subwf	MAX7219_send@i,w
+  2233     03DC  1C03               	skipc
+  2234     03DD  2BDF               	goto	u501
+  2235     03DE  2BE0               	goto	u500
+  2236     03DF                     u501:
+  2237     03DF  2BAF               	goto	l1094
+  2238     03E0                     u500:
+  2239     03E0                     l1104:
+  2240                           
+  2241                           ;newmain14.c: 152:     MAX_LAT_setHigh();
+  2242     03E0  118A  249B  118A   	fcall	_MAX_LAT_setHigh
+  2243                           
+  2244                           ;newmain14.c: 153:     MAX_LAT_setLow();
+  2245     03E3  118A  2497  118A   	fcall	_MAX_LAT_setLow
+  2246     03E6                     l89:
+  2247     03E6  0008               	return
+  2248     03E7                     __end_of_MAX7219_send:
+  2249                           
+  2250                           	psect	text6
+  2251     0497                     __ptext6:	
+  2252 ;; *************** function _MAX_LAT_setLow *****************
+  2253 ;; Defined at:
+  2254 ;;		line 122 in file "newmain14.c"
+  2255 ;; Parameters:    Size  Location     Type
+  2256 ;;		None
+  2257 ;; Auto vars:     Size  Location     Type
+  2258 ;;		None
+  2259 ;; Return value:  Size  Location     Type
+  2260 ;;                  1    wreg      void 
+  2261 ;; Registers used:
+  2262 ;;		None
+  2263 ;; Tracked objects:
+  2264 ;;		On entry : 0/0
+  2265 ;;		On exit  : 0/0
+  2266 ;;		Unchanged: 0/0
+  2267 ;; Data sizes:     COMMON   BANK0   BANK1
+  2268 ;;      Params:         0       0       0
+  2269 ;;      Locals:         0       0       0
+  2270 ;;      Temps:          0       0       0
+  2271 ;;      Totals:         0       0       0
+  2272 ;;Total ram usage:        0 bytes
+  2273 ;; Hardware stack levels used: 1
+  2274 ;; Hardware stack levels required when called: 1
+  2275 ;; This function calls:
+  2276 ;;		Nothing
+  2277 ;; This function is called by:
+  2278 ;;		_MAX7219_send
+  2279 ;; This function uses a non-reentrant model
+  2280 ;;
+  2281                           
+  2282     0497                     _MAX_LAT_setLow:	
+  2283                           ;psect for function _MAX_LAT_setLow
+  2284                           
+  2285     0497                     l1078:	
+  2286                           ;incstack = 0
+  2287                           ; Regs used in _MAX_LAT_setLow: []
+  2288                           
+  2289                           
+  2290                           ;newmain14.c: 123:     RC1=0;
+  2291     0497  1283               	bcf	3,5	;RP0=0, select bank0
+  2292     0498  1303               	bcf	3,6	;RP1=0, select bank0
+  2293     0499  1087               	bcf	7,1	;volatile
+  2294     049A                     l73:
+  2295     049A  0008               	return
+  2296     049B                     __end_of_MAX_LAT_setLow:
+  2297                           
+  2298                           	psect	text7
+  2299     049B                     __ptext7:	
+  2300 ;; *************** function _MAX_LAT_setHigh *****************
+  2301 ;; Defined at:
+  2302 ;;		line 130 in file "newmain14.c"
+  2303 ;; Parameters:    Size  Location     Type
+  2304 ;;		None
+  2305 ;; Auto vars:     Size  Location     Type
+  2306 ;;		None
+  2307 ;; Return value:  Size  Location     Type
+  2308 ;;                  1    wreg      void 
+  2309 ;; Registers used:
+  2310 ;;		None
+  2311 ;; Tracked objects:
+  2312 ;;		On entry : 0/0
+  2313 ;;		On exit  : 0/0
+  2314 ;;		Unchanged: 0/0
+  2315 ;; Data sizes:     COMMON   BANK0   BANK1
+  2316 ;;      Params:         0       0       0
+  2317 ;;      Locals:         0       0       0
+  2318 ;;      Temps:          0       0       0
+  2319 ;;      Totals:         0       0       0
+  2320 ;;Total ram usage:        0 bytes
+  2321 ;; Hardware stack levels used: 1
+  2322 ;; Hardware stack levels required when called: 1
+  2323 ;; This function calls:
+  2324 ;;		Nothing
+  2325 ;; This function is called by:
+  2326 ;;		_MAX7219_send
+  2327 ;; This function uses a non-reentrant model
+  2328 ;;
+  2329                           
+  2330     049B                     _MAX_LAT_setHigh:	
+  2331                           ;psect for function _MAX_LAT_setHigh
+  2332                           
+  2333     049B                     l1082:	
+  2334                           ;incstack = 0
+  2335                           ; Regs used in _MAX_LAT_setHigh: []
+  2336                           
+  2337                           
+  2338                           ;newmain14.c: 131:     RC1 = 1;
+  2339     049B  1283               	bcf	3,5	;RP0=0, select bank0
+  2340     049C  1303               	bcf	3,6	;RP1=0, select bank0
+  2341     049D  1487               	bsf	7,1	;volatile
+  2342     049E                     l79:
+  2343     049E  0008               	return
+  2344     049F                     __end_of_MAX_LAT_setHigh:
+  2345                           
+  2346                           	psect	text8
+  2347     049F                     __ptext8:	
+  2348 ;; *************** function _MAX_DIN_setLow *****************
+  2349 ;; Defined at:
+  2350 ;;		line 98 in file "newmain14.c"
+  2351 ;; Parameters:    Size  Location     Type
+  2352 ;;		None
+  2353 ;; Auto vars:     Size  Location     Type
+  2354 ;;		None
+  2355 ;; Return value:  Size  Location     Type
+  2356 ;;                  1    wreg      void 
+  2357 ;; Registers used:
+  2358 ;;		None
+  2359 ;; Tracked objects:
+  2360 ;;		On entry : 0/0
+  2361 ;;		On exit  : 0/0
+  2362 ;;		Unchanged: 0/0
+  2363 ;; Data sizes:     COMMON   BANK0   BANK1
+  2364 ;;      Params:         0       0       0
+  2365 ;;      Locals:         0       0       0
+  2366 ;;      Temps:          0       0       0
+  2367 ;;      Totals:         0       0       0
+  2368 ;;Total ram usage:        0 bytes
+  2369 ;; Hardware stack levels used: 1
+  2370 ;; Hardware stack levels required when called: 1
+  2371 ;; This function calls:
+  2372 ;;		Nothing
+  2373 ;; This function is called by:
+  2374 ;;		_MAX7219_send
+  2375 ;; This function uses a non-reentrant model
+  2376 ;;
+  2377                           
+  2378     049F                     _MAX_DIN_setLow:	
+  2379                           ;psect for function _MAX_DIN_setLow
+  2380                           
+  2381     049F                     l1066:	
+  2382                           ;incstack = 0
+  2383                           ; Regs used in _MAX_DIN_setLow: []
+  2384                           
+  2385                           
+  2386                           ;newmain14.c: 99:     RC0 = 0;
+  2387     049F  1283               	bcf	3,5	;RP0=0, select bank0
+  2388     04A0  1303               	bcf	3,6	;RP1=0, select bank0
+  2389     04A1  1007               	bcf	7,0	;volatile
+  2390     04A2                     l55:
+  2391     04A2  0008               	return
+  2392     04A3                     __end_of_MAX_DIN_setLow:
+  2393                           
+  2394                           	psect	text9
+  2395     04A3                     __ptext9:	
+  2396 ;; *************** function _MAX_DIN_setHigh *****************
+  2397 ;; Defined at:
+  2398 ;;		line 90 in file "newmain14.c"
+  2399 ;; Parameters:    Size  Location     Type
+  2400 ;;		None
+  2401 ;; Auto vars:     Size  Location     Type
+  2402 ;;		None
+  2403 ;; Return value:  Size  Location     Type
+  2404 ;;                  1    wreg      void 
+  2405 ;; Registers used:
+  2406 ;;		None
+  2407 ;; Tracked objects:
+  2408 ;;		On entry : 0/0
+  2409 ;;		On exit  : 0/0
+  2410 ;;		Unchanged: 0/0
+  2411 ;; Data sizes:     COMMON   BANK0   BANK1
+  2412 ;;      Params:         0       0       0
+  2413 ;;      Locals:         0       0       0
+  2414 ;;      Temps:          0       0       0
+  2415 ;;      Totals:         0       0       0
+  2416 ;;Total ram usage:        0 bytes
+  2417 ;; Hardware stack levels used: 1
+  2418 ;; Hardware stack levels required when called: 1
+  2419 ;; This function calls:
+  2420 ;;		Nothing
+  2421 ;; This function is called by:
+  2422 ;;		_MAX7219_send
+  2423 ;; This function uses a non-reentrant model
+  2424 ;;
+  2425                           
+  2426     04A3                     _MAX_DIN_setHigh:	
+  2427                           ;psect for function _MAX_DIN_setHigh
+  2428                           
+  2429     04A3                     l1062:	
+  2430                           ;incstack = 0
+  2431                           ; Regs used in _MAX_DIN_setHigh: []
+  2432                           
+  2433                           
+  2434                           ;newmain14.c: 91:     RC0 = 1;
+  2435     04A3  1283               	bcf	3,5	;RP0=0, select bank0
+  2436     04A4  1303               	bcf	3,6	;RP1=0, select bank0
+  2437     04A5  1407               	bsf	7,0	;volatile
+  2438     04A6                     l49:
+  2439     04A6  0008               	return
+  2440     04A7                     __end_of_MAX_DIN_setHigh:
+  2441                           
+  2442                           	psect	text10
+  2443     04A7                     __ptext10:	
+  2444 ;; *************** function _MAX_CLK_setLow *****************
+  2445 ;; Defined at:
+  2446 ;;		line 114 in file "newmain14.c"
+  2447 ;; Parameters:    Size  Location     Type
+  2448 ;;		None
+  2449 ;; Auto vars:     Size  Location     Type
+  2450 ;;		None
+  2451 ;; Return value:  Size  Location     Type
+  2452 ;;                  1    wreg      void 
+  2453 ;; Registers used:
+  2454 ;;		None
+  2455 ;; Tracked objects:
+  2456 ;;		On entry : 0/0
+  2457 ;;		On exit  : 0/0
+  2458 ;;		Unchanged: 0/0
+  2459 ;; Data sizes:     COMMON   BANK0   BANK1
+  2460 ;;      Params:         0       0       0
+  2461 ;;      Locals:         0       0       0
+  2462 ;;      Temps:          0       0       0
+  2463 ;;      Totals:         0       0       0
+  2464 ;;Total ram usage:        0 bytes
+  2465 ;; Hardware stack levels used: 1
+  2466 ;; Hardware stack levels required when called: 1
+  2467 ;; This function calls:
+  2468 ;;		Nothing
+  2469 ;; This function is called by:
+  2470 ;;		_MAX7219_send
+  2471 ;; This function uses a non-reentrant model
+  2472 ;;
+  2473                           
+  2474     04A7                     _MAX_CLK_setLow:	
+  2475                           ;psect for function _MAX_CLK_setLow
+  2476                           
+  2477     04A7                     l1074:	
+  2478                           ;incstack = 0
+  2479                           ; Regs used in _MAX_CLK_setLow: []
+  2480                           
+  2481                           
+  2482                           ;newmain14.c: 115:     RC2 = 0;
+  2483     04A7  1283               	bcf	3,5	;RP0=0, select bank0
+  2484     04A8  1303               	bcf	3,6	;RP1=0, select bank0
+  2485     04A9  1107               	bcf	7,2	;volatile
+  2486     04AA                     l67:
+  2487     04AA  0008               	return
+  2488     04AB                     __end_of_MAX_CLK_setLow:
+  2489                           
+  2490                           	psect	text11
+  2491     04AB                     __ptext11:	
+  2492 ;; *************** function _MAX_CLK_setHigh *****************
+  2493 ;; Defined at:
+  2494 ;;		line 106 in file "newmain14.c"
+  2495 ;; Parameters:    Size  Location     Type
+  2496 ;;		None
+  2497 ;; Auto vars:     Size  Location     Type
+  2498 ;;		None
+  2499 ;; Return value:  Size  Location     Type
+  2500 ;;                  1    wreg      void 
+  2501 ;; Registers used:
+  2502 ;;		None
+  2503 ;; Tracked objects:
+  2504 ;;		On entry : 0/0
+  2505 ;;		On exit  : 0/0
+  2506 ;;		Unchanged: 0/0
+  2507 ;; Data sizes:     COMMON   BANK0   BANK1
+  2508 ;;      Params:         0       0       0
+  2509 ;;      Locals:         0       0       0
+  2510 ;;      Temps:          0       0       0
+  2511 ;;      Totals:         0       0       0
+  2512 ;;Total ram usage:        0 bytes
+  2513 ;; Hardware stack levels used: 1
+  2514 ;; Hardware stack levels required when called: 1
+  2515 ;; This function calls:
+  2516 ;;		Nothing
+  2517 ;; This function is called by:
+  2518 ;;		_MAX7219_send
+  2519 ;; This function uses a non-reentrant model
+  2520 ;;
+  2521                           
+  2522     04AB                     _MAX_CLK_setHigh:	
+  2523                           ;psect for function _MAX_CLK_setHigh
+  2524                           
+  2525     04AB                     l1070:	
+  2526                           ;incstack = 0
+  2527                           ; Regs used in _MAX_CLK_setHigh: []
+  2528                           
+  2529                           
+  2530                           ;newmain14.c: 107:     RC2 = 1;
+  2531     04AB  1283               	bcf	3,5	;RP0=0, select bank0
+  2532     04AC  1303               	bcf	3,6	;RP1=0, select bank0
+  2533     04AD  1507               	bsf	7,2	;volatile
+  2534     04AE                     l61:
+  2535     04AE  0008               	return
+  2536     04AF                     __end_of_MAX_CLK_setHigh:
+  2537                           
+  2538                           	psect	text12
+  2539     03E7                     __ptext12:	
+  2540 ;; *************** function _COMAX7219_send *****************
+  2541 ;; Defined at:
+  2542 ;;		line 158 in file "newmain14.c"
+  2543 ;; Parameters:    Size  Location     Type
+  2544 ;;  reg             1    wreg     unsigned char 
+  2545 ;;  dat             1    2[BANK0 ] unsigned char 
+  2546 ;; Auto vars:     Size  Location     Type
+  2547 ;;  reg             1    9[BANK0 ] unsigned char 
+  2548 ;;  i               1   10[BANK0 ] unsigned char 
+  2549 ;;  d               2    7[BANK0 ] unsigned short 
+  2550 ;; Return value:  Size  Location     Type
+  2551 ;;                  1    wreg      void 
+  2552 ;; Registers used:
+  2553 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+  2554 ;; Tracked objects:
+  2555 ;;		On entry : 0/0
+  2556 ;;		On exit  : 0/0
+  2557 ;;		Unchanged: 0/0
+  2558 ;; Data sizes:     COMMON   BANK0   BANK1
+  2559 ;;      Params:         0       1       0
+  2560 ;;      Locals:         0       4       0
+  2561 ;;      Temps:          0       4       0
+  2562 ;;      Totals:         0       9       0
+  2563 ;;Total ram usage:        9 bytes
+  2564 ;; Hardware stack levels used: 1
+  2565 ;; Hardware stack levels required when called: 2
+  2566 ;; This function calls:
+  2567 ;;		_MAX_CLK2_setHigh
+  2568 ;;		_MAX_CLK2_setLow
+  2569 ;;		_MAX_DIN2_setHigh
+  2570 ;;		_MAX_DIN2_setLow
+  2571 ;;		_MAX_LAT2_setHigh
+  2572 ;;		_MAX_LAT2_setLow
+  2573 ;; This function is called by:
+  2574 ;;		_initMAXs
+  2575 ;;		_main
+  2576 ;; This function uses a non-reentrant model
+  2577 ;;
+  2578                           
+  2579     03E7                     _COMAX7219_send:	
+  2580                           ;psect for function _COMAX7219_send
+  2581                           
+  2582                           
+  2583                           ;incstack = 0
+  2584                           ; Regs used in _COMAX7219_send: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+  2585                           ;COMAX7219_send@reg stored from wreg
+  2586     03E7  1283               	bcf	3,5	;RP0=0, select bank0
+  2587     03E8  1303               	bcf	3,6	;RP1=0, select bank0
+  2588     03E9  00CD               	movwf	COMAX7219_send@reg
+  2589     03EA                     l1106:
+  2590                           
+  2591                           ;newmain14.c: 158: void COMAX7219_send(uint8_t reg, uint8_t dat);newmain14.c: 159:     {
+      +                          ;newmain14.c: 160:     uint16_t d=(reg<<8)|dat;
+  2592     03EA  0846               	movf	COMAX7219_send@dat,w
+  2593     03EB  00C7               	movwf	??_COMAX7219_send
+  2594     03EC  01C8               	clrf	??_COMAX7219_send+1
+  2595     03ED  084D               	movf	COMAX7219_send@reg,w
+  2596     03EE  00C9               	movwf	??_COMAX7219_send+2
+  2597     03EF  01CA               	clrf	??_COMAX7219_send+3
+  2598     03F0  0849               	movf	??_COMAX7219_send+2,w
+  2599     03F1  00CA               	movwf	??_COMAX7219_send+3
+  2600     03F2  01C9               	clrf	??_COMAX7219_send+2
+  2601     03F3  0847               	movf	??_COMAX7219_send,w
+  2602     03F4  0449               	iorwf	??_COMAX7219_send+2,w
+  2603     03F5  00CB               	movwf	COMAX7219_send@d
+  2604     03F6  0848               	movf	??_COMAX7219_send+1,w
+  2605     03F7  044A               	iorwf	??_COMAX7219_send+3,w
+  2606     03F8  00CC               	movwf	COMAX7219_send@d+1
+  2607     03F9                     l1108:
+  2608                           
+  2609                           ;newmain14.c: 161:      for (uint8_t i=0; i<16; i++)
+  2610     03F9  01CE               	clrf	COMAX7219_send@i
+  2611     03FA                     l1114:
+  2612                           
+  2613                           ;newmain14.c: 162:         {;newmain14.c: 163:         if (d & (0x8000>>i))
+  2614     03FA  3000               	movlw	0
+  2615     03FB  00C7               	movwf	??_COMAX7219_send
+  2616     03FC  3080               	movlw	128
+  2617     03FD  00C8               	movwf	??_COMAX7219_send+1
+  2618     03FE  0A4E               	incf	COMAX7219_send@i,w
+  2619     03FF  2C03               	goto	u514
+  2620     0400                     u515:
+  2621     0400  1003               	clrc
+  2622     0401  0CC8               	rrf	??_COMAX7219_send+1,f
+  2623     0402  0CC7               	rrf	??_COMAX7219_send,f
+  2624     0403                     u514:
+  2625     0403  3EFF               	addlw	-1
+  2626     0404  1D03               	skipz
+  2627     0405  2C00               	goto	u515
+  2628     0406  084B               	movf	COMAX7219_send@d,w
+  2629     0407  0547               	andwf	??_COMAX7219_send,w
+  2630     0408  00C9               	movwf	??_COMAX7219_send+2
+  2631     0409  084C               	movf	COMAX7219_send@d+1,w
+  2632     040A  0548               	andwf	??_COMAX7219_send+1,w
+  2633     040B  00CA               	movwf	??_COMAX7219_send+3
+  2634     040C  0849               	movf	??_COMAX7219_send+2,w
+  2635     040D  044A               	iorwf	??_COMAX7219_send+3,w
+  2636     040E  1903               	btfsc	3,2
+  2637     040F  2C11               	goto	u521
+  2638     0410  2C12               	goto	u520
+  2639     0411                     u521:
+  2640     0411  2C16               	goto	l1118
+  2641     0412                     u520:
+  2642     0412                     l1116:
+  2643                           
+  2644                           ;newmain14.c: 164:             {MAX_DIN2_setHigh();}
+  2645     0412  118A  24BB  118A   	fcall	_MAX_DIN2_setHigh
+  2646     0415  2C19               	goto	l95
+  2647     0416                     l1118:
+  2648                           
+  2649                           ;newmain14.c: 166:             {MAX_DIN2_setLow();}
+  2650     0416  118A  24B7  118A   	fcall	_MAX_DIN2_setLow
+  2651     0419                     l95:
+  2652                           
+  2653                           ;newmain14.c: 167:         MAX_CLK2_setHigh();
+  2654     0419  118A  24C3  118A   	fcall	_MAX_CLK2_setHigh
+  2655                           
+  2656                           ;newmain14.c: 168:         MAX_CLK2_setLow();
+  2657     041C  118A  24BF  118A   	fcall	_MAX_CLK2_setLow
+  2658     041F                     l1120:
+  2659                           
+  2660                           ;newmain14.c: 169:         }
+  2661     041F  3001               	movlw	1
+  2662     0420  00FF               	movwf	btemp+1
+  2663     0421  087F               	movf	btemp+1,w
+  2664     0422  1283               	bcf	3,5	;RP0=0, select bank0
+  2665     0423  1303               	bcf	3,6	;RP1=0, select bank0
+  2666     0424  07CE               	addwf	COMAX7219_send@i,f
+  2667     0425                     l1122:
+  2668     0425  3010               	movlw	16
+  2669     0426  024E               	subwf	COMAX7219_send@i,w
+  2670     0427  1C03               	skipc
+  2671     0428  2C2A               	goto	u531
+  2672     0429  2C2B               	goto	u530
+  2673     042A                     u531:
+  2674     042A  2BFA               	goto	l1114
+  2675     042B                     u530:
+  2676     042B                     l1124:
+  2677                           
+  2678                           ;newmain14.c: 170:     MAX_LAT2_setHigh();
+  2679     042B  118A  24B3  118A   	fcall	_MAX_LAT2_setHigh
+  2680                           
+  2681                           ;newmain14.c: 171:     MAX_LAT2_setLow();
+  2682     042E  118A  24AF  118A   	fcall	_MAX_LAT2_setLow
+  2683     0431                     l96:
+  2684     0431  0008               	return
+  2685     0432                     __end_of_COMAX7219_send:
+  2686                           
+  2687                           	psect	text13
+  2688     04AF                     __ptext13:	
+  2689 ;; *************** function _MAX_LAT2_setLow *****************
+  2690 ;; Defined at:
+  2691 ;;		line 126 in file "newmain14.c"
+  2692 ;; Parameters:    Size  Location     Type
+  2693 ;;		None
+  2694 ;; Auto vars:     Size  Location     Type
+  2695 ;;		None
+  2696 ;; Return value:  Size  Location     Type
+  2697 ;;                  1    wreg      void 
+  2698 ;; Registers used:
+  2699 ;;		None
+  2700 ;; Tracked objects:
+  2701 ;;		On entry : 0/0
+  2702 ;;		On exit  : 0/0
+  2703 ;;		Unchanged: 0/0
+  2704 ;; Data sizes:     COMMON   BANK0   BANK1
+  2705 ;;      Params:         0       0       0
+  2706 ;;      Locals:         0       0       0
+  2707 ;;      Temps:          0       0       0
+  2708 ;;      Totals:         0       0       0
+  2709 ;;Total ram usage:        0 bytes
+  2710 ;; Hardware stack levels used: 1
+  2711 ;; Hardware stack levels required when called: 1
+  2712 ;; This function calls:
+  2713 ;;		Nothing
+  2714 ;; This function is called by:
+  2715 ;;		_COMAX7219_send
+  2716 ;; This function uses a non-reentrant model
+  2717 ;;
+  2718                           
+  2719     04AF                     _MAX_LAT2_setLow:	
+  2720                           ;psect for function _MAX_LAT2_setLow
+  2721                           
+  2722     04AF                     l1080:	
+  2723                           ;incstack = 0
+  2724                           ; Regs used in _MAX_LAT2_setLow: []
+  2725                           
+  2726                           
+  2727                           ;newmain14.c: 127:     RA1 = 0;
+  2728     04AF  1283               	bcf	3,5	;RP0=0, select bank0
+  2729     04B0  1303               	bcf	3,6	;RP1=0, select bank0
+  2730     04B1  1085               	bcf	5,1	;volatile
+  2731     04B2                     l76:
+  2732     04B2  0008               	return
+  2733     04B3                     __end_of_MAX_LAT2_setLow:
+  2734                           
+  2735                           	psect	text14
+  2736     04B3                     __ptext14:	
+  2737 ;; *************** function _MAX_LAT2_setHigh *****************
+  2738 ;; Defined at:
+  2739 ;;		line 134 in file "newmain14.c"
+  2740 ;; Parameters:    Size  Location     Type
+  2741 ;;		None
+  2742 ;; Auto vars:     Size  Location     Type
+  2743 ;;		None
+  2744 ;; Return value:  Size  Location     Type
+  2745 ;;                  1    wreg      void 
+  2746 ;; Registers used:
+  2747 ;;		None
+  2748 ;; Tracked objects:
+  2749 ;;		On entry : 0/0
+  2750 ;;		On exit  : 0/0
+  2751 ;;		Unchanged: 0/0
+  2752 ;; Data sizes:     COMMON   BANK0   BANK1
+  2753 ;;      Params:         0       0       0
+  2754 ;;      Locals:         0       0       0
+  2755 ;;      Temps:          0       0       0
+  2756 ;;      Totals:         0       0       0
+  2757 ;;Total ram usage:        0 bytes
+  2758 ;; Hardware stack levels used: 1
+  2759 ;; Hardware stack levels required when called: 1
+  2760 ;; This function calls:
+  2761 ;;		Nothing
+  2762 ;; This function is called by:
+  2763 ;;		_COMAX7219_send
+  2764 ;; This function uses a non-reentrant model
+  2765 ;;
+  2766                           
+  2767     04B3                     _MAX_LAT2_setHigh:	
+  2768                           ;psect for function _MAX_LAT2_setHigh
+  2769                           
+  2770     04B3                     l1084:	
+  2771                           ;incstack = 0
+  2772                           ; Regs used in _MAX_LAT2_setHigh: []
+  2773                           
+  2774                           
+  2775                           ;newmain14.c: 135:     RA1 = 1;
+  2776     04B3  1283               	bcf	3,5	;RP0=0, select bank0
+  2777     04B4  1303               	bcf	3,6	;RP1=0, select bank0
+  2778     04B5  1485               	bsf	5,1	;volatile
+  2779     04B6                     l82:
+  2780     04B6  0008               	return
+  2781     04B7                     __end_of_MAX_LAT2_setHigh:
+  2782                           
+  2783                           	psect	text15
+  2784     04B7                     __ptext15:	
+  2785 ;; *************** function _MAX_DIN2_setLow *****************
+  2786 ;; Defined at:
+  2787 ;;		line 102 in file "newmain14.c"
+  2788 ;; Parameters:    Size  Location     Type
+  2789 ;;		None
+  2790 ;; Auto vars:     Size  Location     Type
+  2791 ;;		None
+  2792 ;; Return value:  Size  Location     Type
+  2793 ;;                  1    wreg      void 
+  2794 ;; Registers used:
+  2795 ;;		None
+  2796 ;; Tracked objects:
+  2797 ;;		On entry : 0/0
+  2798 ;;		On exit  : 0/0
+  2799 ;;		Unchanged: 0/0
+  2800 ;; Data sizes:     COMMON   BANK0   BANK1
+  2801 ;;      Params:         0       0       0
+  2802 ;;      Locals:         0       0       0
+  2803 ;;      Temps:          0       0       0
+  2804 ;;      Totals:         0       0       0
+  2805 ;;Total ram usage:        0 bytes
+  2806 ;; Hardware stack levels used: 1
+  2807 ;; Hardware stack levels required when called: 1
+  2808 ;; This function calls:
+  2809 ;;		Nothing
+  2810 ;; This function is called by:
+  2811 ;;		_COMAX7219_send
+  2812 ;; This function uses a non-reentrant model
+  2813 ;;
+  2814                           
+  2815     04B7                     _MAX_DIN2_setLow:	
+  2816                           ;psect for function _MAX_DIN2_setLow
+  2817                           
+  2818     04B7                     l1068:	
+  2819                           ;incstack = 0
+  2820                           ; Regs used in _MAX_DIN2_setLow: []
+  2821                           
+  2822                           
+  2823                           ;newmain14.c: 103:     RA0 = 0;
+  2824     04B7  1283               	bcf	3,5	;RP0=0, select bank0
+  2825     04B8  1303               	bcf	3,6	;RP1=0, select bank0
+  2826     04B9  1005               	bcf	5,0	;volatile
+  2827     04BA                     l58:
+  2828     04BA  0008               	return
+  2829     04BB                     __end_of_MAX_DIN2_setLow:
+  2830                           
+  2831                           	psect	text16
+  2832     04BB                     __ptext16:	
+  2833 ;; *************** function _MAX_DIN2_setHigh *****************
+  2834 ;; Defined at:
+  2835 ;;		line 94 in file "newmain14.c"
+  2836 ;; Parameters:    Size  Location     Type
+  2837 ;;		None
+  2838 ;; Auto vars:     Size  Location     Type
+  2839 ;;		None
+  2840 ;; Return value:  Size  Location     Type
+  2841 ;;                  1    wreg      void 
+  2842 ;; Registers used:
+  2843 ;;		None
+  2844 ;; Tracked objects:
+  2845 ;;		On entry : 0/0
+  2846 ;;		On exit  : 0/0
+  2847 ;;		Unchanged: 0/0
+  2848 ;; Data sizes:     COMMON   BANK0   BANK1
+  2849 ;;      Params:         0       0       0
+  2850 ;;      Locals:         0       0       0
+  2851 ;;      Temps:          0       0       0
+  2852 ;;      Totals:         0       0       0
+  2853 ;;Total ram usage:        0 bytes
+  2854 ;; Hardware stack levels used: 1
+  2855 ;; Hardware stack levels required when called: 1
+  2856 ;; This function calls:
+  2857 ;;		Nothing
+  2858 ;; This function is called by:
+  2859 ;;		_COMAX7219_send
+  2860 ;; This function uses a non-reentrant model
+  2861 ;;
+  2862                           
+  2863     04BB                     _MAX_DIN2_setHigh:	
+  2864                           ;psect for function _MAX_DIN2_setHigh
+  2865                           
+  2866     04BB                     l1064:	
+  2867                           ;incstack = 0
+  2868                           ; Regs used in _MAX_DIN2_setHigh: []
+  2869                           
+  2870                           
+  2871                           ;newmain14.c: 95:     RA0 = 1;
+  2872     04BB  1283               	bcf	3,5	;RP0=0, select bank0
+  2873     04BC  1303               	bcf	3,6	;RP1=0, select bank0
+  2874     04BD  1405               	bsf	5,0	;volatile
+  2875     04BE                     l52:
+  2876     04BE  0008               	return
+  2877     04BF                     __end_of_MAX_DIN2_setHigh:
+  2878                           
+  2879                           	psect	text17
+  2880     04BF                     __ptext17:	
+  2881 ;; *************** function _MAX_CLK2_setLow *****************
+  2882 ;; Defined at:
+  2883 ;;		line 118 in file "newmain14.c"
+  2884 ;; Parameters:    Size  Location     Type
+  2885 ;;		None
+  2886 ;; Auto vars:     Size  Location     Type
+  2887 ;;		None
+  2888 ;; Return value:  Size  Location     Type
+  2889 ;;                  1    wreg      void 
+  2890 ;; Registers used:
+  2891 ;;		None
+  2892 ;; Tracked objects:
+  2893 ;;		On entry : 0/0
+  2894 ;;		On exit  : 0/0
+  2895 ;;		Unchanged: 0/0
+  2896 ;; Data sizes:     COMMON   BANK0   BANK1
+  2897 ;;      Params:         0       0       0
+  2898 ;;      Locals:         0       0       0
+  2899 ;;      Temps:          0       0       0
+  2900 ;;      Totals:         0       0       0
+  2901 ;;Total ram usage:        0 bytes
+  2902 ;; Hardware stack levels used: 1
+  2903 ;; Hardware stack levels required when called: 1
+  2904 ;; This function calls:
+  2905 ;;		Nothing
+  2906 ;; This function is called by:
+  2907 ;;		_COMAX7219_send
+  2908 ;; This function uses a non-reentrant model
+  2909 ;;
+  2910                           
+  2911     04BF                     _MAX_CLK2_setLow:	
+  2912                           ;psect for function _MAX_CLK2_setLow
+  2913                           
+  2914     04BF                     l1076:	
+  2915                           ;incstack = 0
+  2916                           ; Regs used in _MAX_CLK2_setLow: []
+  2917                           
+  2918                           
+  2919                           ;newmain14.c: 119:     RA2 = 0;
+  2920     04BF  1283               	bcf	3,5	;RP0=0, select bank0
+  2921     04C0  1303               	bcf	3,6	;RP1=0, select bank0
+  2922     04C1  1105               	bcf	5,2	;volatile
+  2923     04C2                     l70:
+  2924     04C2  0008               	return
+  2925     04C3                     __end_of_MAX_CLK2_setLow:
+  2926                           
+  2927                           	psect	text18
+  2928     04C3                     __ptext18:	
+  2929 ;; *************** function _MAX_CLK2_setHigh *****************
+  2930 ;; Defined at:
+  2931 ;;		line 110 in file "newmain14.c"
+  2932 ;; Parameters:    Size  Location     Type
+  2933 ;;		None
+  2934 ;; Auto vars:     Size  Location     Type
+  2935 ;;		None
+  2936 ;; Return value:  Size  Location     Type
+  2937 ;;                  1    wreg      void 
+  2938 ;; Registers used:
+  2939 ;;		None
+  2940 ;; Tracked objects:
+  2941 ;;		On entry : 0/0
+  2942 ;;		On exit  : 0/0
+  2943 ;;		Unchanged: 0/0
+  2944 ;; Data sizes:     COMMON   BANK0   BANK1
+  2945 ;;      Params:         0       0       0
+  2946 ;;      Locals:         0       0       0
+  2947 ;;      Temps:          0       0       0
+  2948 ;;      Totals:         0       0       0
+  2949 ;;Total ram usage:        0 bytes
+  2950 ;; Hardware stack levels used: 1
+  2951 ;; Hardware stack levels required when called: 1
+  2952 ;; This function calls:
+  2953 ;;		Nothing
+  2954 ;; This function is called by:
+  2955 ;;		_COMAX7219_send
+  2956 ;; This function uses a non-reentrant model
+  2957 ;;
+  2958                           
+  2959     04C3                     _MAX_CLK2_setHigh:	
+  2960                           ;psect for function _MAX_CLK2_setHigh
+  2961                           
+  2962     04C3                     l1072:	
+  2963                           ;incstack = 0
+  2964                           ; Regs used in _MAX_CLK2_setHigh: []
+  2965                           
+  2966                           
+  2967                           ;newmain14.c: 111:     RA2 = 1;
+  2968     04C3  1283               	bcf	3,5	;RP0=0, select bank0
+  2969     04C4  1303               	bcf	3,6	;RP1=0, select bank0
+  2970     04C5  1505               	bsf	5,2	;volatile
+  2971     04C6                     l64:
+  2972     04C6  0008               	return
+  2973     04C7                     __end_of_MAX_CLK2_setHigh:
+  2974                           
+  2975                           	psect	text19
+  2976     0483                     __ptext19:	
+  2977 ;; *************** function _isr *****************
+  2978 ;; Defined at:
+  2979 ;;		line 260 in file "newmain14.c"
+  2980 ;; Parameters:    Size  Location     Type
+  2981 ;;		None
+  2982 ;; Auto vars:     Size  Location     Type
+  2983 ;;		None
+  2984 ;; Return value:  Size  Location     Type
+  2985 ;;                  1    wreg      void 
+  2986 ;; Registers used:
+  2987 ;;		None
+  2988 ;; Tracked objects:
+  2989 ;;		On entry : 0/0
+  2990 ;;		On exit  : 0/0
+  2991 ;;		Unchanged: 0/0
+  2992 ;; Data sizes:     COMMON   BANK0   BANK1
+  2993 ;;      Params:         0       0       0
+  2994 ;;      Locals:         0       0       0
+  2995 ;;      Temps:          0       2       0
+  2996 ;;      Totals:         0       2       0
+  2997 ;;Total ram usage:        2 bytes
+  2998 ;; Hardware stack levels used: 1
+  2999 ;; This function calls:
+  3000 ;;		Nothing
+  3001 ;; This function is called by:
+  3002 ;;		Interrupt level 1
+  3003 ;; This function uses a non-reentrant model
+  3004 ;;
+  3005                           
+  3006     0483                     _isr:	
+  3007                           ;psect for function _isr
+  3008                           
+  3009     0483                     i1l1204:
+  3010                           
+  3011                           ;newmain14.c: 261:     if (INTCONbits.TMR0IF) {
+  3012     0483  1D0B               	btfss	11,2	;volatile
+  3013     0484  2C86               	goto	u66_21
+  3014     0485  2C87               	goto	u66_20
+  3015     0486                     u66_21:
+  3016     0486  2C88               	goto	i1l123
+  3017     0487                     u66_20:
+  3018     0487                     i1l1206:
+  3019                           
+  3020                           ;newmain14.c: 263:         INTCONbits.TMR0IF = 0;
+  3021     0487  110B               	bcf	11,2	;volatile
+  3022     0488                     i1l123:
+  3023     0488  0845               	movf	??_isr+1,w
+  3024     0489  008A               	movwf	10
+  3025     048A  0E44               	swapf	??_isr,w
+  3026     048B  0083               	movwf	3
+  3027     048C  0EFE               	swapf	btemp,f
+  3028     048D  0E7E               	swapf	btemp,w
+  3029     048E  0009               	retfie
+  3030     048F                     __end_of_isr:
+  3031     007E                     btemp	set	126	;btemp
+  3032     007E                     wtemp0	set	126
+  3033                           
+  3034                           	psect	intentry
+  3035     0004                     __pintentry:	
+  3036                           ;incstack = 0
+  3037                           ; Regs used in _isr: []
+  3038                           
+  3039     0004                     interrupt_function:
+  3040     007E                     saved_w	set	btemp
+  3041     0004  00FE               	movwf	btemp
+  3042     0005  0E03               	swapf	3,w
+  3043     0006  1283               	bcf	3,5	;RP0=0, select bank0
+  3044     0007  1303               	bcf	3,6	;RP1=0, select bank0
+  3045     0008  00C4               	movwf	??_isr
+  3046     0009  080A               	movf	10,w
+  3047     000A  00C5               	movwf	??_isr+1
+  3048     000B  118A  2C83         	ljmp	_isr
+  3049                           
+  3050                           	psect	config
+  3051                           
+  3052                           ;Config register CONFIG @ 0x2007
+  3053                           ;	Oscillator Selection bits
+  3054                           ;	FOSC = HS, HS oscillator
+  3055                           ;	Watchdog Timer Enable bit
+  3056                           ;	WDTE = OFF, WDT disabled
+  3057                           ;	Power-up Timer Enable bit
+  3058                           ;	PWRTE = ON, PWRT enabled
+  3059                           ;	FLASH Program Memory Code Protection bit
+  3060                           ;	CP = OFF, Code protection off
+  3061                           ;	Brown-out Reset Enable bit
+  3062                           ;	BOREN = ON, BOR enabled
+  3063     2007                     	org	8199
+  3064     2007  3FF2               	dw	16370
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        2
+    BSS         36
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON            0      0       0
+    BANK0            94     11      49
+    BANK1            94      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    None.
+
+Critical Paths under _isr in COMMON
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    _main->_COMAX7219_send
+    _main->_MAX7219_send
+    _initMAXs->_COMAX7219_send
+    _initMAXs->_MAX7219_send
+
+Critical Paths under _isr in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _isr in BANK1
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 0     0      0    4462
+                     _COMAX7219_send
+                       _MAX7219_send
+                           _initMAXs
+                       _receive_byte
+                          _send_byte
+                        _setup_timer
+ ---------------------------------------------------------------------------------
+ (1) _setup_timer                                          0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _send_byte                                            4     4      0     158
+                                              2 BANK0      4     4      0
+ ---------------------------------------------------------------------------------
+ (1) _receive_byte                                         4     4      0     116
+                                              2 BANK0      4     4      0
+ ---------------------------------------------------------------------------------
+ (1) _initMAXs                                             0     0      0    2094
+                     _COMAX7219_send
+                       _MAX7219_send
+ ---------------------------------------------------------------------------------
+ (2) _MAX7219_send                                         9     8      1    1047
+                                              2 BANK0      9     8      1
+                    _MAX_CLK_setHigh
+                     _MAX_CLK_setLow
+                    _MAX_DIN_setHigh
+                     _MAX_DIN_setLow
+                    _MAX_LAT_setHigh
+                     _MAX_LAT_setLow
+ ---------------------------------------------------------------------------------
+ (3) _MAX_LAT_setLow                                       0     0      0       0
+ ---------------------------------------------------------------------------------
+ (3) _MAX_LAT_setHigh                                      0     0      0       0
+ ---------------------------------------------------------------------------------
+ (3) _MAX_DIN_setLow                                       0     0      0       0
+ ---------------------------------------------------------------------------------
+ (3) _MAX_DIN_setHigh                                      0     0      0       0
+ ---------------------------------------------------------------------------------
+ (3) _MAX_CLK_setLow                                       0     0      0       0
+ ---------------------------------------------------------------------------------
+ (3) _MAX_CLK_setHigh                                      0     0      0       0
+ ---------------------------------------------------------------------------------
+ (2) _COMAX7219_send                                       9     8      1    1047
+                                              2 BANK0      9     8      1
+                   _MAX_CLK2_setHigh
+                    _MAX_CLK2_setLow
+                   _MAX_DIN2_setHigh
+                    _MAX_DIN2_setLow
+                   _MAX_LAT2_setHigh
+                    _MAX_LAT2_setLow
+ ---------------------------------------------------------------------------------
+ (3) _MAX_LAT2_setLow                                      0     0      0       0
+ ---------------------------------------------------------------------------------
+ (3) _MAX_LAT2_setHigh                                     0     0      0       0
+ ---------------------------------------------------------------------------------
+ (3) _MAX_DIN2_setLow                                      0     0      0       0
+ ---------------------------------------------------------------------------------
+ (3) _MAX_DIN2_setHigh                                     0     0      0       0
+ ---------------------------------------------------------------------------------
+ (3) _MAX_CLK2_setLow                                      0     0      0       0
+ ---------------------------------------------------------------------------------
+ (3) _MAX_CLK2_setHigh                                     0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 3
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (4) _isr                                                  2     2      0       0
+                                              0 BANK0      2     2      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 4
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _COMAX7219_send
+     _MAX_CLK2_setHigh
+     _MAX_CLK2_setLow
+     _MAX_DIN2_setHigh
+     _MAX_DIN2_setLow
+     _MAX_LAT2_setHigh
+     _MAX_LAT2_setLow
+   _MAX7219_send
+     _MAX_CLK_setHigh
+     _MAX_CLK_setLow
+     _MAX_DIN_setHigh
+     _MAX_DIN_setLow
+     _MAX_LAT_setHigh
+     _MAX_LAT_setLow
+   _initMAXs
+     _COMAX7219_send
+     _MAX7219_send
+   _receive_byte
+   _send_byte
+   _setup_timer
+
+ _isr (ROOT)
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+SFR3                 0      0       0       4        0.0%
+BITSFR3              0      0       0       4        0.0%
+SFR2                 0      0       0       5        0.0%
+BITSFR2              0      0       0       5        0.0%
+BANK1               5E      0       0       7        0.0%
+BITBANK1            5E      0       0       6        0.0%
+SFR1                 0      0       0       2        0.0%
+BITSFR1              0      0       0       2        0.0%
+BANK0               5E      B      31       5       52.1%
+BITBANK0            5E      0       0       4        0.0%
+SFR0                 0      0       0       1        0.0%
+BITSFR0              0      0       0       1        0.0%
+COMMON               0      0       0       1        0.0%
+BITCOMMON            0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+DATA                 0      0      31       8        0.0%
+ABS                  0      0      31       3        0.0%
+NULL                 0      0       0       0        0.0%
+STACK                0      0       0       2        0.0%
+
+
+Microchip Technology PIC Macro Assembler V2.46 build 20240104201356 
+Symbol Table                                                                                   Thu Sep 12 16:40:12 2024
+
+                       _i 003E                        l52 04BE                        l61 04AE  
+                      l70 04C2                        l55 04A2                        l64 04C6  
+                      l49 04A6                        l73 049A                        l58 04BA  
+                      l82 04B6                        l67 04AA                        l76 04B2  
+                      l95 0419                        l79 049E                        l96 0431  
+                      l88 03CE                        l89 03E6                        l99 0472  
+                      fsr 0004                       l110 034D                       l102 0482  
+                     l130 0082                       l107 0348                       l117 039B  
+                     l133 009B                       l142 00E6                       l151 0131  
+                     l160 0191                       l136 00B4                       l145 00FF  
+                     l154 015F                       l163 01AA                       l139 00CD  
+                     l148 0118                       l157 0178                       l169 02C3  
+                     _BCC 003F                       _RA0 0028                       _RA1 0029  
+                     _RA2 002A                       _RC0 0038                       _RC1 0039  
+                     _RC2 003A                       u500 03E0                       u501 03DF  
+                     u520 0412                       u600 032E                       u521 0411  
+                     u601 032D                       u530 042B                       u514 0403  
+                     u610 0336                       u531 042A                       u515 0400  
+                     u611 0332                       u700 0098                       u701 0097  
+                     u630 0351                       u550 0307                       u710 00AB  
+                     u631 0350                       u551 0303                       u711 00AA  
+                     u624 0339                       u544 02FD                       u800 0115  
+                     u720 00B1                       u545 02FB                       u801 0114  
+                     u721 00B0                       u490 03C7                       u650 0388  
+                     u810 0128                       u730 00C4                       u491 03C6  
+                     u651 0387                       u811 0127                       u731 00C3  
+                     u484 03B8                       u644 036E                       u580 0318  
+                     u564 030A                       u900 01C3                       u820 012E  
+                     u740 00CA                       u485 03B5                       u645 036C  
+                     u581 0316                       u901 01C2                       u821 012D  
+                     u741 00C9                       u590 0319                       u574 0310  
+                     u910 01D0                       u830 015C                       u750 00DD  
+                     u670 0079                       u575 030E                       u911 01CF  
+                     u831 015B                       u751 00DC                       u671 0078  
+                     u920 02C2                       u840 016F                       u760 00E3  
+                     u680 007F                       u921 02C1                       u841 016E  
+                     u761 00E2                       u681 007E                       u930 02D7  
+                     u850 0175                       u770 00F6                       u690 0092  
+                     u931 02D6                       u851 0174                       u771 00F5  
+                     u691 0091                       u940 02DD                       u860 0188  
+                     u780 00FC                       u941 02DC                       u861 0187  
+                     u781 00FB                       u870 018E                       u790 010F  
+                     u871 018D                       u791 010E                       u880 01A1  
+                     u881 01A0                       u890 01A7                       u891 01A6  
+                     u957 02F2                       u967 0320                       u977 033D  
+                     u987 0346                       u997 0355                       _isr 0483  
+                     fsr0 0004                       indf 0000   __end_of_MAX_LAT_setHigh 049F  
+                    l1100 03D4                      l1102 03DA                      l1120 041F  
+                    l1104 03E0                      l1200 039A                      l1122 0425  
+                    l1114 03FA                      l1106 03EA                      l1130 0476  
+                    l1210 0029                      l1124 042B                      l1116 0412  
+                    l1108 03F9                      l1140 0480                      l1132 0479  
+                    l1300 00B6                      l1220 0038                      l1212 002C  
+                    l1118 0416                      l1070 04AB                      l1062 04A3  
+                    l1126 0432                      l1150 02F4                      l1142 0481  
+                    l1134 047A                      l1310 00D6                      l1302 00BD  
+                    l1230 0042                      l1222 003A                      l1214 002F  
+                    l1072 04C3                      l1064 04BB                      l1080 04AF  
+                    l1160 0322                      l1144 02EC                      l1136 047E  
+                    l1128 0473                      l1400 01FE                      l1320 00F6  
+                    l1312 00DD                      l1304 00C4                      l1240 004C  
+                    l1232 0044                      l1224 003C                      l1216 0032  
+                    l1208 0021                      l1074 04A7                      l1066 049F  
+                    l1082 049B                      l1170 0342                      l1162 0328  
+                    l1154 02F7                      l1146 02ED                      l1138 047F  
+                    l1410 021E                      l1402 0206                      l1330 0115  
+                    l1322 00FC                      l1314 00E3                      l1306 00CA  
+                    l1250 0056                      l1242 004E                      l1234 0046  
+                    l1226 003E                      l1218 0036                      l1076 04BF  
+                    l1068 04B7                      l1084 04B3                      l1172 0349  
+                    l1164 032E                      l1156 030A                      l1148 02EE  
+                    l1420 0238                      l1412 0220                      l1404 0208  
+                    l1340 0133                      l1332 011A                      l1324 0101  
+                    l1316 00E8                      l1308 00CF                      l1260 0060  
+                    l1252 0058                      l1244 0050                      l1236 0048  
+                    l1228 0040                      l1078 0497                      l1094 03AF  
+                    l1086 039F                      l1190 0382                      l1182 035B  
+                    l1174 0351                      l1166 0339                      l1158 031C  
+                    l1430 0258                      l1422 0240                      l1414 0228  
+                    l1406 0210                      l1350 0161                      l1342 0153  
+                    l1334 0121                      l1326 0108                      l1318 00EF  
+                    l1270 006A                      l1262 0062                      l1254 005A  
+                    l1246 0052                      l1238 004A                      l1096 03C7  
+                    l1088 03AE                      l1192 0388                      l1184 0361  
+                    l1176 0358                      l1168 033F                      l1440 0276  
+                    l1432 025E                      l1424 0246                      l1416 022E  
+                    l1408 0216                      l1360 0181                      l1352 0168  
+                    l1344 0156                      l1336 0128                      l1328 010F  
+                    l1280 0079                      l1272 006C                      l1264 0064  
+                    l1256 005C                      l1248 0054                      l1098 03CB  
+                    l1194 038E                      l1186 0375                      l1450 0296  
+                    l1442 027E                      l1434 0266                      l1426 024E  
+                    l1418 0236                      l1370 01A1                      l1362 0188  
+                    l1354 016F                      l1346 0156                      l1338 012E  
+                    l1290 0098                      l1282 007F                      l1274 006E  
+                    l1266 0066                      l1258 005E                      l1196 0391  
+                    l1188 037E                      l1460 02B0                      l1452 0298  
+                    l1444 0280                      l1436 0268                      l1428 0250  
+                    l1380 01C4                      l1372 01A7                      l1364 018E  
+                    l1356 0175                      l1348 015C                      l1292 009D  
+                    l1284 0084                      l1276 0070                      l1268 0068  
+                    l1198 0397                      l1462 02B8                      l1454 02A0  
+                    l1446 0288                      l1438 0270                      l1390 01E0  
+                    l1382 01CA                      l1374 01AC                      l1366 0193  
+                    l1358 017A                      l1294 00A4                      l1286 008B  
+                    l1278 0072                      l1480 02D7                      l1464 02BC  
+                    l1456 02A6                      l1448 028E                      l1392 01E6  
+                    l1384 01D0                      l1376 01BC                      l1368 019A  
+                    l1296 00AB                      l1288 0092                      l1482 02DD  
+                    l1474 02C6                      l1466 02C2                      l1458 02AE  
+                    l1394 01EE                      l1386 01D6                      l1298 00B1  
+                    l1484 02E2                      l1476 02CD                      l1468 02C4  
+                    l1396 01F0                      l1388 01D8                      l1478 02D1  
+                    l1398 01F8                      ?_isr 0044                      u1007 035F  
+                    u1017 038C                      u1027 0395                      _TMR0 0001  
+                    _dMil 004F                      _nSTX 0041                      _main 0021  
+                    btemp 007E          ?_MAX_LAT2_setLow 0044                      start 000D  
+        ?_MAX_CLK_setHigh 0044          ?_MAX_DIN_setHigh 0044                     ??_isr 0044  
+          _COMAX7219_send 03E7                     ?_main 0044                     i1l123 0488  
+                   _TRISA 0085                     _TRISB 0086                     _TRISC 0087  
+                   u66_20 0487                     u66_21 0486           send_byte@parity 0047  
+                   _nbyte 0042         ?_MAX_LAT2_setHigh 0044                     pclath 000A  
+                   status 0003                     wtemp0 007E        ??_MAX_LAT2_setHigh 0000  
+    __end_of_MAX7219_send 03E7           __initialization 000F    __end_of_COMAX7219_send 0432  
+            __end_of_main 02E9             receive_byte@i 0049                    ??_main 0000  
+        ?_MAX_LAT_setHigh 0044                    i1l1204 0483                    i1l1206 0487  
+         ?_COMAX7219_send 0046          __end_of_initMAXs 0473          receive_byte@data 0047  
+                  saved_w 007E              ?_setup_timer 0044   __end_of__initialization 001E  
+           ?_receive_byte 0044            __pcstackCOMMON 0000              __pidataBANK0 04C7  
+          _OPTION_REGbits 0081                __pbssBANK0 0020            ??_receive_byte 0046  
+              __pmaintext 0021                __pintentry 0004              _MAX7219_send 039C  
+               ?_initMAXs 0044           COMAX7219_send@d 004B           COMAX7219_send@i 004E  
+                 _cMillon 0050            _MAX_CLK_setLow 04A7            _MAX_DIN_setLow 049F  
+        _MAX_CLK2_setHigh 04C3                   __ptext1 0473                   __ptext2 02E9  
+                 __ptext3 0349                   __ptext4 0432                   __ptext5 039C  
+                 __ptext6 0497                   __ptext7 049B                   __ptext8 049F  
+                 __ptext9 04A3          _MAX_DIN2_setHigh 04BB                   clrloop0 0490  
+    end_of_initialization 001E                ??_initMAXs 0000         __end_of_send_byte 0349  
+        ??_COMAX7219_send 0047            _MAX_LAT_setLow 0497         ??_MAX_CLK2_setLow 0000  
+  __end_of_MAX_CLK_setLow 04AB         ??_MAX_DIN2_setLow 0000    __end_of_MAX_DIN_setLow 04A3  
+    __end_of_receive_byte 039C                 _PORTCbits 0007    __end_of_MAX_LAT_setLow 049B  
+           send_byte@data 0048           ?_MAX_CLK_setLow 0044           ?_MAX_DIN_setLow 0044  
+       ??_MAX_LAT2_setLow 0000       start_initialization 000F               __end_of_isr 048F  
+       ??_MAX_CLK_setHigh 0000         COMAX7219_send@dat 0046         COMAX7219_send@reg 004D  
+       ??_MAX_DIN_setHigh 0000           ?_MAX_LAT_setLow 0044          _MAX_LAT2_setHigh 04B3  
+             __pdataBANK0 004F                 ___latbits 0001             __pcstackBANK0 0044  
+__end_of_MAX_CLK2_setHigh 04C7  __end_of_MAX_DIN2_setHigh 04BF         ??_MAX_LAT_setHigh 0000  
+              send_byte@i 0049                 _byteValue 0043             MAX7219_send@d 004B  
+           MAX7219_send@i 004E           _MAX_CLK2_setLow 04BF           _MAX_DIN2_setLow 04B7  
+       interrupt_function 0004              _receive_byte 0349                 clear_ram0 048F  
+               _send_byte 02E9                 _zerosleft 0040             ??_setup_timer 0000  
+        ??_MAX_CLK_setLow 0000          ??_MAX_DIN_setLow 0000                ?_send_byte 0044  
+         _MAX_LAT2_setLow 04AF           _MAX_CLK_setHigh 04AB           MAX7219_send@dat 0046  
+         MAX7219_send@reg 004D           _MAX_DIN_setHigh 04A3   __end_of_MAX_CLK2_setLow 04C3  
+ __end_of_MAX_DIN2_setLow 04BB          ??_MAX_LAT_setLow 0000                  __ptext10 04A7  
+                __ptext11 04AB                  __ptext12 03E7                  __ptext13 04AF  
+                __ptext14 04B3                  __ptext15 04B7                  __ptext16 04BB  
+                __ptext17 04BF                  __ptext18 04C3                  __ptext19 0483  
+                _bufferin 0020  __end_of_MAX_LAT2_setHigh 04B7                  _initMAXs 0432  
+      receive_byte@parity 0048       __end_of_setup_timer 0483             ?_MAX7219_send 0046  
+              _INTCONbits 000B                  intlevel1 0000           _MAX_LAT_setHigh 049B  
+       ?_MAX_CLK2_setHigh 0044   __end_of_MAX_LAT2_setLow 04B3               ??_send_byte 0046  
+      ??_MAX_CLK2_setHigh 0000         ?_MAX_DIN2_setHigh 0044   __end_of_MAX_CLK_setHigh 04AF  
+      ??_MAX_DIN2_setHigh 0000   __end_of_MAX_DIN_setHigh 04A7            ??_MAX7219_send 0047  
+        ?_MAX_CLK2_setLow 0044          ?_MAX_DIN2_setLow 0044               _setup_timer 0473  
