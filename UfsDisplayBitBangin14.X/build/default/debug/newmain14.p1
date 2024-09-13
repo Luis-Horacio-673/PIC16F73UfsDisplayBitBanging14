@@ -244,704 +244,734 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;newmain14.c: 79: unsigned char bufferin[30];
 [v _bufferin `uc ~T0 @X0 -> 30 `i e ]
 "80
-[; ;newmain14.c: 80: unsigned char cMillon = 0x30;
-[v _cMillon `uc ~T0 @X0 1 e ]
-[i _cMillon
--> -> 48 `i `uc
-]
-"81
-[; ;newmain14.c: 81: unsigned char dMil = 0x30;
+[; ;newmain14.c: 80: unsigned char dMil = 0x30;
 [v _dMil `uc ~T0 @X0 1 e ]
 [i _dMil
 -> -> 48 `i `uc
 ]
-"82
-[; ;newmain14.c: 82: unsigned char byteValue = 0;
+"81
+[; ;newmain14.c: 81: unsigned char byteValue = 0;
 [v _byteValue `uc ~T0 @X0 1 e ]
 [i _byteValue
 -> -> 0 `i `uc
 ]
-"83
-[; ;newmain14.c: 83: signed char nbyte = 0;
+"82
+[; ;newmain14.c: 82: signed char nbyte = 0;
 [v _nbyte `c ~T0 @X0 1 e ]
 [i _nbyte
 -> -> 0 `i `c
 ]
-"84
-[; ;newmain14.c: 84: unsigned char nSTX = 0;
+"83
+[; ;newmain14.c: 83: unsigned char nSTX = 0;
 [v _nSTX `uc ~T0 @X0 1 e ]
 [i _nSTX
 -> -> 0 `i `uc
 ]
-"85
-[; ;newmain14.c: 85: unsigned char zerosleft = 0;
+"84
+[; ;newmain14.c: 84: unsigned char zerosleft = 0;
 [v _zerosleft `uc ~T0 @X0 1 e ]
 [i _zerosleft
 -> -> 0 `i `uc
 ]
-"86
-[; ;newmain14.c: 86: unsigned char BCC = 0;
+"85
+[; ;newmain14.c: 85: unsigned char BCC = 0;
 [v _BCC `uc ~T0 @X0 1 e ]
 [i _BCC
 -> -> 0 `i `uc
 ]
-"87
-[; ;newmain14.c: 87: unsigned char i = 0;
+"86
+[; ;newmain14.c: 86: unsigned char i = 0;
 [v _i `uc ~T0 @X0 1 e ]
 [i _i
 -> -> 0 `i `uc
 ]
+"87
+[; ;newmain14.c: 87: unsigned char cMillon = 0x30;
+[v _cMillon `uc ~T0 @X0 1 e ]
+[i _cMillon
+-> -> 48 `i `uc
+]
+"88
+[; ;newmain14.c: 88: unsigned char sMillosold = 0x30;
+[v _sMillosold `uc ~T0 @X0 1 e ]
+[i _sMillosold
+-> -> 48 `i `uc
+]
+"89
+[; ;newmain14.c: 89: unsigned char sMillosnew = 0x30;
+[v _sMillosnew `uc ~T0 @X0 1 e ]
+[i _sMillosnew
+-> -> 48 `i `uc
+]
 "90
-[; ;newmain14.c: 90: void MAX_DIN_setHigh() {
+[; ;newmain14.c: 90: unsigned char sMilold = 0x30;
+[v _sMilold `uc ~T0 @X0 1 e ]
+[i _sMilold
+-> -> 48 `i `uc
+]
+"91
+[; ;newmain14.c: 91: unsigned char sMilnew = 0x30;
+[v _sMilnew `uc ~T0 @X0 1 e ]
+[i _sMilnew
+-> -> 48 `i `uc
+]
+"92
+[; ;newmain14.c: 92: unsigned char flagCien = 0x30;
+[v _flagCien `uc ~T0 @X0 1 e ]
+[i _flagCien
+-> -> 48 `i `uc
+]
+"94
+[; ;newmain14.c: 94: void MAX_DIN_setHigh() {
 [v _MAX_DIN_setHigh `(v ~T0 @X0 1 ef ]
 {
 [e :U _MAX_DIN_setHigh ]
 [f ]
-"91
-[; ;newmain14.c: 91:     RC0 = 1;
+"95
+[; ;newmain14.c: 95:     RC0 = 1;
 [e = _RC0 -> -> 1 `i `b ]
-"92
-[; ;newmain14.c: 92: }
+"96
+[; ;newmain14.c: 96: }
 [e :UE 85 ]
 }
-"94
-[; ;newmain14.c: 94: void MAX_DIN2_setHigh() {
+"98
+[; ;newmain14.c: 98: void MAX_DIN2_setHigh() {
 [v _MAX_DIN2_setHigh `(v ~T0 @X0 1 ef ]
 {
 [e :U _MAX_DIN2_setHigh ]
 [f ]
-"95
-[; ;newmain14.c: 95:     RA0 = 1;
+"99
+[; ;newmain14.c: 99:     RA0 = 1;
 [e = _RA0 -> -> 1 `i `b ]
-"96
-[; ;newmain14.c: 96: }
+"100
+[; ;newmain14.c: 100: }
 [e :UE 86 ]
 }
-"98
-[; ;newmain14.c: 98: void MAX_DIN_setLow(){
+"102
+[; ;newmain14.c: 102: void MAX_DIN_setLow(){
 [v _MAX_DIN_setLow `(v ~T0 @X0 1 ef ]
 {
 [e :U _MAX_DIN_setLow ]
 [f ]
-"99
-[; ;newmain14.c: 99:     RC0 = 0;
+"103
+[; ;newmain14.c: 103:     RC0 = 0;
 [e = _RC0 -> -> 0 `i `b ]
-"100
-[; ;newmain14.c: 100: }
+"104
+[; ;newmain14.c: 104: }
 [e :UE 87 ]
 }
-"102
-[; ;newmain14.c: 102: void MAX_DIN2_setLow(){
+"106
+[; ;newmain14.c: 106: void MAX_DIN2_setLow(){
 [v _MAX_DIN2_setLow `(v ~T0 @X0 1 ef ]
 {
 [e :U _MAX_DIN2_setLow ]
 [f ]
-"103
-[; ;newmain14.c: 103:     RA0 = 0;
+"107
+[; ;newmain14.c: 107:     RA0 = 0;
 [e = _RA0 -> -> 0 `i `b ]
-"104
-[; ;newmain14.c: 104: }
+"108
+[; ;newmain14.c: 108: }
 [e :UE 88 ]
 }
-"106
-[; ;newmain14.c: 106: void MAX_CLK_setHigh(){
+"110
+[; ;newmain14.c: 110: void MAX_CLK_setHigh(){
 [v _MAX_CLK_setHigh `(v ~T0 @X0 1 ef ]
 {
 [e :U _MAX_CLK_setHigh ]
 [f ]
-"107
-[; ;newmain14.c: 107:     RC2 = 1;
+"111
+[; ;newmain14.c: 111:     RC2 = 1;
 [e = _RC2 -> -> 1 `i `b ]
-"108
-[; ;newmain14.c: 108: }
+"112
+[; ;newmain14.c: 112: }
 [e :UE 89 ]
 }
-"110
-[; ;newmain14.c: 110: void MAX_CLK2_setHigh(){
+"114
+[; ;newmain14.c: 114: void MAX_CLK2_setHigh(){
 [v _MAX_CLK2_setHigh `(v ~T0 @X0 1 ef ]
 {
 [e :U _MAX_CLK2_setHigh ]
 [f ]
-"111
-[; ;newmain14.c: 111:     RA2 = 1;
+"115
+[; ;newmain14.c: 115:     RA2 = 1;
 [e = _RA2 -> -> 1 `i `b ]
-"112
-[; ;newmain14.c: 112: }
+"116
+[; ;newmain14.c: 116: }
 [e :UE 90 ]
 }
-"114
-[; ;newmain14.c: 114: void MAX_CLK_setLow(){
+"118
+[; ;newmain14.c: 118: void MAX_CLK_setLow(){
 [v _MAX_CLK_setLow `(v ~T0 @X0 1 ef ]
 {
 [e :U _MAX_CLK_setLow ]
 [f ]
-"115
-[; ;newmain14.c: 115:     RC2 = 0;
+"119
+[; ;newmain14.c: 119:     RC2 = 0;
 [e = _RC2 -> -> 0 `i `b ]
-"116
-[; ;newmain14.c: 116: }
+"120
+[; ;newmain14.c: 120: }
 [e :UE 91 ]
 }
-"118
-[; ;newmain14.c: 118: void MAX_CLK2_setLow(){
+"122
+[; ;newmain14.c: 122: void MAX_CLK2_setLow(){
 [v _MAX_CLK2_setLow `(v ~T0 @X0 1 ef ]
 {
 [e :U _MAX_CLK2_setLow ]
 [f ]
-"119
-[; ;newmain14.c: 119:     RA2 = 0;
+"123
+[; ;newmain14.c: 123:     RA2 = 0;
 [e = _RA2 -> -> 0 `i `b ]
-"120
-[; ;newmain14.c: 120: }
+"124
+[; ;newmain14.c: 124: }
 [e :UE 92 ]
 }
-"122
-[; ;newmain14.c: 122: void MAX_LAT_setLow(){
+"126
+[; ;newmain14.c: 126: void MAX_LAT_setLow(){
 [v _MAX_LAT_setLow `(v ~T0 @X0 1 ef ]
 {
 [e :U _MAX_LAT_setLow ]
 [f ]
-"123
-[; ;newmain14.c: 123:     RC1=0;
+"127
+[; ;newmain14.c: 127:     RC1=0;
 [e = _RC1 -> -> 0 `i `b ]
-"124
-[; ;newmain14.c: 124: }
+"128
+[; ;newmain14.c: 128: }
 [e :UE 93 ]
 }
-"126
-[; ;newmain14.c: 126: void MAX_LAT2_setLow(){
+"130
+[; ;newmain14.c: 130: void MAX_LAT2_setLow(){
 [v _MAX_LAT2_setLow `(v ~T0 @X0 1 ef ]
 {
 [e :U _MAX_LAT2_setLow ]
 [f ]
-"127
-[; ;newmain14.c: 127:     RA1 = 0;
+"131
+[; ;newmain14.c: 131:     RA1 = 0;
 [e = _RA1 -> -> 0 `i `b ]
-"128
-[; ;newmain14.c: 128: }
+"132
+[; ;newmain14.c: 132: }
 [e :UE 94 ]
 }
-"130
-[; ;newmain14.c: 130: void MAX_LAT_setHigh(){
+"134
+[; ;newmain14.c: 134: void MAX_LAT_setHigh(){
 [v _MAX_LAT_setHigh `(v ~T0 @X0 1 ef ]
 {
 [e :U _MAX_LAT_setHigh ]
 [f ]
-"131
-[; ;newmain14.c: 131:     RC1 = 1;
+"135
+[; ;newmain14.c: 135:     RC1 = 1;
 [e = _RC1 -> -> 1 `i `b ]
-"132
-[; ;newmain14.c: 132: }
+"136
+[; ;newmain14.c: 136: }
 [e :UE 95 ]
 }
-"134
-[; ;newmain14.c: 134: void MAX_LAT2_setHigh(){
+"138
+[; ;newmain14.c: 138: void MAX_LAT2_setHigh(){
 [v _MAX_LAT2_setHigh `(v ~T0 @X0 1 ef ]
 {
 [e :U _MAX_LAT2_setHigh ]
 [f ]
-"135
-[; ;newmain14.c: 135:     RA1 = 1;
+"139
+[; ;newmain14.c: 139:     RA1 = 1;
 [e = _RA1 -> -> 1 `i `b ]
-"136
-[; ;newmain14.c: 136: }
+"140
+[; ;newmain14.c: 140: }
 [e :UE 96 ]
 }
-"140
-[; ;newmain14.c: 140: void MAX7219_send(uint8_t reg, uint8_t dat)
+"144
+[; ;newmain14.c: 144: void MAX7219_send(uint8_t reg, uint8_t dat)
 [v _MAX7219_send `(v ~T0 @X0 1 ef2`uc`uc ]
-"141
-[; ;newmain14.c: 141:     {
+"145
+[; ;newmain14.c: 145:     {
 {
 [e :U _MAX7219_send ]
-"140
-[; ;newmain14.c: 140: void MAX7219_send(uint8_t reg, uint8_t dat)
+"144
+[; ;newmain14.c: 144: void MAX7219_send(uint8_t reg, uint8_t dat)
 [v _reg `uc ~T0 @X0 1 r1 ]
 [v _dat `uc ~T0 @X0 1 r2 ]
-"141
-[; ;newmain14.c: 141:     {
+"145
+[; ;newmain14.c: 145:     {
 [f ]
-"142
-[; ;newmain14.c: 142:     uint16_t d=(reg<<8)|dat;
+"146
+[; ;newmain14.c: 146:     uint16_t d=(reg<<8)|dat;
 [v _d `us ~T0 @X0 1 a ]
 [e = _d -> | << -> _reg `i -> 8 `i -> _dat `i `us ]
-"143
-[; ;newmain14.c: 143:     for (uint8_t i=0; i<16; i++)
+"147
+[; ;newmain14.c: 147:     for (uint8_t i=0; i<16; i++)
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `i -> 16 `i 98  ]
 [e $U 99  ]
 [e :U 98 ]
-"144
-[; ;newmain14.c: 144:         {
+"148
+[; ;newmain14.c: 148:         {
 {
-"145
-[; ;newmain14.c: 145:           if (d & (0x8000>>i))
+"149
+[; ;newmain14.c: 149:           if (d & (0x8000>>i))
 [e $ ! != & -> _d `ui >> -> 32768 `ui -> _i `i -> -> 0 `i `ui 101  ]
-"146
-[; ;newmain14.c: 146:             {MAX_DIN_setHigh();}
+"150
+[; ;newmain14.c: 150:             {MAX_DIN_setHigh();}
 {
 [e ( _MAX_DIN_setHigh ..  ]
 }
 [e $U 102  ]
-"147
-[; ;newmain14.c: 147:         else
+"151
+[; ;newmain14.c: 151:         else
 [e :U 101 ]
-"148
-[; ;newmain14.c: 148:             {MAX_DIN_setLow();}
+"152
+[; ;newmain14.c: 152:             {MAX_DIN_setLow();}
 {
 [e ( _MAX_DIN_setLow ..  ]
 }
 [e :U 102 ]
-"149
-[; ;newmain14.c: 149:         MAX_CLK_setHigh();
+"153
+[; ;newmain14.c: 153:         MAX_CLK_setHigh();
 [e ( _MAX_CLK_setHigh ..  ]
-"150
-[; ;newmain14.c: 150:         MAX_CLK_setLow();
+"154
+[; ;newmain14.c: 154:         MAX_CLK_setLow();
 [e ( _MAX_CLK_setLow ..  ]
-"151
-[; ;newmain14.c: 151:         }
+"155
+[; ;newmain14.c: 155:         }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 16 `i 98  ]
 [e :U 99 ]
 }
-"152
-[; ;newmain14.c: 152:     MAX_LAT_setHigh();
+"156
+[; ;newmain14.c: 156:     MAX_LAT_setHigh();
 [e ( _MAX_LAT_setHigh ..  ]
-"153
-[; ;newmain14.c: 153:     MAX_LAT_setLow();
+"157
+[; ;newmain14.c: 157:     MAX_LAT_setLow();
 [e ( _MAX_LAT_setLow ..  ]
-"154
-[; ;newmain14.c: 154:     }
+"158
+[; ;newmain14.c: 158:     }
 [e :UE 97 ]
 }
-"158
-[; ;newmain14.c: 158: void COMAX7219_send(uint8_t reg, uint8_t dat)
+"162
+[; ;newmain14.c: 162: void COMAX7219_send(uint8_t reg, uint8_t dat)
 [v _COMAX7219_send `(v ~T0 @X0 1 ef2`uc`uc ]
-"159
-[; ;newmain14.c: 159:     {
+"163
+[; ;newmain14.c: 163:     {
 {
 [e :U _COMAX7219_send ]
-"158
-[; ;newmain14.c: 158: void COMAX7219_send(uint8_t reg, uint8_t dat)
+"162
+[; ;newmain14.c: 162: void COMAX7219_send(uint8_t reg, uint8_t dat)
 [v _reg `uc ~T0 @X0 1 r1 ]
 [v _dat `uc ~T0 @X0 1 r2 ]
-"159
-[; ;newmain14.c: 159:     {
+"163
+[; ;newmain14.c: 163:     {
 [f ]
-"160
-[; ;newmain14.c: 160:     uint16_t d=(reg<<8)|dat;
+"164
+[; ;newmain14.c: 164:     uint16_t d=(reg<<8)|dat;
 [v _d `us ~T0 @X0 1 a ]
 [e = _d -> | << -> _reg `i -> 8 `i -> _dat `i `us ]
-"161
-[; ;newmain14.c: 161:      for (uint8_t i=0; i<16; i++)
+"165
+[; ;newmain14.c: 165:      for (uint8_t i=0; i<16; i++)
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `i -> 16 `i 104  ]
 [e $U 105  ]
 [e :U 104 ]
-"162
-[; ;newmain14.c: 162:         {
+"166
+[; ;newmain14.c: 166:         {
 {
-"163
-[; ;newmain14.c: 163:         if (d & (0x8000>>i))
+"167
+[; ;newmain14.c: 167:         if (d & (0x8000>>i))
 [e $ ! != & -> _d `ui >> -> 32768 `ui -> _i `i -> -> 0 `i `ui 107  ]
-"164
-[; ;newmain14.c: 164:             {MAX_DIN2_setHigh();}
+"168
+[; ;newmain14.c: 168:             {MAX_DIN2_setHigh();}
 {
 [e ( _MAX_DIN2_setHigh ..  ]
 }
 [e $U 108  ]
-"165
-[; ;newmain14.c: 165:         else
+"169
+[; ;newmain14.c: 169:         else
 [e :U 107 ]
-"166
-[; ;newmain14.c: 166:             {MAX_DIN2_setLow();}
+"170
+[; ;newmain14.c: 170:             {MAX_DIN2_setLow();}
 {
 [e ( _MAX_DIN2_setLow ..  ]
 }
 [e :U 108 ]
-"167
-[; ;newmain14.c: 167:         MAX_CLK2_setHigh();
+"171
+[; ;newmain14.c: 171:         MAX_CLK2_setHigh();
 [e ( _MAX_CLK2_setHigh ..  ]
-"168
-[; ;newmain14.c: 168:         MAX_CLK2_setLow();
+"172
+[; ;newmain14.c: 172:         MAX_CLK2_setLow();
 [e ( _MAX_CLK2_setLow ..  ]
-"169
-[; ;newmain14.c: 169:         }
+"173
+[; ;newmain14.c: 173:         }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 16 `i 104  ]
 [e :U 105 ]
 }
-"170
-[; ;newmain14.c: 170:     MAX_LAT2_setHigh();
+"174
+[; ;newmain14.c: 174:     MAX_LAT2_setHigh();
 [e ( _MAX_LAT2_setHigh ..  ]
-"171
-[; ;newmain14.c: 171:     MAX_LAT2_setLow();
+"175
+[; ;newmain14.c: 175:     MAX_LAT2_setLow();
 [e ( _MAX_LAT2_setLow ..  ]
-"172
-[; ;newmain14.c: 172:     }
+"176
+[; ;newmain14.c: 176:     }
 [e :UE 103 ]
 }
-"176
-[; ;newmain14.c: 176: void initMAXs(){
+"180
+[; ;newmain14.c: 180: void initMAXs(){
 [v _initMAXs `(v ~T0 @X0 1 ef ]
 {
 [e :U _initMAXs ]
 [f ]
-"177
-[; ;newmain14.c: 177:    MAX7219_send(0x0A, 0x0F);
-[e ( _MAX7219_send (2 , -> -> 10 `i `uc -> -> 15 `i `uc ]
-"178
-[; ;newmain14.c: 178:    COMAX7219_send(0x0A, 0X0F);
-[e ( _COMAX7219_send (2 , -> -> 10 `i `uc -> -> 15 `i `uc ]
-"179
-[; ;newmain14.c: 179:    MAX7219_send(0x09, 0xFF);
-[e ( _MAX7219_send (2 , -> -> 9 `i `uc -> -> 255 `i `uc ]
-"180
-[; ;newmain14.c: 180:    COMAX7219_send(0x09, 0xFF);
-[e ( _COMAX7219_send (2 , -> -> 9 `i `uc -> -> 255 `i `uc ]
 "181
-[; ;newmain14.c: 181:    MAX7219_send(0x0B, 0X07);
-[e ( _MAX7219_send (2 , -> -> 11 `i `uc -> -> 7 `i `uc ]
+[; ;newmain14.c: 181:    MAX7219_send(0x0A, 0x0F);
+[e ( _MAX7219_send (2 , -> -> 10 `i `uc -> -> 15 `i `uc ]
 "182
-[; ;newmain14.c: 182:    COMAX7219_send(0x0B, 0X07);
-[e ( _COMAX7219_send (2 , -> -> 11 `i `uc -> -> 7 `i `uc ]
+[; ;newmain14.c: 182:    COMAX7219_send(0x0A, 0X0F);
+[e ( _COMAX7219_send (2 , -> -> 10 `i `uc -> -> 15 `i `uc ]
 "183
-[; ;newmain14.c: 183:    MAX7219_send(0x0C, 0X01);
-[e ( _MAX7219_send (2 , -> -> 12 `i `uc -> -> 1 `i `uc ]
+[; ;newmain14.c: 183:    MAX7219_send(0x09, 0xFF);
+[e ( _MAX7219_send (2 , -> -> 9 `i `uc -> -> 255 `i `uc ]
 "184
-[; ;newmain14.c: 184:    COMAX7219_send(0x0C, 0X01);
-[e ( _COMAX7219_send (2 , -> -> 12 `i `uc -> -> 1 `i `uc ]
+[; ;newmain14.c: 184:    COMAX7219_send(0x09, 0xFF);
+[e ( _COMAX7219_send (2 , -> -> 9 `i `uc -> -> 255 `i `uc ]
+"185
+[; ;newmain14.c: 185:    MAX7219_send(0x0B, 0X07);
+[e ( _MAX7219_send (2 , -> -> 11 `i `uc -> -> 7 `i `uc ]
+"186
+[; ;newmain14.c: 186:    COMAX7219_send(0x0B, 0X07);
+[e ( _COMAX7219_send (2 , -> -> 11 `i `uc -> -> 7 `i `uc ]
 "187
-[; ;newmain14.c: 187: }
+[; ;newmain14.c: 187:    MAX7219_send(0x0C, 0X01);
+[e ( _MAX7219_send (2 , -> -> 12 `i `uc -> -> 1 `i `uc ]
+"188
+[; ;newmain14.c: 188:    COMAX7219_send(0x0C, 0X01);
+[e ( _COMAX7219_send (2 , -> -> 12 `i `uc -> -> 1 `i `uc ]
+"191
+[; ;newmain14.c: 191: }
 [e :UE 109 ]
 }
-"191
-[; ;newmain14.c: 191: void setup_timer() {
+"195
+[; ;newmain14.c: 195: void setup_timer() {
 [v _setup_timer `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup_timer ]
 [f ]
-"192
-[; ;newmain14.c: 192:     TMR0 = 0;
-[e = _TMR0 -> -> 0 `i `uc ]
-"193
-[; ;newmain14.c: 193:     OPTION_REGbits.T0CS = 0;
-[e = . . _OPTION_REGbits 0 3 -> -> 0 `i `uc ]
-"194
-[; ;newmain14.c: 194:     OPTION_REGbits.PSA = 0;
-[e = . . _OPTION_REGbits 0 1 -> -> 0 `i `uc ]
-"195
-[; ;newmain14.c: 195:     OPTION_REGbits.PS = 0b010;
-[e = . . _OPTION_REGbits 0 0 -> -> 2 `i `uc ]
 "196
-[; ;newmain14.c: 196:     INTCONbits.TMR0IE = 0;
-[e = . . _INTCONbits 0 5 -> -> 0 `i `uc ]
+[; ;newmain14.c: 196:     TMR0 = 0;
+[e = _TMR0 -> -> 0 `i `uc ]
 "197
-[; ;newmain14.c: 197:     INTCONbits.TMR0IF = 0;
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+[; ;newmain14.c: 197:     OPTION_REGbits.T0CS = 0;
+[e = . . _OPTION_REGbits 0 3 -> -> 0 `i `uc ]
 "198
-[; ;newmain14.c: 198:     INTCONbits.GIE = 1;
-[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+[; ;newmain14.c: 198:     OPTION_REGbits.PSA = 0;
+[e = . . _OPTION_REGbits 0 1 -> -> 0 `i `uc ]
 "199
-[; ;newmain14.c: 199:     INTCONbits.PEIE = 1;
-[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+[; ;newmain14.c: 199:     OPTION_REGbits.PS = 0b010;
+[e = . . _OPTION_REGbits 0 0 -> -> 2 `i `uc ]
 "200
-[; ;newmain14.c: 200: }
+[; ;newmain14.c: 200:     INTCONbits.TMR0IE = 0;
+[e = . . _INTCONbits 0 5 -> -> 0 `i `uc ]
+"201
+[; ;newmain14.c: 201:     INTCONbits.TMR0IF = 0;
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+"202
+[; ;newmain14.c: 202:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+"203
+[; ;newmain14.c: 203:     INTCONbits.PEIE = 1;
+[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+"204
+[; ;newmain14.c: 204: }
 [e :UE 110 ]
 }
-"203
-[; ;newmain14.c: 203: void send_byte(unsigned char data) {
+"207
+[; ;newmain14.c: 207: void send_byte(unsigned char data) {
 [v _send_byte `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _send_byte ]
 [v _data `uc ~T0 @X0 1 r1 ]
 [f ]
-"204
-[; ;newmain14.c: 204:     unsigned char i, parity = 0;
+"208
+[; ;newmain14.c: 208:     unsigned char i, parity = 0;
 [v _i `uc ~T0 @X0 1 a ]
 [v _parity `uc ~T0 @X0 1 a ]
 [e = _parity -> -> 0 `i `uc ]
-"207
-[; ;newmain14.c: 207:     PORTCbits.RC6 = 1;
-[e = . . _PORTCbits 0 6 -> -> 1 `i `uc ]
-"208
-[; ;newmain14.c: 208:     _delay((unsigned long)((48)*(3686400/4000000.0)));
-[e ( __delay (1 -> * -> -> 48 `i `d / -> -> 3686400 `l `d .4000000.0 `ul ]
 "211
-[; ;newmain14.c: 211:     for (i = 0; i < 8; i++) {
+[; ;newmain14.c: 211:     PORTCbits.RC6 = 1;
+[e = . . _PORTCbits 0 6 -> -> 1 `i `uc ]
+"212
+[; ;newmain14.c: 212:     _delay((unsigned long)((48)*(3686400/4000000.0)));
+[e ( __delay (1 -> * -> -> 48 `i `d / -> -> 3686400 `l `d .4000000.0 `ul ]
+"215
+[; ;newmain14.c: 215:     for (i = 0; i < 8; i++) {
 {
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `i -> 8 `i 112  ]
 [e $U 113  ]
 [e :U 112 ]
 {
-"212
-[; ;newmain14.c: 212:         PORTCbits.RC6 = !((data >> i) & 0x01);
+"216
+[; ;newmain14.c: 216:         PORTCbits.RC6 = !((data >> i) & 0x01);
 [e = . . _PORTCbits 0 6 -> -> ! != & >> -> _data `i -> _i `i -> 1 `i -> 0 `i `i `uc ]
-"213
-[; ;newmain14.c: 213:         parity ^= !((data >> i) & 0x01);
+"217
+[; ;newmain14.c: 217:         parity ^= !((data >> i) & 0x01);
 [e =^ _parity -> -> ! != & >> -> _data `i -> _i `i -> 1 `i -> 0 `i `i `uc ]
-"214
-[; ;newmain14.c: 214:         _delay((unsigned long)((48)*(3686400/4000000.0)));
+"218
+[; ;newmain14.c: 218:         _delay((unsigned long)((48)*(3686400/4000000.0)));
 [e ( __delay (1 -> * -> -> 48 `i `d / -> -> 3686400 `l `d .4000000.0 `ul ]
-"215
-[; ;newmain14.c: 215:     }
+"219
+[; ;newmain14.c: 219:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 8 `i 112  ]
 [e :U 113 ]
 }
-"218
-[; ;newmain14.c: 218:     PORTCbits.RC6 = !parity;
-[e = . . _PORTCbits 0 6 -> -> ! != -> _parity `i -> 0 `i `i `uc ]
-"219
-[; ;newmain14.c: 219:     _delay((unsigned long)((48)*(3686400/4000000.0)));
-[e ( __delay (1 -> * -> -> 48 `i `d / -> -> 3686400 `l `d .4000000.0 `ul ]
 "222
-[; ;newmain14.c: 222:     PORTCbits.RC6 = 0;
-[e = . . _PORTCbits 0 6 -> -> 0 `i `uc ]
+[; ;newmain14.c: 222:     PORTCbits.RC6 = !parity;
+[e = . . _PORTCbits 0 6 -> -> ! != -> _parity `i -> 0 `i `i `uc ]
 "223
 [; ;newmain14.c: 223:     _delay((unsigned long)((48)*(3686400/4000000.0)));
 [e ( __delay (1 -> * -> -> 48 `i `d / -> -> 3686400 `l `d .4000000.0 `ul ]
-"224
-[; ;newmain14.c: 224: }
+"226
+[; ;newmain14.c: 226:     PORTCbits.RC6 = 0;
+[e = . . _PORTCbits 0 6 -> -> 0 `i `uc ]
+"227
+[; ;newmain14.c: 227:     _delay((unsigned long)((48)*(3686400/4000000.0)));
+[e ( __delay (1 -> * -> -> 48 `i `d / -> -> 3686400 `l `d .4000000.0 `ul ]
+"228
+[; ;newmain14.c: 228: }
 [e :UE 111 ]
 }
-"228
-[; ;newmain14.c: 228: unsigned char receive_byte() {
+"232
+[; ;newmain14.c: 232: unsigned char receive_byte() {
 [v _receive_byte `(uc ~T0 @X0 1 ef ]
 {
 [e :U _receive_byte ]
 [f ]
-"229
-[; ;newmain14.c: 229:     unsigned char i, data = 0, parity = 0;
+"233
+[; ;newmain14.c: 233:     unsigned char i, data = 0, parity = 0;
 [v _i `uc ~T0 @X0 1 a ]
 [v _data `uc ~T0 @X0 1 a ]
 [e = _data -> -> 0 `i `uc ]
 [v _parity `uc ~T0 @X0 1 a ]
 [e = _parity -> -> 0 `i `uc ]
-"232
-[; ;newmain14.c: 232:     while (PORTCbits.RC7 == 0);
+"236
+[; ;newmain14.c: 236:     while (PORTCbits.RC7 == 0);
 [e $U 116  ]
 [e :U 117 ]
 [e :U 116 ]
 [e $ == -> . . _PORTCbits 0 7 `i -> 0 `i 117  ]
 [e :U 118 ]
-"234
-[; ;newmain14.c: 234:     _delay((unsigned long)((48 / 2)*(3686400/4000000.0)));
+"238
+[; ;newmain14.c: 238:     _delay((unsigned long)((48 / 2)*(3686400/4000000.0)));
 [e ( __delay (1 -> * -> / -> 48 `i -> 2 `i `d / -> -> 3686400 `l `d .4000000.0 `ul ]
-"237
-[; ;newmain14.c: 237:     for (i = 0; i < 8; i++) {
+"241
+[; ;newmain14.c: 241:     for (i = 0; i < 8; i++) {
 {
 [e = _i -> -> 0 `i `uc ]
 [e $ < -> _i `i -> 8 `i 119  ]
 [e $U 120  ]
 [e :U 119 ]
 {
-"238
-[; ;newmain14.c: 238:         _delay((unsigned long)((48)*(3686400/4000000.0)));
+"242
+[; ;newmain14.c: 242:         _delay((unsigned long)((48)*(3686400/4000000.0)));
 [e ( __delay (1 -> * -> -> 48 `i `d / -> -> 3686400 `l `d .4000000.0 `ul ]
-"239
-[; ;newmain14.c: 239:         data |= (!PORTCbits.RC7 << i);
+"243
+[; ;newmain14.c: 243:         data |= (!PORTCbits.RC7 << i);
 [e =| _data -> << -> ! != -> . . _PORTCbits 0 7 `i -> 0 `i `i -> _i `i `uc ]
-"240
-[; ;newmain14.c: 240:         parity ^= !PORTCbits.RC7;
+"244
+[; ;newmain14.c: 244:         parity ^= !PORTCbits.RC7;
 [e =^ _parity -> -> ! != -> . . _PORTCbits 0 7 `i -> 0 `i `i `uc ]
-"241
-[; ;newmain14.c: 241:     }
+"245
+[; ;newmain14.c: 245:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e $ < -> _i `i -> 8 `i 119  ]
 [e :U 120 ]
 }
-"244
-[; ;newmain14.c: 244:     _delay((unsigned long)((48)*(3686400/4000000.0)));
+"248
+[; ;newmain14.c: 248:     _delay((unsigned long)((48)*(3686400/4000000.0)));
 [e ( __delay (1 -> * -> -> 48 `i `d / -> -> 3686400 `l `d .4000000.0 `ul ]
-"245
-[; ;newmain14.c: 245:     if (parity != !PORTCbits.RC7) {
+"249
+[; ;newmain14.c: 249:     if (parity != !PORTCbits.RC7) {
 [e $ ! != -> _parity `i -> ! != -> . . _PORTCbits 0 7 `i -> 0 `i `i 122  ]
 {
-"247
-[; ;newmain14.c: 247:     }
+"251
+[; ;newmain14.c: 251:     }
 }
 [e :U 122 ]
-"250
-[; ;newmain14.c: 250:     _delay((unsigned long)((48)*(3686400/4000000.0)));
+"254
+[; ;newmain14.c: 254:     _delay((unsigned long)((48)*(3686400/4000000.0)));
 [e ( __delay (1 -> * -> -> 48 `i `d / -> -> 3686400 `l `d .4000000.0 `ul ]
-"251
-[; ;newmain14.c: 251:     if (PORTCbits.RC7 == 0) {
+"255
+[; ;newmain14.c: 255:     if (PORTCbits.RC7 == 0) {
 [e $ ! == -> . . _PORTCbits 0 7 `i -> 0 `i 123  ]
 {
-"253
-[; ;newmain14.c: 253:     }
+"257
+[; ;newmain14.c: 257:     }
 }
 [e :U 123 ]
-"255
-[; ;newmain14.c: 255:     return data;
+"259
+[; ;newmain14.c: 259:     return data;
 [e ) _data ]
 [e $UE 115  ]
-"256
-[; ;newmain14.c: 256: }
+"260
+[; ;newmain14.c: 260: }
 [e :UE 115 ]
 }
 [v $root$_isr `(v ~T0 @X0 0 e ]
-"260
-[; ;newmain14.c: 260: void __attribute__((picinterrupt(("")))) isr() {
+"264
+[; ;newmain14.c: 264: void __attribute__((picinterrupt(("")))) isr() {
 [v _isr `(v ~T1 @X0 1 ef ]
 {
 [e :U _isr ]
 [f ]
-"261
-[; ;newmain14.c: 261:     if (INTCONbits.TMR0IF) {
+"265
+[; ;newmain14.c: 265:     if (INTCONbits.TMR0IF) {
 [e $ ! != -> . . _INTCONbits 0 2 `i -> 0 `i 125  ]
 {
-"263
-[; ;newmain14.c: 263:         INTCONbits.TMR0IF = 0;
+"267
+[; ;newmain14.c: 267:         INTCONbits.TMR0IF = 0;
 [e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-"264
-[; ;newmain14.c: 264:     }
+"268
+[; ;newmain14.c: 268:     }
 }
 [e :U 125 ]
-"265
-[; ;newmain14.c: 265: }
+"269
+[; ;newmain14.c: 269: }
 [e :UE 124 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"267
-[; ;newmain14.c: 267: void main() {
+"271
+[; ;newmain14.c: 271: void main() {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"268
-[; ;newmain14.c: 268:      TRISB = 0xC0;
-[e = _TRISB -> -> 192 `i `uc ]
-"269
-[; ;newmain14.c: 269:      TRISC = 0X80;
-[e = _TRISC -> -> 128 `i `uc ]
-"270
-[; ;newmain14.c: 270:      TRISA = 0XF8;
-[e = _TRISA -> -> 248 `i `uc ]
-"271
-[; ;newmain14.c: 271:     PORTCbits.RC6 = 0;
-[e = . . _PORTCbits 0 6 -> -> 0 `i `uc ]
 "272
-[; ;newmain14.c: 272:     setup_timer();
-[e ( _setup_timer ..  ]
+[; ;newmain14.c: 272:      TRISB = 0xC0;
+[e = _TRISB -> -> 192 `i `uc ]
 "273
-[; ;newmain14.c: 273:     initMAXs();
-[e ( _initMAXs ..  ]
+[; ;newmain14.c: 273:      TRISC = 0X80;
+[e = _TRISC -> -> 128 `i `uc ]
+"274
+[; ;newmain14.c: 274:      TRISA = 0XF8;
+[e = _TRISA -> -> 248 `i `uc ]
 "275
-[; ;newmain14.c: 275:     bufferin[0]= 0x02;
-[e = *U + &U _bufferin * -> -> -> 0 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 2 `i `uc ]
+[; ;newmain14.c: 275:     PORTCbits.RC6 = 0;
+[e = . . _PORTCbits 0 6 -> -> 0 `i `uc ]
 "276
-[; ;newmain14.c: 276:     bufferin[1]= 0x34;
-[e = *U + &U _bufferin * -> -> -> 1 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 52 `i `uc ]
+[; ;newmain14.c: 276:     setup_timer();
+[e ( _setup_timer ..  ]
 "277
-[; ;newmain14.c: 277:     bufferin[2]= 0x36;
-[e = *U + &U _bufferin * -> -> -> 2 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 54 `i `uc ]
-"278
-[; ;newmain14.c: 278:     bufferin[3]= 0x31;
-[e = *U + &U _bufferin * -> -> -> 3 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 49 `i `uc ]
+[; ;newmain14.c: 277:     initMAXs();
+[e ( _initMAXs ..  ]
 "279
-[; ;newmain14.c: 279:     bufferin[4]= 0x31;
-[e = *U + &U _bufferin * -> -> -> 4 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 49 `i `uc ]
+[; ;newmain14.c: 279:     bufferin[0]= 0x02;
+[e = *U + &U _bufferin * -> -> -> 0 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 2 `i `uc ]
 "280
-[; ;newmain14.c: 280:     bufferin[5]= 0x30;
-[e = *U + &U _bufferin * -> -> -> 5 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
+[; ;newmain14.c: 280:     bufferin[1]= 0x34;
+[e = *U + &U _bufferin * -> -> -> 1 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 52 `i `uc ]
 "281
-[; ;newmain14.c: 281:     bufferin[6]= 0x30;
-[e = *U + &U _bufferin * -> -> -> 6 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
+[; ;newmain14.c: 281:     bufferin[2]= 0x36;
+[e = *U + &U _bufferin * -> -> -> 2 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 54 `i `uc ]
 "282
-[; ;newmain14.c: 282:     bufferin[7]= 0x30;
-[e = *U + &U _bufferin * -> -> -> 7 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
+[; ;newmain14.c: 282:     bufferin[3]= 0x31;
+[e = *U + &U _bufferin * -> -> -> 3 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 49 `i `uc ]
 "283
-[; ;newmain14.c: 283:     bufferin[8]= 0x30;
-[e = *U + &U _bufferin * -> -> -> 8 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
+[; ;newmain14.c: 283:     bufferin[4]= 0x31;
+[e = *U + &U _bufferin * -> -> -> 4 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 49 `i `uc ]
 "284
-[; ;newmain14.c: 284:     bufferin[9]= 0x30;
-[e = *U + &U _bufferin * -> -> -> 9 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
+[; ;newmain14.c: 284:     bufferin[5]= 0x30;
+[e = *U + &U _bufferin * -> -> -> 5 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
 "285
-[; ;newmain14.c: 285:     bufferin[10]= 0x30;
-[e = *U + &U _bufferin * -> -> -> 10 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
+[; ;newmain14.c: 285:     bufferin[6]= 0x30;
+[e = *U + &U _bufferin * -> -> -> 6 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
 "286
-[; ;newmain14.c: 286:     bufferin[11]= 0x30;
-[e = *U + &U _bufferin * -> -> -> 11 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
+[; ;newmain14.c: 286:     bufferin[7]= 0x30;
+[e = *U + &U _bufferin * -> -> -> 7 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
 "287
-[; ;newmain14.c: 287:     bufferin[12]= 0x30;
-[e = *U + &U _bufferin * -> -> -> 12 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
+[; ;newmain14.c: 287:     bufferin[8]= 0x30;
+[e = *U + &U _bufferin * -> -> -> 8 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
 "288
-[; ;newmain14.c: 288:     bufferin[13]= 0x30;
-[e = *U + &U _bufferin * -> -> -> 13 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
+[; ;newmain14.c: 288:     bufferin[9]= 0x30;
+[e = *U + &U _bufferin * -> -> -> 9 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
 "289
-[; ;newmain14.c: 289:     bufferin[14]= 0x30;
-[e = *U + &U _bufferin * -> -> -> 14 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
+[; ;newmain14.c: 289:     bufferin[10]= 0x30;
+[e = *U + &U _bufferin * -> -> -> 10 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
 "290
-[; ;newmain14.c: 290:     bufferin[15]= 0x30;
-[e = *U + &U _bufferin * -> -> -> 15 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
+[; ;newmain14.c: 290:     bufferin[11]= 0x30;
+[e = *U + &U _bufferin * -> -> -> 11 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
 "291
-[; ;newmain14.c: 291:     bufferin[16]= 0x31;
-[e = *U + &U _bufferin * -> -> -> 16 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 49 `i `uc ]
+[; ;newmain14.c: 291:     bufferin[12]= 0x30;
+[e = *U + &U _bufferin * -> -> -> 12 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
 "292
-[; ;newmain14.c: 292:     bufferin[17]= 0x30;
-[e = *U + &U _bufferin * -> -> -> 17 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
+[; ;newmain14.c: 292:     bufferin[13]= 0x30;
+[e = *U + &U _bufferin * -> -> -> 13 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
 "293
-[; ;newmain14.c: 293:     bufferin[18]= 0x30;
-[e = *U + &U _bufferin * -> -> -> 18 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
+[; ;newmain14.c: 293:     bufferin[14]= 0x30;
+[e = *U + &U _bufferin * -> -> -> 14 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
 "294
-[; ;newmain14.c: 294:     bufferin[19]= 0x30;
-[e = *U + &U _bufferin * -> -> -> 19 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
+[; ;newmain14.c: 294:     bufferin[15]= 0x30;
+[e = *U + &U _bufferin * -> -> -> 15 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
 "295
-[; ;newmain14.c: 295:     bufferin[20]= 0x30;
-[e = *U + &U _bufferin * -> -> -> 20 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
+[; ;newmain14.c: 295:     bufferin[16]= 0x31;
+[e = *U + &U _bufferin * -> -> -> 16 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 49 `i `uc ]
 "296
-[; ;newmain14.c: 296:     bufferin[21]= 0x30;
-[e = *U + &U _bufferin * -> -> -> 21 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
+[; ;newmain14.c: 296:     bufferin[17]= 0x30;
+[e = *U + &U _bufferin * -> -> -> 17 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
 "297
-[; ;newmain14.c: 297:     bufferin[22]= 0x30;
-[e = *U + &U _bufferin * -> -> -> 22 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
+[; ;newmain14.c: 297:     bufferin[18]= 0x30;
+[e = *U + &U _bufferin * -> -> -> 18 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
 "298
-[; ;newmain14.c: 298:     dMil= 0x3A;
-[e = _dMil -> -> 58 `i `uc ]
+[; ;newmain14.c: 298:     bufferin[19]= 0x30;
+[e = *U + &U _bufferin * -> -> -> 19 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
 "299
-[; ;newmain14.c: 299:     bufferin[23]= 0x30;
-[e = *U + &U _bufferin * -> -> -> 23 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
+[; ;newmain14.c: 299:     bufferin[20]= 0x30;
+[e = *U + &U _bufferin * -> -> -> 20 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
 "300
-[; ;newmain14.c: 300:     bufferin[24]= 0x30;
-[e = *U + &U _bufferin * -> -> -> 24 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
+[; ;newmain14.c: 300:     bufferin[21]= 0x30;
+[e = *U + &U _bufferin * -> -> -> 21 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
 "301
-[; ;newmain14.c: 301:     bufferin[25]= 0x30;
-[e = *U + &U _bufferin * -> -> -> 25 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
+[; ;newmain14.c: 301:     bufferin[22]= 0x30;
+[e = *U + &U _bufferin * -> -> -> 22 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
 "302
-[; ;newmain14.c: 302:     bufferin[26]= 0x30;
-[e = *U + &U _bufferin * -> -> -> 26 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
+[; ;newmain14.c: 302:     dMil= 0x30;
+[e = _dMil -> -> 48 `i `uc ]
 "303
-[; ;newmain14.c: 303:     bufferin[27]= 0x31;
-[e = *U + &U _bufferin * -> -> -> 27 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 49 `i `uc ]
+[; ;newmain14.c: 303:     bufferin[23]= 0x30;
+[e = *U + &U _bufferin * -> -> -> 23 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
 "304
-[; ;newmain14.c: 304:     bufferin[28]= 0x03;
-[e = *U + &U _bufferin * -> -> -> 28 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 3 `i `uc ]
+[; ;newmain14.c: 304:     bufferin[24]= 0x30;
+[e = *U + &U _bufferin * -> -> -> 24 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
 "305
-[; ;newmain14.c: 305:     bufferin[29]= 0x31;
-[e = *U + &U _bufferin * -> -> -> 29 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 49 `i `uc ]
+[; ;newmain14.c: 305:     bufferin[25]= 0x30;
+[e = *U + &U _bufferin * -> -> -> 25 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
+"306
+[; ;newmain14.c: 306:     bufferin[26]= 0x30;
+[e = *U + &U _bufferin * -> -> -> 26 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 48 `i `uc ]
+"307
+[; ;newmain14.c: 307:     bufferin[27]= 0x31;
+[e = *U + &U _bufferin * -> -> -> 27 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 49 `i `uc ]
+"308
+[; ;newmain14.c: 308:     bufferin[28]= 0x03;
+[e = *U + &U _bufferin * -> -> -> 28 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 3 `i `uc ]
 "309
-[; ;newmain14.c: 309:     while (1) {
+[; ;newmain14.c: 309:     bufferin[29]= 0x31;
+[e = *U + &U _bufferin * -> -> -> 29 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 49 `i `uc ]
+"313
+[; ;newmain14.c: 313:     while (1) {
 [e :U 128 ]
 {
-"310
-[; ;newmain14.c: 310:         if(!zerosleft)
+"314
+[; ;newmain14.c: 314:         if(!zerosleft)
 [e $ ! ! != -> _zerosleft `i -> 0 `i 130  ]
-"311
-[; ;newmain14.c: 311:         {
+"315
+[; ;newmain14.c: 315:         {
 {
-"312
-[; ;newmain14.c: 312:             if(bufferin[12]==0x30){bufferin[12]= 0x0F + 0x30;}else{zerosleft=1;}
+"316
+[; ;newmain14.c: 316:             if(bufferin[12]==0x30){bufferin[12]= 0x0F + 0x30;}else{zerosleft=1;}
 [e $ ! == -> *U + &U _bufferin * -> -> -> 12 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 48 `i 131  ]
 {
 [e = *U + &U _bufferin * -> -> -> 12 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> + -> 15 `i -> 48 `i `uc ]
@@ -952,21 +982,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _zerosleft -> -> 1 `i `uc ]
 }
 [e :U 132 ]
-"313
-[; ;newmain14.c: 313:         }
+"317
+[; ;newmain14.c: 317:         }
 }
 [e :U 130 ]
-"314
-[; ;newmain14.c: 314:         MAX7219_send(0x08, bufferin[12] -48);
+"318
+[; ;newmain14.c: 318:         MAX7219_send(0x08, bufferin[12] -48);
 [e ( _MAX7219_send (2 , -> -> 8 `i `uc -> - -> *U + &U _bufferin * -> -> -> 12 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 48 `i `uc ]
-"315
-[; ;newmain14.c: 315:         if(!zerosleft)
+"319
+[; ;newmain14.c: 319:         if(!zerosleft)
 [e $ ! ! != -> _zerosleft `i -> 0 `i 133  ]
-"316
-[; ;newmain14.c: 316:         {
+"320
+[; ;newmain14.c: 320:         {
 {
-"317
-[; ;newmain14.c: 317:             if(bufferin[13]==0x30){bufferin[13]= 0x0F + 0x30;}else{zerosleft=1;}
+"321
+[; ;newmain14.c: 321:             if(bufferin[13]==0x30){bufferin[13]= 0x0F + 0x30;}else{zerosleft=1;}
 [e $ ! == -> *U + &U _bufferin * -> -> -> 13 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 48 `i 134  ]
 {
 [e = *U + &U _bufferin * -> -> -> 13 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> + -> 15 `i -> 48 `i `uc ]
@@ -977,21 +1007,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _zerosleft -> -> 1 `i `uc ]
 }
 [e :U 135 ]
-"318
-[; ;newmain14.c: 318:         }
+"322
+[; ;newmain14.c: 322:         }
 }
 [e :U 133 ]
-"319
-[; ;newmain14.c: 319:         MAX7219_send(0x07, bufferin[13] -48);
+"323
+[; ;newmain14.c: 323:         MAX7219_send(0x07, bufferin[13] -48);
 [e ( _MAX7219_send (2 , -> -> 7 `i `uc -> - -> *U + &U _bufferin * -> -> -> 13 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 48 `i `uc ]
-"320
-[; ;newmain14.c: 320:         if(!zerosleft)
+"324
+[; ;newmain14.c: 324:         if(!zerosleft)
 [e $ ! ! != -> _zerosleft `i -> 0 `i 136  ]
-"321
-[; ;newmain14.c: 321:         {
+"325
+[; ;newmain14.c: 325:         {
 {
-"322
-[; ;newmain14.c: 322:             if(bufferin[14]==0x30){bufferin[14]= 0x0F + 0x30;}else{zerosleft=1;}
+"326
+[; ;newmain14.c: 326:             if(bufferin[14]==0x30){bufferin[14]= 0x0F + 0x30;}else{zerosleft=1;}
 [e $ ! == -> *U + &U _bufferin * -> -> -> 14 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 48 `i 137  ]
 {
 [e = *U + &U _bufferin * -> -> -> 14 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> + -> 15 `i -> 48 `i `uc ]
@@ -1002,21 +1032,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _zerosleft -> -> 1 `i `uc ]
 }
 [e :U 138 ]
-"323
-[; ;newmain14.c: 323:         }
+"327
+[; ;newmain14.c: 327:         }
 }
 [e :U 136 ]
-"324
-[; ;newmain14.c: 324:         MAX7219_send(0x06, bufferin[14] -48);
+"328
+[; ;newmain14.c: 328:         MAX7219_send(0x06, bufferin[14] -48);
 [e ( _MAX7219_send (2 , -> -> 6 `i `uc -> - -> *U + &U _bufferin * -> -> -> 14 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 48 `i `uc ]
-"325
-[; ;newmain14.c: 325:         if(!zerosleft)
+"329
+[; ;newmain14.c: 329:         if(!zerosleft)
 [e $ ! ! != -> _zerosleft `i -> 0 `i 139  ]
-"326
-[; ;newmain14.c: 326:         {
+"330
+[; ;newmain14.c: 330:         {
 {
-"327
-[; ;newmain14.c: 327:             if(bufferin[15]==0x30){bufferin[15]= 0x0F + 0x30;}else{zerosleft=1;}
+"331
+[; ;newmain14.c: 331:             if(bufferin[15]==0x30){bufferin[15]= 0x0F + 0x30;}else{zerosleft=1;}
 [e $ ! == -> *U + &U _bufferin * -> -> -> 15 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 48 `i 140  ]
 {
 [e = *U + &U _bufferin * -> -> -> 15 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> + -> 15 `i -> 48 `i `uc ]
@@ -1027,21 +1057,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _zerosleft -> -> 1 `i `uc ]
 }
 [e :U 141 ]
-"328
-[; ;newmain14.c: 328:         }
+"332
+[; ;newmain14.c: 332:         }
 }
 [e :U 139 ]
-"329
-[; ;newmain14.c: 329:         MAX7219_send(0x05, bufferin[15] -48);
+"333
+[; ;newmain14.c: 333:         MAX7219_send(0x05, bufferin[15] -48);
 [e ( _MAX7219_send (2 , -> -> 5 `i `uc -> - -> *U + &U _bufferin * -> -> -> 15 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 48 `i `uc ]
-"330
-[; ;newmain14.c: 330:         if(!zerosleft)
+"334
+[; ;newmain14.c: 334:         if(!zerosleft)
 [e $ ! ! != -> _zerosleft `i -> 0 `i 142  ]
-"331
-[; ;newmain14.c: 331:         {
+"335
+[; ;newmain14.c: 335:         {
 {
-"332
-[; ;newmain14.c: 332:             if(bufferin[16]==0x30){bufferin[16]= 0x0F + 0x30;}else{zerosleft=1;}
+"336
+[; ;newmain14.c: 336:             if(bufferin[16]==0x30){bufferin[16]= 0x0F + 0x30;}else{zerosleft=1;}
 [e $ ! == -> *U + &U _bufferin * -> -> -> 16 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 48 `i 143  ]
 {
 [e = *U + &U _bufferin * -> -> -> 16 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> + -> 15 `i -> 48 `i `uc ]
@@ -1052,21 +1082,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _zerosleft -> -> 1 `i `uc ]
 }
 [e :U 144 ]
-"333
-[; ;newmain14.c: 333:         }
+"337
+[; ;newmain14.c: 337:         }
 }
 [e :U 142 ]
-"334
-[; ;newmain14.c: 334:         MAX7219_send(0x04, bufferin[16] -48);
+"338
+[; ;newmain14.c: 338:         MAX7219_send(0x04, bufferin[16] -48);
 [e ( _MAX7219_send (2 , -> -> 4 `i `uc -> - -> *U + &U _bufferin * -> -> -> 16 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 48 `i `uc ]
-"335
-[; ;newmain14.c: 335:         if(!zerosleft)
+"339
+[; ;newmain14.c: 339:         if(!zerosleft)
 [e $ ! ! != -> _zerosleft `i -> 0 `i 145  ]
-"336
-[; ;newmain14.c: 336:         {
+"340
+[; ;newmain14.c: 340:         {
 {
-"337
-[; ;newmain14.c: 337:             if(bufferin[17]==0x30){bufferin[17]= 0x0F + 0x30;}else{zerosleft=1;}
+"341
+[; ;newmain14.c: 341:             if(bufferin[17]==0x30){bufferin[17]= 0x0F + 0x30;}else{zerosleft=1;}
 [e $ ! == -> *U + &U _bufferin * -> -> -> 17 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 48 `i 146  ]
 {
 [e = *U + &U _bufferin * -> -> -> 17 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> + -> 15 `i -> 48 `i `uc ]
@@ -1077,21 +1107,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _zerosleft -> -> 1 `i `uc ]
 }
 [e :U 147 ]
-"338
-[; ;newmain14.c: 338:         }
+"342
+[; ;newmain14.c: 342:         }
 }
 [e :U 145 ]
-"339
-[; ;newmain14.c: 339:         MAX7219_send(0x03, bufferin[17] -48);
+"343
+[; ;newmain14.c: 343:         MAX7219_send(0x03, bufferin[17] -48);
 [e ( _MAX7219_send (2 , -> -> 3 `i `uc -> - -> *U + &U _bufferin * -> -> -> 17 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 48 `i `uc ]
-"340
-[; ;newmain14.c: 340:         if(!zerosleft)
+"344
+[; ;newmain14.c: 344:         if(!zerosleft)
 [e $ ! ! != -> _zerosleft `i -> 0 `i 148  ]
-"341
-[; ;newmain14.c: 341:         {
+"345
+[; ;newmain14.c: 345:         {
 {
-"342
-[; ;newmain14.c: 342:             if(bufferin[18]==0x30){bufferin[18]= 0x0F + 0x30;}else{zerosleft=1;}
+"346
+[; ;newmain14.c: 346:             if(bufferin[18]==0x30){bufferin[18]= 0x0F + 0x30;}else{zerosleft=1;}
 [e $ ! == -> *U + &U _bufferin * -> -> -> 18 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 48 `i 149  ]
 {
 [e = *U + &U _bufferin * -> -> -> 18 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> + -> 15 `i -> 48 `i `uc ]
@@ -1102,21 +1132,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _zerosleft -> -> 1 `i `uc ]
 }
 [e :U 150 ]
-"343
-[; ;newmain14.c: 343:         }
+"347
+[; ;newmain14.c: 347:         }
 }
 [e :U 148 ]
-"344
-[; ;newmain14.c: 344:         MAX7219_send(0x02, bufferin[18] -48);
+"348
+[; ;newmain14.c: 348:         MAX7219_send(0x02, bufferin[18] -48);
 [e ( _MAX7219_send (2 , -> -> 2 `i `uc -> - -> *U + &U _bufferin * -> -> -> 18 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 48 `i `uc ]
-"345
-[; ;newmain14.c: 345:         if(!zerosleft)
+"349
+[; ;newmain14.c: 349:         if(!zerosleft)
 [e $ ! ! != -> _zerosleft `i -> 0 `i 151  ]
-"346
-[; ;newmain14.c: 346:         {
+"350
+[; ;newmain14.c: 350:         {
 {
-"347
-[; ;newmain14.c: 347:             if(bufferin[19]==0x30){bufferin[19]= 0x0F + 0x30;}else{zerosleft=1;}
+"351
+[; ;newmain14.c: 351:             if(bufferin[19]==0x30){bufferin[19]= 0x0F + 0x30;}else{zerosleft=1;}
 [e $ ! == -> *U + &U _bufferin * -> -> -> 19 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 48 `i 152  ]
 {
 [e = *U + &U _bufferin * -> -> -> 19 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> + -> 15 `i -> 48 `i `uc ]
@@ -1127,36 +1157,36 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _zerosleft -> -> 1 `i `uc ]
 }
 [e :U 153 ]
-"348
-[; ;newmain14.c: 348:         }
+"352
+[; ;newmain14.c: 352:         }
 }
 [e :U 151 ]
-"349
-[; ;newmain14.c: 349:         MAX7219_send(0x01, bufferin[19] -48);
-[e ( _MAX7219_send (2 , -> -> 1 `i `uc -> - -> *U + &U _bufferin * -> -> -> 19 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 48 `i `uc ]
-"351
-[; ;newmain14.c: 351:         COMAX7219_send(0x08, 0x0F);
-[e ( _COMAX7219_send (2 , -> -> 8 `i `uc -> -> 15 `i `uc ]
-"352
-[; ;newmain14.c: 352:         COMAX7219_send(0x07, 0x0F);
-[e ( _COMAX7219_send (2 , -> -> 7 `i `uc -> -> 15 `i `uc ]
 "353
-[; ;newmain14.c: 353:         COMAX7219_send(0x06, bufferin[20] -48);
-[e ( _COMAX7219_send (2 , -> -> 6 `i `uc -> - -> *U + &U _bufferin * -> -> -> 20 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 48 `i `uc ]
-"354
-[; ;newmain14.c: 354:         zerosleft=0;
-[e = _zerosleft -> -> 0 `i `uc ]
+[; ;newmain14.c: 353:         MAX7219_send(0x01, bufferin[19] -48);
+[e ( _MAX7219_send (2 , -> -> 1 `i `uc -> - -> *U + &U _bufferin * -> -> -> 19 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 48 `i `uc ]
 "355
-[; ;newmain14.c: 355:         if(!zerosleft)
-[e $ ! ! != -> _zerosleft `i -> 0 `i 154  ]
+[; ;newmain14.c: 355:         COMAX7219_send(0x08, 0x0F);
+[e ( _COMAX7219_send (2 , -> -> 8 `i `uc -> -> 15 `i `uc ]
 "356
-[; ;newmain14.c: 356:         {
-{
+[; ;newmain14.c: 356:         COMAX7219_send(0x07, 0x0F);
+[e ( _COMAX7219_send (2 , -> -> 7 `i `uc -> -> 15 `i `uc ]
 "357
-[; ;newmain14.c: 357:             if(bufferin[23]==0x30){bufferin[23]= 0x0F + 0x30;}else{zerosleft=1;}
-[e $ ! == -> *U + &U _bufferin * -> -> -> 23 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 48 `i 155  ]
+[; ;newmain14.c: 357:         COMAX7219_send(0x06, cMillon -48);
+[e ( _COMAX7219_send (2 , -> -> 6 `i `uc -> - -> _cMillon `i -> 48 `i `uc ]
+"358
+[; ;newmain14.c: 358:         zerosleft=0;
+[e = _zerosleft -> -> 0 `i `uc ]
+"359
+[; ;newmain14.c: 359:         if(!zerosleft)
+[e $ ! ! != -> _zerosleft `i -> 0 `i 154  ]
+"360
+[; ;newmain14.c: 360:         {
 {
-[e = *U + &U _bufferin * -> -> -> 23 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> + -> 15 `i -> 48 `i `uc ]
+"361
+[; ;newmain14.c: 361:             if(dMil==0x30){bufferin[23]= 0x3F;}else{zerosleft=1;}
+[e $ ! == -> _dMil `i -> 48 `i 155  ]
+{
+[e = *U + &U _bufferin * -> -> -> 23 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 63 `i `uc ]
 }
 [e $U 156  ]
 [e :U 155 ]
@@ -1164,24 +1194,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _zerosleft -> -> 1 `i `uc ]
 }
 [e :U 156 ]
-"358
-[; ;newmain14.c: 358:         }
+"362
+[; ;newmain14.c: 362:         }
 }
 [e :U 154 ]
-"359
-[; ;newmain14.c: 359:         COMAX7219_send(0x01, bufferin[23] -48);
+"363
+[; ;newmain14.c: 363:         COMAX7219_send(0x01, bufferin[23] -48);
 [e ( _COMAX7219_send (2 , -> -> 1 `i `uc -> - -> *U + &U _bufferin * -> -> -> 23 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 48 `i `uc ]
-"360
-[; ;newmain14.c: 360:         if(!zerosleft)
+"364
+[; ;newmain14.c: 364:         if(!zerosleft)
 [e $ ! ! != -> _zerosleft `i -> 0 `i 157  ]
-"361
-[; ;newmain14.c: 361:         {
+"365
+[; ;newmain14.c: 365:         {
 {
-"362
-[; ;newmain14.c: 362:             if(bufferin[24]==0x30){bufferin[24]= 0x0F + 0x30;}else{zerosleft=1;}
+"366
+[; ;newmain14.c: 366:             if(bufferin[24]==0x30){bufferin[24]= 0x3F;}else{zerosleft=1;}
 [e $ ! == -> *U + &U _bufferin * -> -> -> 24 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 48 `i 158  ]
 {
-[e = *U + &U _bufferin * -> -> -> 24 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> + -> 15 `i -> 48 `i `uc ]
+[e = *U + &U _bufferin * -> -> -> 24 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 63 `i `uc ]
 }
 [e $U 159  ]
 [e :U 158 ]
@@ -1189,24 +1219,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _zerosleft -> -> 1 `i `uc ]
 }
 [e :U 159 ]
-"363
-[; ;newmain14.c: 363:         }
+"367
+[; ;newmain14.c: 367:         }
 }
 [e :U 157 ]
-"364
-[; ;newmain14.c: 364:         COMAX7219_send(0x02, bufferin[24] -48);
+"368
+[; ;newmain14.c: 368:         COMAX7219_send(0x02, bufferin[24] -48);
 [e ( _COMAX7219_send (2 , -> -> 2 `i `uc -> - -> *U + &U _bufferin * -> -> -> 24 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 48 `i `uc ]
-"365
-[; ;newmain14.c: 365:         if(!zerosleft)
+"369
+[; ;newmain14.c: 369:         if(!zerosleft)
 [e $ ! ! != -> _zerosleft `i -> 0 `i 160  ]
-"366
-[; ;newmain14.c: 366:         {
+"370
+[; ;newmain14.c: 370:         {
 {
-"367
-[; ;newmain14.c: 367:             if(bufferin[25]==0x30){bufferin[25]= 0x0F + 0x30;}else{zerosleft=1;}
+"371
+[; ;newmain14.c: 371:             if(bufferin[25]==0x30){bufferin[25]= 0x3F;}else{zerosleft=1;}
 [e $ ! == -> *U + &U _bufferin * -> -> -> 25 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 48 `i 161  ]
 {
-[e = *U + &U _bufferin * -> -> -> 25 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> + -> 15 `i -> 48 `i `uc ]
+[e = *U + &U _bufferin * -> -> -> 25 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 63 `i `uc ]
 }
 [e $U 162  ]
 [e :U 161 ]
@@ -1214,24 +1244,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _zerosleft -> -> 1 `i `uc ]
 }
 [e :U 162 ]
-"368
-[; ;newmain14.c: 368:         }
+"372
+[; ;newmain14.c: 372:         }
 }
 [e :U 160 ]
-"369
-[; ;newmain14.c: 369:         COMAX7219_send(0x03, bufferin[25] -48);
+"373
+[; ;newmain14.c: 373:         COMAX7219_send(0x03, bufferin[25] -48);
 [e ( _COMAX7219_send (2 , -> -> 3 `i `uc -> - -> *U + &U _bufferin * -> -> -> 25 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 48 `i `uc ]
-"370
-[; ;newmain14.c: 370:         if(!zerosleft)
+"374
+[; ;newmain14.c: 374:         if(!zerosleft)
 [e $ ! ! != -> _zerosleft `i -> 0 `i 163  ]
-"371
-[; ;newmain14.c: 371:         {
+"375
+[; ;newmain14.c: 375:         {
 {
-"372
-[; ;newmain14.c: 372:             if(bufferin[26]==0x30){bufferin[26]= 0x0F + 0x30;}else{zerosleft=1;}
+"376
+[; ;newmain14.c: 376:             if(bufferin[26]==0x30){bufferin[26]= 0x3F;}else{zerosleft=1;}
 [e $ ! == -> *U + &U _bufferin * -> -> -> 26 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 48 `i 164  ]
 {
-[e = *U + &U _bufferin * -> -> -> 26 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> + -> 15 `i -> 48 `i `uc ]
+[e = *U + &U _bufferin * -> -> -> 26 `i `ui `ux -> -> # *U &U _bufferin `ui `ux -> -> 63 `i `uc ]
 }
 [e $U 165  ]
 [e :U 164 ]
@@ -1239,236 +1269,242 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _zerosleft -> -> 1 `i `uc ]
 }
 [e :U 165 ]
-"373
-[; ;newmain14.c: 373:         }
+"377
+[; ;newmain14.c: 377:         }
 }
 [e :U 163 ]
-"374
-[; ;newmain14.c: 374:         COMAX7219_send(0x04, bufferin[26] -48);
+"378
+[; ;newmain14.c: 378:         COMAX7219_send(0x04, bufferin[26] -48);
 [e ( _COMAX7219_send (2 , -> -> 4 `i `uc -> - -> *U + &U _bufferin * -> -> -> 26 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 48 `i `uc ]
-"375
-[; ;newmain14.c: 375:         COMAX7219_send(0x05, bufferin[27] -48);
+"379
+[; ;newmain14.c: 379:         COMAX7219_send(0x05, bufferin[27] -48);
 [e ( _COMAX7219_send (2 , -> -> 5 `i `uc -> - -> *U + &U _bufferin * -> -> -> 27 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 48 `i `uc ]
-"377
-[; ;newmain14.c: 377:         if(nbyte==0){
+"381
+[; ;newmain14.c: 381:         if(nbyte==0){
 [e $ ! == -> _nbyte `i -> 0 `i 166  ]
 {
-"378
-[; ;newmain14.c: 378:         while(byteValue !=0x02){
+"382
+[; ;newmain14.c: 382:         while(byteValue !=0x02){
 [e $U 167  ]
 [e :U 168 ]
 {
-"379
-[; ;newmain14.c: 379:           byteValue=receive_byte();
+"383
+[; ;newmain14.c: 383:           byteValue=receive_byte();
 [e = _byteValue ( _receive_byte ..  ]
-"380
-[; ;newmain14.c: 380:         }
+"384
+[; ;newmain14.c: 384:         }
 }
 [e :U 167 ]
-"378
-[; ;newmain14.c: 378:         while(byteValue !=0x02){
+"382
+[; ;newmain14.c: 382:         while(byteValue !=0x02){
 [e $ != -> _byteValue `i -> 2 `i 168  ]
 [e :U 169 ]
-"387
-[; ;newmain14.c: 387:         }
+"391
+[; ;newmain14.c: 391:         }
 }
 [e :U 166 ]
-"389
-[; ;newmain14.c: 389:           byteValue = receive_byte();
-[e = _byteValue ( _receive_byte ..  ]
-"390
-[; ;newmain14.c: 390:           bufferin[1] = byteValue;
-[e = *U + &U _bufferin * -> -> -> 1 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
-"392
-[; ;newmain14.c: 392:           byteValue = receive_byte();
-[e = _byteValue ( _receive_byte ..  ]
 "393
-[; ;newmain14.c: 393:           bufferin[2] = byteValue;
-[e = *U + &U _bufferin * -> -> -> 2 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
-"395
-[; ;newmain14.c: 395:           byteValue = receive_byte();
+[; ;newmain14.c: 393:           byteValue = receive_byte();
 [e = _byteValue ( _receive_byte ..  ]
+"394
+[; ;newmain14.c: 394:           bufferin[1] = byteValue;
+[e = *U + &U _bufferin * -> -> -> 1 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
 "396
-[; ;newmain14.c: 396:           bufferin[3] = byteValue;
-[e = *U + &U _bufferin * -> -> -> 3 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
-"398
-[; ;newmain14.c: 398:           byteValue = receive_byte();
+[; ;newmain14.c: 396:           byteValue = receive_byte();
 [e = _byteValue ( _receive_byte ..  ]
+"397
+[; ;newmain14.c: 397:           bufferin[2] = byteValue;
+[e = *U + &U _bufferin * -> -> -> 2 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
 "399
-[; ;newmain14.c: 399:           bufferin[4] = byteValue;
-[e = *U + &U _bufferin * -> -> -> 4 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
-"401
-[; ;newmain14.c: 401:           byteValue = receive_byte();
+[; ;newmain14.c: 399:           byteValue = receive_byte();
 [e = _byteValue ( _receive_byte ..  ]
+"400
+[; ;newmain14.c: 400:           bufferin[3] = byteValue;
+[e = *U + &U _bufferin * -> -> -> 3 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
 "402
-[; ;newmain14.c: 402:           bufferin[5] = byteValue;
-[e = *U + &U _bufferin * -> -> -> 5 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
-"404
-[; ;newmain14.c: 404:           byteValue = receive_byte();
+[; ;newmain14.c: 402:           byteValue = receive_byte();
 [e = _byteValue ( _receive_byte ..  ]
+"403
+[; ;newmain14.c: 403:           bufferin[4] = byteValue;
+[e = *U + &U _bufferin * -> -> -> 4 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
 "405
-[; ;newmain14.c: 405:           bufferin[6] = byteValue;
-[e = *U + &U _bufferin * -> -> -> 6 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
-"407
-[; ;newmain14.c: 407:           byteValue = receive_byte();
+[; ;newmain14.c: 405:           byteValue = receive_byte();
 [e = _byteValue ( _receive_byte ..  ]
+"406
+[; ;newmain14.c: 406:           bufferin[5] = byteValue;
+[e = *U + &U _bufferin * -> -> -> 5 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
 "408
-[; ;newmain14.c: 408:           bufferin[7] = byteValue;
-[e = *U + &U _bufferin * -> -> -> 7 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
-"410
-[; ;newmain14.c: 410:           byteValue = receive_byte();
+[; ;newmain14.c: 408:           byteValue = receive_byte();
 [e = _byteValue ( _receive_byte ..  ]
+"409
+[; ;newmain14.c: 409:           bufferin[6] = byteValue;
+[e = *U + &U _bufferin * -> -> -> 6 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
 "411
-[; ;newmain14.c: 411:           bufferin[8] = byteValue;
-[e = *U + &U _bufferin * -> -> -> 8 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
-"413
-[; ;newmain14.c: 413:           byteValue = receive_byte();
+[; ;newmain14.c: 411:           byteValue = receive_byte();
 [e = _byteValue ( _receive_byte ..  ]
+"412
+[; ;newmain14.c: 412:           bufferin[7] = byteValue;
+[e = *U + &U _bufferin * -> -> -> 7 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
 "414
-[; ;newmain14.c: 414:           bufferin[9] = byteValue;
-[e = *U + &U _bufferin * -> -> -> 9 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
-"416
-[; ;newmain14.c: 416:           byteValue = receive_byte();
+[; ;newmain14.c: 414:           byteValue = receive_byte();
 [e = _byteValue ( _receive_byte ..  ]
+"415
+[; ;newmain14.c: 415:           bufferin[8] = byteValue;
+[e = *U + &U _bufferin * -> -> -> 8 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
 "417
-[; ;newmain14.c: 417:           bufferin[10] = byteValue;
-[e = *U + &U _bufferin * -> -> -> 10 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
-"419
-[; ;newmain14.c: 419:           byteValue = receive_byte();
+[; ;newmain14.c: 417:           byteValue = receive_byte();
 [e = _byteValue ( _receive_byte ..  ]
+"418
+[; ;newmain14.c: 418:           bufferin[9] = byteValue;
+[e = *U + &U _bufferin * -> -> -> 9 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
 "420
-[; ;newmain14.c: 420:           bufferin[11] = byteValue;
-[e = *U + &U _bufferin * -> -> -> 11 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
-"422
-[; ;newmain14.c: 422:           byteValue = receive_byte();
+[; ;newmain14.c: 420:           byteValue = receive_byte();
 [e = _byteValue ( _receive_byte ..  ]
+"421
+[; ;newmain14.c: 421:           bufferin[10] = byteValue;
+[e = *U + &U _bufferin * -> -> -> 10 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
 "423
-[; ;newmain14.c: 423:           bufferin[12] = byteValue;
-[e = *U + &U _bufferin * -> -> -> 12 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
-"425
-[; ;newmain14.c: 425:           byteValue = receive_byte();
+[; ;newmain14.c: 423:           byteValue = receive_byte();
 [e = _byteValue ( _receive_byte ..  ]
+"424
+[; ;newmain14.c: 424:           bufferin[11] = byteValue;
+[e = *U + &U _bufferin * -> -> -> 11 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
 "426
-[; ;newmain14.c: 426:           bufferin[13] = byteValue;
-[e = *U + &U _bufferin * -> -> -> 13 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
-"428
-[; ;newmain14.c: 428:           byteValue = receive_byte();
+[; ;newmain14.c: 426:           byteValue = receive_byte();
 [e = _byteValue ( _receive_byte ..  ]
+"427
+[; ;newmain14.c: 427:           bufferin[12] = byteValue;
+[e = *U + &U _bufferin * -> -> -> 12 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
 "429
-[; ;newmain14.c: 429:           bufferin[14] = byteValue;
-[e = *U + &U _bufferin * -> -> -> 14 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
+[; ;newmain14.c: 429:           byteValue = receive_byte();
+[e = _byteValue ( _receive_byte ..  ]
+"430
+[; ;newmain14.c: 430:           bufferin[13] = byteValue;
+[e = *U + &U _bufferin * -> -> -> 13 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
 "431
-[; ;newmain14.c: 431:           byteValue = receive_byte();
+[; ;newmain14.c: 431:           sMillosnew = byteValue;
+[e = _sMillosnew _byteValue ]
+"433
+[; ;newmain14.c: 433:           byteValue = receive_byte();
 [e = _byteValue ( _receive_byte ..  ]
-"432
-[; ;newmain14.c: 432:           bufferin[15] = byteValue;
-[e = *U + &U _bufferin * -> -> -> 15 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
 "434
-[; ;newmain14.c: 434:           byteValue = receive_byte();
+[; ;newmain14.c: 434:           bufferin[14] = byteValue;
+[e = *U + &U _bufferin * -> -> -> 14 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
+"436
+[; ;newmain14.c: 436:           byteValue = receive_byte();
 [e = _byteValue ( _receive_byte ..  ]
-"435
-[; ;newmain14.c: 435:           bufferin[16] = byteValue;
-[e = *U + &U _bufferin * -> -> -> 16 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
 "437
-[; ;newmain14.c: 437:           byteValue = receive_byte();
+[; ;newmain14.c: 437:           bufferin[15] = byteValue;
+[e = *U + &U _bufferin * -> -> -> 15 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
+"439
+[; ;newmain14.c: 439:           byteValue = receive_byte();
 [e = _byteValue ( _receive_byte ..  ]
-"438
-[; ;newmain14.c: 438:           bufferin[17] = byteValue;
-[e = *U + &U _bufferin * -> -> -> 17 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
 "440
-[; ;newmain14.c: 440:           byteValue = receive_byte();
+[; ;newmain14.c: 440:           bufferin[16] = byteValue;
+[e = *U + &U _bufferin * -> -> -> 16 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
+"442
+[; ;newmain14.c: 442:           byteValue = receive_byte();
 [e = _byteValue ( _receive_byte ..  ]
-"441
-[; ;newmain14.c: 441:           bufferin[18] = byteValue;
-[e = *U + &U _bufferin * -> -> -> 18 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
 "443
-[; ;newmain14.c: 443:           byteValue = receive_byte();
+[; ;newmain14.c: 443:           bufferin[17] = byteValue;
+[e = *U + &U _bufferin * -> -> -> 17 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
+"445
+[; ;newmain14.c: 445:           byteValue = receive_byte();
 [e = _byteValue ( _receive_byte ..  ]
-"444
-[; ;newmain14.c: 444:           bufferin[19] = byteValue;
-[e = *U + &U _bufferin * -> -> -> 19 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
 "446
-[; ;newmain14.c: 446:           byteValue = receive_byte();
+[; ;newmain14.c: 446:           bufferin[18] = byteValue;
+[e = *U + &U _bufferin * -> -> -> 18 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
+"448
+[; ;newmain14.c: 448:           byteValue = receive_byte();
 [e = _byteValue ( _receive_byte ..  ]
-"447
-[; ;newmain14.c: 447:           bufferin[20] = byteValue;
-[e = *U + &U _bufferin * -> -> -> 20 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
 "449
-[; ;newmain14.c: 449:           byteValue = receive_byte();
+[; ;newmain14.c: 449:           bufferin[19] = byteValue;
+[e = *U + &U _bufferin * -> -> -> 19 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
+"451
+[; ;newmain14.c: 451:           byteValue = receive_byte();
 [e = _byteValue ( _receive_byte ..  ]
-"450
-[; ;newmain14.c: 450:           bufferin[21] = byteValue;
-[e = *U + &U _bufferin * -> -> -> 21 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
 "452
-[; ;newmain14.c: 452:           byteValue = receive_byte();
+[; ;newmain14.c: 452:           bufferin[20] = byteValue;
+[e = *U + &U _bufferin * -> -> -> 20 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
+"454
+[; ;newmain14.c: 454:           byteValue = receive_byte();
 [e = _byteValue ( _receive_byte ..  ]
-"453
-[; ;newmain14.c: 453:           bufferin[22] = byteValue;
-[e = *U + &U _bufferin * -> -> -> 22 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
 "455
-[; ;newmain14.c: 455:           byteValue = receive_byte();
+[; ;newmain14.c: 455:           bufferin[21] = byteValue;
+[e = *U + &U _bufferin * -> -> -> 21 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
+"457
+[; ;newmain14.c: 457:           byteValue = receive_byte();
 [e = _byteValue ( _receive_byte ..  ]
-"456
-[; ;newmain14.c: 456:           bufferin[23] = byteValue;
-[e = *U + &U _bufferin * -> -> -> 23 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
 "458
-[; ;newmain14.c: 458:           byteValue = receive_byte();
+[; ;newmain14.c: 458:           bufferin[22] = byteValue;
+[e = *U + &U _bufferin * -> -> -> 22 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
+"460
+[; ;newmain14.c: 460:           byteValue = receive_byte();
 [e = _byteValue ( _receive_byte ..  ]
-"459
-[; ;newmain14.c: 459:           bufferin[24] = byteValue;
-[e = *U + &U _bufferin * -> -> -> 24 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
 "461
-[; ;newmain14.c: 461:           byteValue = receive_byte();
+[; ;newmain14.c: 461:           bufferin[23] = byteValue;
+[e = *U + &U _bufferin * -> -> -> 23 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
+"463
+[; ;newmain14.c: 463:           byteValue = receive_byte();
 [e = _byteValue ( _receive_byte ..  ]
-"462
-[; ;newmain14.c: 462:           bufferin[25] = byteValue;
-[e = *U + &U _bufferin * -> -> -> 25 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
 "464
-[; ;newmain14.c: 464:           byteValue = receive_byte();
-[e = _byteValue ( _receive_byte ..  ]
+[; ;newmain14.c: 464:           bufferin[24] = byteValue;
+[e = *U + &U _bufferin * -> -> -> 24 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
 "465
-[; ;newmain14.c: 465:           bufferin[26] = byteValue;
-[e = *U + &U _bufferin * -> -> -> 26 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
+[; ;newmain14.c: 465:           sMilnew = byteValue;
+[e = _sMilnew _byteValue ]
 "467
 [; ;newmain14.c: 467:           byteValue = receive_byte();
 [e = _byteValue ( _receive_byte ..  ]
 "468
-[; ;newmain14.c: 468:           bufferin[27] = byteValue;
-[e = *U + &U _bufferin * -> -> -> 27 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
+[; ;newmain14.c: 468:           bufferin[25] = byteValue;
+[e = *U + &U _bufferin * -> -> -> 25 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
 "470
 [; ;newmain14.c: 470:           byteValue = receive_byte();
 [e = _byteValue ( _receive_byte ..  ]
 "471
-[; ;newmain14.c: 471:           bufferin[28] = byteValue;
-[e = *U + &U _bufferin * -> -> -> 28 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
+[; ;newmain14.c: 471:           bufferin[26] = byteValue;
+[e = *U + &U _bufferin * -> -> -> 26 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
 "473
 [; ;newmain14.c: 473:           byteValue = receive_byte();
 [e = _byteValue ( _receive_byte ..  ]
 "474
-[; ;newmain14.c: 474:           bufferin[29] = byteValue;
-[e = *U + &U _bufferin * -> -> -> 29 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
+[; ;newmain14.c: 474:           bufferin[27] = byteValue;
+[e = *U + &U _bufferin * -> -> -> 27 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
 "476
-[; ;newmain14.c: 476:           nbyte ++;
+[; ;newmain14.c: 476:           byteValue = receive_byte();
+[e = _byteValue ( _receive_byte ..  ]
+"477
+[; ;newmain14.c: 477:           bufferin[28] = byteValue;
+[e = *U + &U _bufferin * -> -> -> 28 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
+"479
+[; ;newmain14.c: 479:           byteValue = receive_byte();
+[e = _byteValue ( _receive_byte ..  ]
+"480
+[; ;newmain14.c: 480:           bufferin[29] = byteValue;
+[e = *U + &U _bufferin * -> -> -> 29 `i `ui `ux -> -> # *U &U _bufferin `ui `ux _byteValue ]
+"482
+[; ;newmain14.c: 482:           nbyte ++;
 [e ++ _nbyte -> -> 1 `i `c ]
-"478
-[; ;newmain14.c: 478:           if(nbyte == 30){nbyte = 0;}
+"484
+[; ;newmain14.c: 484:           if(nbyte == 30){nbyte = 0;}
 [e $ ! == -> _nbyte `i -> 30 `i 170  ]
 {
 [e = _nbyte -> -> 0 `i `c ]
 }
 [e :U 170 ]
-"479
-[; ;newmain14.c: 479:           BCC=0;
+"485
+[; ;newmain14.c: 485:           BCC=0;
 [e = _BCC -> -> 0 `i `uc ]
-"480
-[; ;newmain14.c: 480:             for (i=1; i<30 -1; i++)
+"486
+[; ;newmain14.c: 486:             for (i=1; i<30 -1; i++)
 {
 [e = _i -> -> 1 `i `uc ]
 [e $ < -> _i `i - -> 30 `i -> 1 `i 171  ]
 [e $U 172  ]
 [e :U 171 ]
-"481
-[; ;newmain14.c: 481:             {BCC=BCC^bufferin[i];}
+"487
+[; ;newmain14.c: 487:             {BCC=BCC^bufferin[i];}
 {
 [e = _BCC -> ^ -> _BCC `i -> *U + &U _bufferin * -> _i `ux -> -> # *U &U _bufferin `ui `ux `i `uc ]
 }
@@ -1476,15 +1512,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ < -> _i `i - -> 30 `i -> 1 `i 171  ]
 [e :U 172 ]
 }
-"482
-[; ;newmain14.c: 482:             if (BCC==bufferin[29]) {
+"488
+[; ;newmain14.c: 488:             if (BCC==bufferin[29]) {
 [e $ ! == -> _BCC `i -> *U + &U _bufferin * -> -> -> 29 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i 174  ]
 {
-"483
-[; ;newmain14.c: 483:              send_byte(0x06);
+"489
+[; ;newmain14.c: 489:              send_byte(0x06);
 [e ( _send_byte (1 -> -> 6 `i `uc ]
-"484
-[; ;newmain14.c: 484:             }else{send_byte(0x15);}
+"490
+[; ;newmain14.c: 490:             }else{send_byte(0x15);}
 }
 [e $U 175  ]
 [e :U 174 ]
@@ -1492,13 +1528,90 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _send_byte (1 -> -> 21 `i `uc ]
 }
 [e :U 175 ]
-"487
-[; ;newmain14.c: 487:     }
+"492
+[; ;newmain14.c: 492:           if((bufferin[3]==0x31)&& ((sMillosnew-sMillosold)<0)&&(sMillosold == 0x39)){
+[e $ ! && && == -> *U + &U _bufferin * -> -> -> 3 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 49 `i < - -> _sMillosnew `i -> _sMillosold `i -> 0 `i == -> _sMillosold `i -> 57 `i 176  ]
+{
+"493
+[; ;newmain14.c: 493:             cMillon++;
+[e ++ _cMillon -> -> 1 `i `uc ]
+"494
+[; ;newmain14.c: 494:             flagCien = 0x31;
+[e = _flagCien -> -> 49 `i `uc ]
+"495
+[; ;newmain14.c: 495:             if(cMillon == 0x3A){cMillon = 0x30;}
+[e $ ! == -> _cMillon `i -> 58 `i 177  ]
+{
+[e = _cMillon -> -> 48 `i `uc ]
+}
+[e :U 177 ]
+"496
+[; ;newmain14.c: 496:         }
+}
+[e :U 176 ]
+"497
+[; ;newmain14.c: 497:         if((bufferin[3]==0x31)&&((sMilnew-sMilold)<0)&&(sMilold == 0x39)){
+[e $ ! && && == -> *U + &U _bufferin * -> -> -> 3 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 49 `i < - -> _sMilnew `i -> _sMilold `i -> 0 `i == -> _sMilold `i -> 57 `i 178  ]
+{
+"498
+[; ;newmain14.c: 498:             dMil++;
+[e ++ _dMil -> -> 1 `i `uc ]
+"499
+[; ;newmain14.c: 499:             flagCien = 0x31;
+[e = _flagCien -> -> 49 `i `uc ]
+"500
+[; ;newmain14.c: 500:             if(dMil == 0x3A){dMil = 0x30;}
+[e $ ! == -> _dMil `i -> 58 `i 179  ]
+{
+[e = _dMil -> -> 48 `i `uc ]
+}
+[e :U 179 ]
+"501
+[; ;newmain14.c: 501:         }
+}
+[e :U 178 ]
+"502
+[; ;newmain14.c: 502:         sMillosold = sMillosnew;
+[e = _sMillosold _sMillosnew ]
+"503
+[; ;newmain14.c: 503:         sMilold = sMilnew;
+[e = _sMilold _sMilnew ]
+"505
+[; ;newmain14.c: 505:         if((flagCien==0x30)&&(bufferin[13]==30)&&(bufferin[14]==30)&&(bufferin[15]==30)&&
+[e $ ! && && && && && && && && && && && && == -> _flagCien `i -> 48 `i == -> *U + &U _bufferin * -> -> -> 13 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 30 `i == -> *U + &U _bufferin * -> -> -> 14 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 30 `i == -> *U + &U _bufferin * -> -> -> 15 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 30 `i == -> *U + &U _bufferin * -> -> -> 16 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 30 `i == -> *U + &U _bufferin * -> -> -> 17 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 30 `i == -> *U + &U _bufferin * -> -> -> 18 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 30 `i == -> *U + &U _bufferin * -> -> -> 19 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 30 `i == -> *U + &U _bufferin * -> -> -> 20 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 30 `i == -> *U + &U _bufferin * -> -> -> 24 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 30 `i == -> *U + &U _bufferin * -> -> -> 25 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 30 `i == -> *U + &U _bufferin * -> -> -> 26 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 30 `i == -> *U + &U _bufferin * -> -> -> 27 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 30 `i 180  ]
+"509
+[; ;newmain14.c: 509:         {
+{
+"510
+[; ;newmain14.c: 510:             cMillon = 0x30;
+[e = _cMillon -> -> 48 `i `uc ]
+"511
+[; ;newmain14.c: 511:             dMil = 0x30;
+[e = _dMil -> -> 48 `i `uc ]
+"512
+[; ;newmain14.c: 512:         }
+}
+[e :U 180 ]
+"513
+[; ;newmain14.c: 513:         if((flagCien==0x31)&&((!bufferin[24]==30)||(!bufferin[25]==30)||
+[e $ ! && == -> _flagCien `i -> 49 `i || || == -> ! != -> *U + &U _bufferin * -> -> -> 24 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 0 `i `i -> 30 `i == -> ! != -> *U + &U _bufferin * -> -> -> 25 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 0 `i `i -> 30 `i | == -> ! != -> *U + &U _bufferin * -> -> -> 26 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 0 `i `i -> 30 `i == -> ! != -> *U + &U _bufferin * -> -> -> 27 `i `ui `ux -> -> # *U &U _bufferin `ui `ux `i -> 0 `i `i -> 30 `i 181  ]
+"515
+[; ;newmain14.c: 515:         {
+{
+"516
+[; ;newmain14.c: 516:             flagCien = 0x30;
+[e = _flagCien -> -> 48 `i `uc ]
+"517
+[; ;newmain14.c: 517:         }
+}
+[e :U 181 ]
+"519
+[; ;newmain14.c: 519:     }
 }
 [e :U 127 ]
 [e $U 128  ]
 [e :U 129 ]
-"488
-[; ;newmain14.c: 488: }
+"520
+[; ;newmain14.c: 520: }
 [e :UE 126 ]
 }

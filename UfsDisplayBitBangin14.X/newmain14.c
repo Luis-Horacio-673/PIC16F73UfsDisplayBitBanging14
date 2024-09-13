@@ -77,7 +77,6 @@
 // Definicion de variables
 //******************************************************************************
 unsigned char bufferin[30]; // para definir la recpcion de datos
-unsigned char cMillon = 0x30;
 unsigned char dMil = 0x30;
 unsigned char byteValue = 0;
 signed char nbyte = 0;
@@ -85,7 +84,12 @@ unsigned char nSTX = 0;
 unsigned char zerosleft = 0;
 unsigned char BCC = 0;
 unsigned char i = 0;
-
+unsigned char cMillon = 0x30;
+unsigned char sMillosold = 0x30;
+unsigned char sMillosnew = 0x30;
+unsigned char sMilold = 0x30;
+unsigned char sMilnew = 0x30;
+unsigned char flagCien = 0x30;
 //***************************************************************************
 void MAX_DIN_setHigh() {
     MAX_DIN = 1; // Pone el pin B2 en alto
@@ -295,14 +299,14 @@ void main() {
     bufferin[20]= 0x30; //AMOUNT 14   UNI
     bufferin[21]= 0x30; //COUNT 1
     bufferin[22]= 0x30; //COUNT 2
-    dMil= 0x3A; //COUNT 3 -
+    dMil= 0x30; //COUNT 3 -
     bufferin[23]= 0x30; 
     bufferin[24]= 0x30; //COUNT 4 H
     bufferin[25]= 0x30; //COUNT 5 E
     bufferin[26]= 0x30; //COUNT 6 L 
     bufferin[27]= 0x31; //COUNT 7 P
     bufferin[28]= 0x03; //COUNT 7 P
-    bufferin[29]= 0x31; //COUNT 7 P
+    bufferin[29]= 0x31; //COUNT 7 P   s
     
 
     // Ejemplo de uso
@@ -350,26 +354,26 @@ void main() {
         
         COMAX7219_send(DIG8, 0x0F);// 0x0F   MAX7219_send(DIG4, bufferin[17] -48);
         COMAX7219_send(DIG7, 0x0F); //MAX7219_send(DIG3, bufferin[18] -48);
-        COMAX7219_send(DIG6, bufferin[20] -48); //MAX7219_send(DIG2, bufferin[19] -48);
+        COMAX7219_send(DIG6, cMillon -48); //MAX7219_send(DIG2, bufferin[19] -48);
         zerosleft=0;
         if(!zerosleft) 
         {
-            if(bufferin[23]==0x30){bufferin[23]= 0x0F + 0x30;}else{zerosleft=1;}
+            if(dMil==0x30){bufferin[23]= 0x3F;}else{zerosleft=1;}
         }
         COMAX7219_send(DIG1, bufferin[23] -48);
         if(!zerosleft)
         {
-            if(bufferin[24]==0x30){bufferin[24]= 0x0F + 0x30;}else{zerosleft=1;}
+            if(bufferin[24]==0x30){bufferin[24]= 0x3F;}else{zerosleft=1;}
         }
         COMAX7219_send(DIG2, bufferin[24] -48);
         if(!zerosleft)
         {
-            if(bufferin[25]==0x30){bufferin[25]= 0x0F + 0x30;}else{zerosleft=1;}
+            if(bufferin[25]==0x30){bufferin[25]= 0x3F;}else{zerosleft=1;}
         }
         COMAX7219_send(DIG3, bufferin[25] -48);
         if(!zerosleft)
         {
-            if(bufferin[26]==0x30){bufferin[26]= 0x0F + 0x30;}else{zerosleft=1;}
+            if(bufferin[26]==0x30){bufferin[26]= 0x3F;}else{zerosleft=1;}
         }
         COMAX7219_send(DIG4,  bufferin[26] -48);
         COMAX7219_send(DIG5, bufferin[27] -48);
@@ -424,6 +428,7 @@ void main() {
           
           byteValue = receive_byte();
           bufferin[13] = byteValue;  // AMOUNT 7
+          sMillosnew = byteValue;
           
           byteValue = receive_byte();
           bufferin[14] = byteValue;  // AMOUNT 8
@@ -457,6 +462,7 @@ void main() {
           
           byteValue = receive_byte();
           bufferin[24] = byteValue;  // COUNT 4
+          sMilnew = byteValue;
           
           byteValue = receive_byte();
           bufferin[25] = byteValue;  // COUNT 5
@@ -476,13 +482,39 @@ void main() {
           nbyte ++;
           
           if(nbyte == 30){nbyte = 0;}
-          BCC=0;
+          BCC=0;   // verificacion de errores horizontales
             for (i=1; i<MESSAGE_LENGTH-1; i++)
             {BCC=BCC^bufferin[i];}
             if (BCC==bufferin[29]) {
              send_byte(ACK);   
             }else{send_byte(NAK);}
-    
-        
+         // camiar cmillos? 
+          if((bufferin[3]==0x31)&& ((sMillosnew-sMillosold)<0)&&(sMillosold == 0x39)){
+            cMillon++;
+            flagCien = 0x31;
+            if(cMillon == 0x3A){cMillon = 0x30;}
+        }
+        if((bufferin[3]==0x31)&&((sMilnew-sMilold)<0)&&(sMilold == 0x39)){
+            dMil++;
+            flagCien = 0x31;
+            if(dMil == 0x3A){dMil = 0x30;}
+        }
+        sMillosold = sMillosnew;
+        sMilold = sMilnew;
+        // Rutina de borrado
+        if((flagCien==0x30)&&(bufferin[13]==30)&&(bufferin[14]==30)&&(bufferin[15]==30)&&
+                (bufferin[16]==30)&&(bufferin[17]==30)&&(bufferin[18]==30)&&(bufferin[19]==30)&&
+                (bufferin[20]==30)&&(bufferin[24]==30)&&(bufferin[25]==30)&&
+                (bufferin[26]==30)&&(bufferin[27]==30))
+        {
+            cMillon = 0x30;
+            dMil = 0x30;
+        }
+        if((flagCien==0x31)&&((!bufferin[24]==30)||(!bufferin[25]==30)||
+                (!bufferin[26]==30)|(!bufferin[27]==30)))
+        {
+            flagCien = 0x30;
+        }
+        //Fin Rutina de borrado
     }
 }

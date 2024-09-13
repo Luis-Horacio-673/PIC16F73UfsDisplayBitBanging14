@@ -1606,7 +1606,6 @@ void *memccpy (void *restrict, const void *restrict, int, size_t);
 #pragma config CP = OFF
 # 79 "newmain14.c"
 unsigned char bufferin[30];
-unsigned char cMillon = 0x30;
 unsigned char dMil = 0x30;
 unsigned char byteValue = 0;
 signed char nbyte = 0;
@@ -1614,7 +1613,12 @@ unsigned char nSTX = 0;
 unsigned char zerosleft = 0;
 unsigned char BCC = 0;
 unsigned char i = 0;
-
+unsigned char cMillon = 0x30;
+unsigned char sMillosold = 0x30;
+unsigned char sMillosnew = 0x30;
+unsigned char sMilold = 0x30;
+unsigned char sMilnew = 0x30;
+unsigned char flagCien = 0x30;
 
 void MAX_DIN_setHigh() {
     RC0 = 1;
@@ -1824,7 +1828,7 @@ void main() {
     bufferin[20]= 0x30;
     bufferin[21]= 0x30;
     bufferin[22]= 0x30;
-    dMil= 0x3A;
+    dMil= 0x30;
     bufferin[23]= 0x30;
     bufferin[24]= 0x30;
     bufferin[25]= 0x30;
@@ -1879,26 +1883,26 @@ void main() {
 
         COMAX7219_send(0x08, 0x0F);
         COMAX7219_send(0x07, 0x0F);
-        COMAX7219_send(0x06, bufferin[20] -48);
+        COMAX7219_send(0x06, cMillon -48);
         zerosleft=0;
         if(!zerosleft)
         {
-            if(bufferin[23]==0x30){bufferin[23]= 0x0F + 0x30;}else{zerosleft=1;}
+            if(dMil==0x30){bufferin[23]= 0x3F;}else{zerosleft=1;}
         }
         COMAX7219_send(0x01, bufferin[23] -48);
         if(!zerosleft)
         {
-            if(bufferin[24]==0x30){bufferin[24]= 0x0F + 0x30;}else{zerosleft=1;}
+            if(bufferin[24]==0x30){bufferin[24]= 0x3F;}else{zerosleft=1;}
         }
         COMAX7219_send(0x02, bufferin[24] -48);
         if(!zerosleft)
         {
-            if(bufferin[25]==0x30){bufferin[25]= 0x0F + 0x30;}else{zerosleft=1;}
+            if(bufferin[25]==0x30){bufferin[25]= 0x3F;}else{zerosleft=1;}
         }
         COMAX7219_send(0x03, bufferin[25] -48);
         if(!zerosleft)
         {
-            if(bufferin[26]==0x30){bufferin[26]= 0x0F + 0x30;}else{zerosleft=1;}
+            if(bufferin[26]==0x30){bufferin[26]= 0x3F;}else{zerosleft=1;}
         }
         COMAX7219_send(0x04, bufferin[26] -48);
         COMAX7219_send(0x05, bufferin[27] -48);
@@ -1953,6 +1957,7 @@ void main() {
 
           byteValue = receive_byte();
           bufferin[13] = byteValue;
+          sMillosnew = byteValue;
 
           byteValue = receive_byte();
           bufferin[14] = byteValue;
@@ -1986,6 +1991,7 @@ void main() {
 
           byteValue = receive_byte();
           bufferin[24] = byteValue;
+          sMilnew = byteValue;
 
           byteValue = receive_byte();
           bufferin[25] = byteValue;
@@ -2012,6 +2018,32 @@ void main() {
              send_byte(0x06);
             }else{send_byte(0x15);}
 
+          if((bufferin[3]==0x31)&& ((sMillosnew-sMillosold)<0)&&(sMillosold == 0x39)){
+            cMillon++;
+            flagCien = 0x31;
+            if(cMillon == 0x3A){cMillon = 0x30;}
+        }
+        if((bufferin[3]==0x31)&&((sMilnew-sMilold)<0)&&(sMilold == 0x39)){
+            dMil++;
+            flagCien = 0x31;
+            if(dMil == 0x3A){dMil = 0x30;}
+        }
+        sMillosold = sMillosnew;
+        sMilold = sMilnew;
+
+        if((flagCien==0x30)&&(bufferin[13]==30)&&(bufferin[14]==30)&&(bufferin[15]==30)&&
+                (bufferin[16]==30)&&(bufferin[17]==30)&&(bufferin[18]==30)&&(bufferin[19]==30)&&
+                (bufferin[20]==30)&&(bufferin[24]==30)&&(bufferin[25]==30)&&
+                (bufferin[26]==30)&&(bufferin[27]==30))
+        {
+            cMillon = 0x30;
+            dMil = 0x30;
+        }
+        if((flagCien==0x31)&&((!bufferin[24]==30)||(!bufferin[25]==30)||
+                (!bufferin[26]==30)|(!bufferin[27]==30)))
+        {
+            flagCien = 0x30;
+        }
 
     }
 }
